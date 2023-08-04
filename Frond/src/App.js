@@ -12,12 +12,13 @@ import Chatbot from "react-chatbot-kit";
 import Form from "./views/Form/Form";
 import Configs from "./components/ChatBot/Configs";
 import MessageParser from "./components/ChatBot/MessageParser";
-import 'tailwindcss/tailwind.css';
-
 
 import Detail from "../src/views/Detail/Detail";
 
 import Dashboard from "./components/Dashboard/Dashboard";
+import axios from "axios"
+//para no repetir el puerto:(se está configurando una URL base que se utilizará como prefijo para todas las peticiones realizadas con Axios) 
+axios.defaults.baseURL = "http://localhost:3001/"
 
 // import ActionProvider from "./components/ChatBot/ActionProvider";
 

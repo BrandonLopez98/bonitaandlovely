@@ -34,7 +34,6 @@ const DevContainer = styled.div`
   flex-direction: row;
   align-items: center;
   margin-bottom: 10px; /* Ajusta el valor según tus preferencias */
-  justify-content:
 `;
 
 const AvatarImage = styled.img`
