@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Loupe from '../../assets/img/Loupe.svg';
+import Loupe from '../../assets/img/loupe.svg';
 import styled from 'styled-components';
 
 const FormSearchBar = styled.form`

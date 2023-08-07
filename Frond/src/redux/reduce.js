@@ -54,7 +54,7 @@ const reducer = (state = InitialState, {type, payload}) => {
                 ...state,
                productsDetail: []
             }
-        
+      
             
         default:
         return state
