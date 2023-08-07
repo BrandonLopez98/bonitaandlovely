@@ -62,11 +62,10 @@ const SearchBar = ({ placeholder, history }) => {
 	};
 
 	const handleSubmit = async(ev) => {
-		ev.preventDefault();
-		setInputText('');
-		history.push(`/search?query=${inputText.trim().toLowerCase()}`);
+		ev.preventDefault();		
+		// history.push(`/search?query=${inputText.trim().toLowerCase()}`);
 		const ProductFound = await dispatch (getProductByName(inputText));
-		if (ProductFound){
+		if (ProductFound.payload.length>0){
 			setInputText('');
 		}else{
 			alert ("Producto no encontrado");
