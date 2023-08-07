@@ -74,10 +74,3 @@ export const categories = () => async dispatch => {
    };
  };
 
- export const getProductByName = () => async dispatch => {
-  const {data} =await axios.get("/name")
-  dispatch({
-     type: GET_PRODUCTS_BY_NAME,
-     payload: data
-  })
- };
