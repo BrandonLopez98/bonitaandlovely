@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import avatar1 from '../../assets/img/avatar1.png';
 import avatar2 from '../../assets/img/avatar2.png';
 import avatar3 from '../../assets/img/avatar3.png';
+import { Link } from 'react-router-dom';
 
 
 
@@ -91,11 +92,11 @@ const FAQs = () => {
 
         </div>
         <p className="text-lg text-gray-600 mt-6">¿Aún tienes dudas sin resolver?</p>
-        <p className="text-gray-600">Si aún tienes dudas sin resolver, ¡contáctanos!</p>
-        <button className="bg-purple-800 text-white rounded-lg px-4 py-2 mt-4">
-          Contactar equipo
-        </button>
-      </div>
+        <p className="text-gray-600 mb-5">Si aún tienes dudas sin resolver, ¡contáctanos!</p>
+        <Link to="/contact" className="bg-purple-800 text-white rounded-lg px-4 py-2">
+        Contactar equipo
+        </Link>
+        </div>
 
     </div></>
   );
