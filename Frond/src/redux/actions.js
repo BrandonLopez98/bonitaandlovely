@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED } from "./action-types";
+import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, GETPRODUCT_BYNAME } from "./action-types";
 
 // aca la ruta directamente porque la url base ya esta osea que solo queda por la ruta ejemplo:/producto
 
@@ -95,4 +95,18 @@ export const categories = () => async dispatch => {
       type : PRODUCTS_FILTERED,
       payload: filtros
   }
+  }
+
+  export const getProductByName = (name) =>{
+    return async (dispatch)=>{
+      try {
+        const {data} = await axios.get('/producto?name=${name}');
+        return dispatch({
+          type: GETPRODUCT_BYNAME,
+          payload: data
+        })
+      } catch (error) {
+        alert("Error: " + error.response.data.error);
+      }
+    }
   }

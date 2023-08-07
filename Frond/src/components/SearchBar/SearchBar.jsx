@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import loupe from '../../assets/img/loupe.svg';
+import { useDispatch } from "react-redux";
+import loupe from '../../assets/img/Loupe.svg';
 import styled from 'styled-components';
+import { getProductByName } from "../../redux/actions";
 
 const FormSearchBar = styled.form`
 	background: var(--clr-white);
@@ -52,17 +54,24 @@ const FormSearchBar = styled.form`
 `
 
 const SearchBar = ({ placeholder, history }) => {
-
+	const dispatch = useDispatch();
 	const [inputText, setInputText] = useState('');
 	
 	const handleChange = (ev) => {
 		setInputText(ev.target.value);
 	};
 
-	const handleSubmit = (ev) => {
+	const handleSubmit = async(ev) => {
 		ev.preventDefault();
 		setInputText('');
 		history.push(`/search?query=${inputText.trim().toLowerCase()}`);
+		const ProductFound = await dispatch (getProductByName(inputText));
+		if (ProductFound){
+			setInputText('');
+		}else{
+			alert ("Producto no encontrado");
+			setInputText("");
+		}
 	};
 
 	return (
