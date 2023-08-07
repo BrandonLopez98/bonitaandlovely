@@ -47,7 +47,7 @@ const FormSearchBar = styled.form`
 	}
 	
     button:focus, input:focus{
-        // outline: none;
+       outline: 2px solid var(--clr-primary);
     }
 `
 

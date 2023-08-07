@@ -7,27 +7,27 @@ import avatar3 from '../../assets/img/avatar3.png';
 
 const faqsData = [
   {
-    pregunta: 'Como ponerme en contacto directamente con un proveedor?',
-    respuesta:'Para hacer lo siguiente, debes buscar en la seccion de informacion del proveedor, y buscar sus datos de contacto para poder establacer comunicacion con el mismo',
+    pregunta: '¿Cuáles son las opciones de pago disponibles?',
+    respuesta:'Aceptamos tarjetas de crédito y débito (Visa, MasterCard, American Express), PayPal y transferencias bancarias como formas de pago seguras.',
   },
   {
-    pregunta: 'Puedo cambiar mi plan luego?',
-    respuesta:'Respuesta a la pregunta 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    pregunta: '¿Cuánto tiempo tardará en llegar mi pedido?',
+    respuesta:'El tiempo de entrega varía según tu ubicación y el producto seleccionado. Normalmente, nuestros envíos nacionales suelen demorar de 3 a 7 días hábiles, mientras que los envíos internacionales pueden tomar entre 7 y 20 días hábiles.',
   },
   {
-    pregunta:  'Que sucede con mi producto justo despues de realizar la compra?',
-    respuesta: 'loremipsum'
+    pregunta:  '¿Cuál es la política de devoluciones y reembolsos?',
+    respuesta: 'Si no estás satisfecho con tu compra, ofrecemos una política de devoluciones dentro de los 30 días posteriores a la recepción del pedido. Puedes solicitar un reembolso completo o un cambio por otro producto. Es importante que el producto esté en su estado original y sin usar.'
   },
   {
-    pregunta:'Can other info be added to an invoice?',
-    respuesta:'loremipsum'
+    pregunta:'¿Cómo puedo hacer un seguimiento de mi pedido?',
+    respuesta:'Una vez que tu pedido sea enviado, recibirás un correo electrónico con un enlace de seguimiento que te permitirá rastrear el paquete en tiempo real. También puedes iniciar sesión en tu cuenta y verificar el estado del pedido en la sección "Mis Pedidos".'
   },{
-    pregunta:'Cuanto tarda el envio en capital?',
-    respuesta:'loremipsum'
+    pregunta:'¿Cuál es la política de privacidad de la tienda?',
+    respuesta:'Respetamos tu privacidad y protegemos tus datos personales. Nuestra política de privacidad detalla cómo recopilamos, utilizamos y protegemos tu información. Puedes revisarla en la sección "Política de Privacidad" en nuestro sitio web.'
   },
   {
-    pregunta:'Como cambio mi correo electronico?',
-    respuesta:'loremipsum'
+    pregunta:'¿Ofrecen descuentos para compras al por mayor?',
+    respuesta:'Sí, ofrecemos descuentos para compras al por mayor. Si estás interesado en realizar una compra de grandes cantidades, comunícate con nuestro equipo de atención al cliente o envíanos un correo electrónico a bonitaandlovely@gmail.com para obtener más información sobre nuestros precios mayoristas.'
   }
   
 ];
@@ -79,10 +79,10 @@ const FAQs = () => {
 
       {/* Tercer container */}
       <div className="container mx-auto mt-20 text-center">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 ">
 
 
-          <div className="w-[120px] h-14 relative flex justify-center mx-auto ">
+          <div className="w-[120px] h-14 relative flex justify-center mx-auto">
             <img className="w-12 h-12 left-0 top-[8px] absolute rounded-[200px] border border-white" src={avatar1} />
             <img className="w-12 h-12 left-[72px] top-[8px] absolute rounded-[200px] border border-white" src={avatar2} />
             <img className="w-14 h-14 left-[32px] top-0 absolute rounded-[200px] border border-white" src={avatar3} />
