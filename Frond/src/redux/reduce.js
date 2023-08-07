@@ -1,6 +1,5 @@
 import { ALLCATEGORIES, ALLPRODUCTS, ALLBRANDS, ALLCOLORS, ALLSIZES, ALLSUBCATEGORIES, PRODUCTS_DETAIL, CLEAN_DETAIL } from "./action-types";
 
-
 const InitialState = {
     Allproducts: [],
     Allcategories: [],

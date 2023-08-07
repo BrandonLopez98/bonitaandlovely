@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 import bagIcon from '../../assets/img/baghandleWhite.svg';
 import colorIcon from '../../assets/img/colorIcon.svg'
+//import { getproductsByDetail, cleanDetail } from "../../redux/actions";
 //import { useDispatch, useSelector } from "react-redux";
 
 const Button = styled.button`
@@ -31,7 +32,16 @@ const Button = styled.button`
 const Detail = () => {
     const back = useNavigate();
     const { id } = useParams();
-    // const products = useSelector ((state) => state.Allproducts: 
+   // const products = useSelector ((state) => state.Allproducts); 
+   // console.log(products)
+
+   /* useEffect(() => {
+    dispatch(getCountryByDetail(id)) //despacha cuando se monta
+    return () => {
+      dispatch(cleanDetail()) // despacha cuando se desmonta
+    }
+  }, [dispatch, id]); */
+
 
     const [images, setImages] = useState({
         img1: "https://cdn2.primor.eu/media/catalog/product/cache/8d3aba296f7a18b5251ee30fa5db42b2/0/M/0ML19241_1_1c53.webp",
@@ -58,14 +68,21 @@ const Detail = () => {
 
 /*
  {
-      "name": "Delineador Preciso",
-      "descripcion": "Delineador líquido con punta precisa para un acabado perfecto",
-      "precio_compra": 5.60,
-      "porcentaje_ganancia": 45,
-      "precio_venta": 8.12,
-      "referencia_proveedor": "REF753",
-      "marcaId": 5,
-      "categoriaId": 1
+       "productos": [
+    {
+      "id": "col-16",
+      "name": "Spray fijador de maquillaje",
+      "descripcion": "Spray fijador de maquillaje para una larga duración",
+      "precio_compra": "11.40",
+      "porcentaje_ganancia": 25,
+      "precio_venta": "14.25",
+      "referencia_proveedor": "REF238",
+      "marcaId": 1,
+      "categoriaId": 3,
+      "tamañoId": 3,
+      "proveedorId": 6,
+      "activa": true
+    }
     },
 
 */
@@ -95,7 +112,7 @@ const Detail = () => {
                         <div>
                         {products?.map((item) => (
                             <p key={item.id}>{item.name.toUpperCase()}</p
-                            ))}
+                            s  ))}
                             </div>
                             */}
                         <p className='font-semibold text-customColor text-2xl'>Lipstick 24 hs</p>

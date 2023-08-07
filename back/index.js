@@ -25,7 +25,7 @@ const { PORT } = process.env;
 async function startServer() {
   try {
     // Sincronizamos la base de datos y forzamos la creación de tablas
-    await conn.sync({ force: true });
+    await conn.sync({ force: false });
     console.log('Database synchronized.');
 
     // Iniciamos el servidor para escuchar en el puerto
