@@ -1,9 +1,9 @@
 .Proveedores{
-margin-top: -23%;
+margin-top: -20%;
 margin-bottom: 4%;
 }
 .titulo{
-font-size: 40px;
+font-size: 30px;
 margin-left: 1%;
 font-weight: 600;
 }
@@ -12,10 +12,11 @@ display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 justify-content: center;
+gap: 4rem;
 }
 .flex img{
     width: 200px;
-    margin: 5rem;
+    margin: 2rem;
 }
 .flex img:hover{
     transform: scale(1.1);

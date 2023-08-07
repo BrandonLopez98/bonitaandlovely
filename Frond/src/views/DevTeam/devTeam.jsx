@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'; // Importa Styled Components
-import Navbar from '../../components/NavBar/NavBar';
 import GithubLogo from './assets/github.png'
 import LinkedinLogo from './assets/linkedin.png'
 import Footer from '../../components/Footer/Footer'
@@ -24,9 +23,8 @@ const ContainerTeam = styled.div`
   padding: 2%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-beetwen;
   width: 100%;
-  margin: 1%;
+  justify-content: center;
 `;
 
 const DevContainer = styled.div`
@@ -44,8 +42,7 @@ const AvatarImage = styled.img`
 
 const CardTitle = styled.h3`
   color: #000;
-  font-family: Galdeano;
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 600;
   opacity: 60%;
@@ -61,8 +58,8 @@ const Card = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.20);
   background: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 500px;
-  height: 450px;
+  width: 300px;
+  height: 300px;
   margin: 2%;
   padding: 1.5%;
 
@@ -75,7 +72,7 @@ const Card = styled.div`
 
 
 const DevImg = styled.img`
-width:300px;
+width:150px;
 height:300px;
 border-radius:50%;
 margin-bottom:.5rem;
@@ -85,9 +82,9 @@ const H1 = styled.h1`
 font-weight:600;
 margin-left:1%;
 text-align:center;
-font-size:40px;
-font-family: Galdeano;
+font-size:32px;
 opacity:70%;
+margin-top:5%
 `
 
 const ButtonsDiv = styled.div`
@@ -103,7 +100,7 @@ border-radius:50%;
 `
 const SocialsDiv = styled.div`
 display: flex;
-margin-left:15rem;
+margin-left:5rem;
 background-color: rgb(209,228,247);
 border-radius:20%;
 width:150px;
@@ -148,7 +145,7 @@ filter:invert(100%);
 const Subtitle = styled.h2`
 font-weight:600;
 text-align:center;
-font-size:25px;
+font-size:22px;
 font-family: Galdeano;
 opacity:40%;
 text-align:center;
@@ -157,7 +154,6 @@ text-align:center;
 const Reviews = () => {
   return (
     <>
-    <Navbar/>
     <H1>Nuestro Dev Team</H1>
     <Subtitle>Conoce al equipo encargado de desarrollar esta tienda online!</Subtitle>
     <ContainerTeam>
@@ -307,7 +303,7 @@ const Reviews = () => {
      
       <DevContainer>
           <AvatarImage src={imageLink} alt="user avatar" />
-          <CardTitle>Esteban Lopez</CardTitle>
+          <CardTitle>Esteban Lopez.</CardTitle>
       </DevContainer>
     </Card>
 
@@ -401,7 +397,6 @@ const Reviews = () => {
     </Card>
 
 </ContainerTeam>
-<Footer/>
       </>
   );
 };

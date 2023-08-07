@@ -2,6 +2,7 @@ const { Producto } = require('../../db');
 
 module.exports = async (productoId) => {
   try {
+    //prueba a developer
     // Buscar la marca por su ID
     const producto = await Producto.findByPk(productoId);
 

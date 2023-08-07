@@ -16,7 +16,7 @@ const Carousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 5201,
     cssEase: 'linear',
     prevArrow: <ArrowIcon className="fa fa-chevron-left" />,
     nextArrow: <ArrowIcon className="fa fa-chevron-right" />,
@@ -46,13 +46,13 @@ const Carousel = () => {
 
 const CarouselContainer = styled.div`
   position: relative;
-  height: 100px;
+  height: 130px;
 `;
 
 const CarouselWrapper = styled(Slider)`
-  position: relative;
+  position: relative;;
   width: 100%;
-  height: 100%;
+  height: 210%;
 
   .slick-dots li button:before {
     color: #fff;
@@ -102,7 +102,6 @@ const CarouselWrapper = styled(Slider)`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 0.5rem;
     transition: all 0.5s ease;
     opacity: 0.6;
 

@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    categoriaId: { // Cambia el nombre de la columna a categoriaId
+    categoriaId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -24,12 +24,14 @@ module.exports = (sequelize) => {
   },
   { tableName: 'subcategoria',timestamps: false });
 
-  Subcategoria.belongsTo(sequelize.models.Categoria, {
-    foreignKey: {
-      allowNull: false,
-      name: 'categoriaId' // Cambia el nombre de la columna a categoriaId
-    }
-  });
+  Subcategoria.associate = (models) => {
+    Subcategoria.belongsTo(models.Categoria, {
+      foreignKey: {
+        allowNull: false,
+        name: 'categoriaId',
+      }
+    });
+  };
 
   return Subcategoria;
 };

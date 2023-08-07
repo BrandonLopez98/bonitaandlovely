@@ -1,5 +1,27 @@
 .imgProfile{
-    width: 50px;
+    width: 43px;
     border-radius: 50%;
     margin: 0 1rem;
+    cursor: pointer;
+    
 }
+
+.off{
+    width: 20px;
+    opacity: 70%;
+    margin: 1rem;
+}
+.unloguedUser{
+    margin: 1rem;
+    padding: .7rem .7rem;
+    background-color: rgba(206, 205, 205, 0.874);
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px rgba(102, 101, 101, 0.4);
+
+}
+.drop{
+    width: 100px;
+    border-radius: 50%;
+    margin-left: 2.8rem;
+}
+

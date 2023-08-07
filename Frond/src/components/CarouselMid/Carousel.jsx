@@ -3,7 +3,6 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from 'styled-components';
-import Offers from '../../components/offers/offers'
 import ofertas from '../../assets/img/Ofertas img.jpeg'
 
 

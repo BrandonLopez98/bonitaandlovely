@@ -1,9 +1,13 @@
 import React from "react";
 import Graficos from '../Graficos/Graficos'
 import style from '../Dashboard/Dashboard.module.css'
+import { useState } from 'react';
 
 
 const Dashboard = () => {
+
+  const [activeGraph, setActiveGraph] = useState('ventasDia');
+
   const data1 = [
     ['Venta de producto', 'Cantidad'],
     ['Labial',  40],
@@ -34,9 +38,7 @@ const Dashboard = () => {
     return (
     <div className={style.dashboard}>
       <section>
-        <div>DASHBOARD
-          <h3>Prueba</h3>
-        </div>
+        <div>DASHBOARD</div>
         <div>ANALYTICS
           <h3>Estadísticas</h3>
         </div>
@@ -52,14 +54,21 @@ const Dashboard = () => {
         </div>
       </section>
       <div className={style.graficos}>
-        <Graficos
-        type="PieChart"
-        options = {options1}
-        data = {data1}/>
-        <Graficos
-        type="LineChart"
-        options = {options2}
-        data = {data2}/>
+        <div className={style.ventas}>
+          <span onClick={() => setActiveGraph('ventasTotales')}><div>Ventas Totales<p>$114000</p></div><div>%45</div></span>
+          <span onClick={() => setActiveGraph('ventasDia')}><div>Ventas del día<p>$114000</p></div><div>%45</div></span>
+          <span><div>Ordenes Totales<p>$114000</p></div><div>%45</div></span>
+          <span><div>Clientes Totales<p>$114000</p></div><div>%45</div></span>
+        </div>
+
+      <div>
+        {activeGraph === 'ventasDia' && (
+            <Graficos type="PieChart" options={options1} data={data1} />
+          )}
+          {activeGraph === 'ventasTotales' && (
+            <Graficos type="LineChart" options={options2} data={data2} />
+        )}
+      </div>
       </div>
     </div>
   );

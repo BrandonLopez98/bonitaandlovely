@@ -7,6 +7,7 @@ const proveedorRouter = require('./proveedorRouter')
 const descuentoRouter = require('./descuentoRouter')
 const colorRouter = require('./colorRouter')
 const productoRouter = require('./productoRouter')
+const imagenRouter = require('./imagenRouter')
 
 const router = Router();
 
@@ -19,6 +20,7 @@ router.use('/proveedor',proveedorRouter)
 router.use('/descuento',descuentoRouter)
 router.use('/color',colorRouter)
 router.use('/producto',productoRouter)
+router.use('/imagen',imagenRouter)
 
 
 

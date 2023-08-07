@@ -1,0 +1,1134 @@
+{
+    "piel": [
+        {
+            "ID": 1,
+            "clave": "BB01",
+            "nombre": "BB Cream Trendy",
+            "mainPic": "https://i.ibb.co/WtWFsMp/img156.jpg",
+            "colors": [
+                {
+                    "colorName": "Tono351",
+                    "colorPic": "https://i.ibb.co/kHtcbZg/img184.jpg"
+                },
+                {
+                    "colorName": "Tono352",
+                    "colorPic": "https://i.ibb.co/cb7Wwfp/img183.jpg"
+                },
+                {
+                    "colorName": "Tono353",
+                    "colorPic": "https://i.ibb.co/nDWgwb2/img179.jpg"
+                },
+                {
+                    "colorName": "Tono354",
+                    "colorPic": "https://i.ibb.co/KWzJN7W/img171.jpg"
+                },
+                {
+                    "colorName": "Tono355",
+                    "colorPic": "https://i.ibb.co/8rLBXJV/img177.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 2,
+            "clave": "B86",
+            "nombre": "Base corrector tender",
+            "mainPic": "https://i.ibb.co/ctpR3L1/img158.jpg",
+            "colors": [
+                {
+                    "colorName": "tono01",
+                    "colorPic": "https://i.ibb.co/T8L8Sqq/img258.jpg"
+                },
+                {
+                    "colorName": "tono02",
+                    "colorPic": "https://i.ibb.co/FVSszVs/img257.jpg"
+                },
+                {
+                    "colorName": "tono03",
+                    "colorPic": "https://i.ibb.co/d5HS51z/img256.jpg"
+                },
+                {
+                    "colorName": "tono04",
+                    "colorPic": "https://i.ibb.co/zNrRg35/img253.jpg"
+                },
+                {
+                    "colorName": "tono05",
+                    "colorPic": "https://i.ibb.co/Qj33qgq/img255.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 3,
+            "clave": "BTM",
+            "nombre": "Base Truly Matte LA colors",
+            "mainPic": "https://i.ibb.co/LZJ5ScX/img169.jpg",
+            "colors": [
+                {
+                    "colorName": "Tono351",
+                    "colorPic": "https://i.ibb.co/kHtcbZg/img184.jpg"
+                },
+                {
+                    "colorName": "Tono352",
+                    "colorPic": "https://i.ibb.co/cb7Wwfp/img183.jpg"
+                },
+                {
+                    "colorName": "Tono353",
+                    "colorPic": "https://i.ibb.co/nDWgwb2/img179.jpg"
+                },
+                {
+                    "colorName": "Tono354",
+                    "colorPic": "https://i.ibb.co/KWzJN7W/img171.jpg"
+                },
+                {
+                    "colorName": "Tono355",
+                    "colorPic": "https://i.ibb.co/8rLBXJV/img177.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 4,
+            "clave": "PST",
+            "nombre": "Polvo Suelto Trendy",
+            "mainPic": "https://i.ibb.co/c29F8j8/img261.jpg",
+            "colors": [
+                {
+                    "colorName": "Tono 1",
+                    "colorPic": "https://i.ibb.co/G9RjmSQ/img251.jpg"
+                },
+                {
+                    "colorName": "Tono 2",
+                    "colorPic": "https://i.ibb.co/cFnhkCg/img249.jpg"
+                },
+                {
+                    "colorName": "Tono 3",
+                    "colorPic": "https://i.ibb.co/3fj5Y8s/img247.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 5,
+            "clave": "PCT",
+            "nombre": "Polvo Compacto Trendy",
+            "mainPic": "https://i.ibb.co/C2w9N30/img263.jpg",
+            "colors": [
+                {
+                    "colorName": "Tono 00",
+                    "colorPic": "https://i.ibb.co/cb7Wwfp/img183.jpg"
+                },
+                {
+                    "colorName": "Tono 01",
+                    "colorPic": "https://i.ibb.co/KWzJN7W/img171.jpg"
+                },
+                {
+                    "colorName": "Tono 02",
+                    "colorPic": "https://i.ibb.co/8rLBXJV/img177.jpg"
+                },
+                {
+                    "colorName": "Tono 03",
+                    "colorPic": "https://i.ibb.co/nDWgwb2/img179.jpg"
+                },
+                {
+                    "colorName": "Tono 04",
+                    "colorPic": "https://i.ibb.co/kHtcbZg/img184.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 6,
+            "clave": "PCMLAC",
+            "nombre": "Polvo Compacto Mineral LA colors",
+            "mainPic": "https://i.ibb.co/74xX5kQ/img271.jpg",
+            "colors": [
+                {
+                    "colorName": "light",
+                    "colorPic": "https://i.ibb.co/qC00Z4C/img281.jpg"
+                },
+                {
+                    "colorName": "creamy natural",
+                    "colorPic": "https://i.ibb.co/D5d4bf6/img293.jpg"
+                },
+                {
+                    "colorName": "soft honey",
+                    "colorPic": "https://i.ibb.co/TH7YFPk/img279.jpg"
+                },
+                {
+                    "colorName": "warm",
+                    "colorPic": "https://i.ibb.co/TH7YFPk/img279.jpg"
+                },
+                {
+                    "colorName": "Toffety",
+                    "colorPic": "https://i.ibb.co/mDg6k8N/img277.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 7,
+            "clave": "PBCTP",
+            "nombre": "Polvo Base Cream to Powder",
+            "mainPic": "https://i.ibb.co/CWBdChP/img269.jpg",
+            "colors": [
+                {
+                    "colorName": "light",
+                    "colorPic": "https://i.ibb.co/qC00Z4C/img281.jpg"
+                },
+                {
+                    "colorName": "creamy natural",
+                    "colorPic": "https://i.ibb.co/D5d4bf6/img293.jpg"
+                },
+                {
+                    "colorName": "soft honey",
+                    "colorPic": "https://i.ibb.co/TH7YFPk/img279.jpg"
+                },
+                {
+                    "colorName": "warm",
+                    "colorPic": "https://i.ibb.co/TH7YFPk/img279.jpg"
+                },
+                {
+                    "colorName": "Toffety",
+                    "colorPic": "https://i.ibb.co/mDg6k8N/img277.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 8,
+            "clave": "BF23",
+            "nombre": "Polvos sueltos trsnlucidos",
+            "mainPic": "https://i.ibb.co/mBJBnBF/img306.jpg",
+            "colors": [
+                {
+                    "colorName": "box",
+                    "colorPic": "https://i.ibb.co/xH2vsrG/img304.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 9,
+            "clave": "sp98",
+            "nombre": "Corrector de ojeras doble: liquido y barra",
+            "mainPic": "https://i.ibb.co/8rFvvVg/img314.jpg",
+            "colors": [
+                {
+                    "colorName": "Acabado matte",
+                    "colorPic": "https://i.ibb.co/MDGp6Zp/img312.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 10,
+            "clave": "c05",
+            "nombre": "Corrector profesional Trendy Magic",
+            "mainPic": "https://i.ibb.co/x7Lx6bs/img350.jpg",
+            "colors": [
+                {
+                    "colorName": "Tono01",
+                    "colorPic": "https://i.ibb.co/Gc0mzCJ/img342.jpg"
+                },
+                {
+                    "colorName": "tono02",
+                    "colorPic": "https://i.ibb.co/9370f3J/img347.jpg"
+                },
+                {
+                    "colorName": "Tono 03",
+                    "colorPic": "https://i.ibb.co/5vCg5RG/img345.jpg"
+                }
+            ]
+        }
+    ],
+    "labios": [
+        {
+            "ID": 11,
+            "clave": "Lt05",
+            "nombre": "Labial matte profesional",
+            "mainPic": "https://i.ibb.co/dMkFyzW/img1258.jpg",
+            "colors": [
+                {
+                    "colorName": "tono07",
+                    "colorPic": "https://i.ibb.co/ZWrBhqn/img1265.jpg"
+                },
+                {
+                    "colorName": "tono05",
+                    "colorPic": "https://i.ibb.co/2FDkpqZ/img1263.jpg"
+                },
+                {
+                    "colorName": "tono04",
+                    "colorPic": "https://i.ibb.co/5GwKKxQ/img1262.jpg"
+                },
+                {
+                    "colorName": "tono01",
+                    "colorPic": "https://i.ibb.co/ZX5Tqs4/img1260.jpg"
+                },
+                {
+                    "colorName": "tono02",
+                    "colorPic": "https://i.ibb.co/gmk3Qvk/img1261.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 12,
+            "clave": "slhc",
+            "nombre": "Soft Lips caja x9",
+            "mainPic": "https://i.ibb.co/NKh10gM/img1299.jpg",
+            "colors": [
+                {
+                    "colorName": "tono01",
+                    "colorPic": "https://i.ibb.co/g67GNy6/img1301.jpg"
+                },
+                {
+                    "colorName": "tono02",
+                    "colorPic": "https://i.ibb.co/jfNJ5ZV/img1277.jpg"
+                },
+                {
+                    "colorName": "tono03",
+                    "colorPic": "https://i.ibb.co/2Y5Ym3v/img1287.jpg"
+                },
+                {
+                    "colorName": "tono04",
+                    "colorPic": "https://i.ibb.co/9rGM8ds/img1288.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 13,
+            "clave": "CL11",
+            "nombre": "Labial crayola",
+            "mainPic": "https://i.ibb.co/nwcFJJN/img1334.jpg",
+            "colors": [
+                {
+                    "colorName": "unidad",
+                    "colorPic": "https://i.ibb.co/8PDJKVf/img1336.jpg"
+                },
+                {
+                    "colorName": "packaging",
+                    "colorPic": "https://i.ibb.co/jHHzLZV/img1338.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 14,
+            "clave": "lv04",
+            "nombre": "trendy velvet lips",
+            "mainPic": "https://i.ibb.co/gZX0zvJ/img1384.jpg",
+            "colors": [
+                {
+                    "colorName": "tono01",
+                    "colorPic": "https://i.ibb.co/ynn1JPm/img1347.jpg"
+                },
+                {
+                    "colorName": "tono02",
+                    "colorPic": "https://i.ibb.co/7Gx1VBQ/img1348.jpg"
+                },
+                {
+                    "colorName": "tono03",
+                    "colorPic": "https://i.ibb.co/Dp7n3Lj/img1349.jpg"
+                },
+                {
+                    "colorName": "tono04",
+                    "colorPic": "https://i.ibb.co/CKfK8Qz/img1350.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 15,
+            "clave": "",
+            "nombre": "",
+            "mainPic": "https://i.ibb.co/GWG83W3/img1393.jpg",
+            "colors": [
+                {
+                    "colorName": "wand",
+                    "colorPic": "https://i.ibb.co/2shHSBw/img1395.jpg"
+                },
+                {
+                    "colorName": "packaging",
+                    "colorPic": "https://i.ibb.co/VvD0Jz6/img1391.jpg"
+                },
+                {
+                    "colorName": "tono01",
+                    "colorPic": "https://i.ibb.co/1XN22VC/img1413.jpg"
+                },
+                {
+                    "colorName": "tono02",
+                    "colorPic": "https://i.ibb.co/phx8NhC/img1414.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 16,
+            "clave": "lt06",
+            "nombre": "kit labiales x 6 nude",
+            "mainPic": "https://i.ibb.co/3f8PqBt/img1422.jpg",
+            "colors": [
+                {
+                    "colorName": "packaging",
+                    "colorPic": "https://i.ibb.co/3vVQqVr/img1424.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 17,
+            "clave": "lt07",
+            "nombre": "kit labiales x 6 rojos",
+            "mainPic": "https://i.ibb.co/3sBxnvw/img1418.jpg",
+            "colors": [
+                {
+                    "colorName": "packaging",
+                    "colorPic": "https://i.ibb.co/3vVQqVr/img1424.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 18,
+            "clave": "hcg1283",
+            "nombre": "brillo voluminizador en barra",
+            "mainPic": "https://i.ibb.co/gTBVSMB/img1431.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 19,
+            "clave": "70273-47",
+            "nombre": "brillo doble voluminizador",
+            "mainPic": "https://i.ibb.co/GpbgYWt/img1439.jpg",
+            "colors": [
+                {
+                    "colorName": "presentacion",
+                    "colorPic": "https://i.ibb.co/PNpSfsW/img1437.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 20,
+            "clave": "lt18",
+            "nombre": "Voluminizador de labios",
+            "mainPic": "https://i.ibb.co/NC698VY/img1441.jpg",
+            "colors": [
+                {
+                    "colorName": "efecto",
+                    "colorPic": "https://i.ibb.co/8XB25d5/img1443.jpg"
+                }
+            ]
+        }
+    ],
+    "cejas": [
+        {
+            "ID": 21,
+            "clave": "bc04",
+            "nombre": "Coctel de cejas",
+            "mainPic": "https://i.ibb.co/8XB25d5/img1443.jpg",
+            "colors": [
+                {
+                    "colorName": "betun",
+                    "colorPic": "https://i.ibb.co/XyZRgv0/img1719.jpg"
+                },
+                {
+                    "colorName": "pigmento en polvo",
+                    "colorPic": "https://i.ibb.co/9gjSZVQ/img1721.jpg"
+                },
+                {
+                    "colorName": "brocha y aplicador",
+                    "colorPic": "https://i.ibb.co/M8yGPvf/img1723.jpg"
+                },
+                {
+                    "colorName": "cocktail",
+                    "colorPic": "https://i.ibb.co/7kqN042/img1715.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 22,
+            "clave": "gb11",
+            "nombre": "Lapiz de cejas con difuminador",
+            "mainPic": "https://i.ibb.co/CJP7DWf/img1733.jpg",
+            "colors": [
+                {
+                    "colorName": "packaging",
+                    "colorPic": "https://i.ibb.co/CJP7DWf/img1733.jpg"
+                },
+                {
+                    "colorName": "lapiz",
+                    "colorPic": "https://i.ibb.co/4J5Sjy6/img1735.jpg"
+                },
+                {
+                    "colorName": "punta",
+                    "colorPic": "https://i.ibb.co/DMGjL7W/img1737.jpg"
+                },
+                {
+                    "colorName": "punta",
+                    "colorPic": "https://i.ibb.co/Ny777Ty/img1739.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 23,
+            "clave": "b69",
+            "nombre": "Lapiz para cejas profesional",
+            "mainPic": "https://i.ibb.co/Xj4D0XM/img1729.jpg",
+            "colors": [
+                {
+                    "colorName": "presentacion",
+                    "colorPic": "https://i.ibb.co/wczz8bJ/img1731.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 24,
+            "clave": "b121",
+            "nombre": "lapiz para cejas sotfly",
+            "mainPic": "https://i.ibb.co/hVVV16c/img1751.jpg",
+            "colors": [
+                {
+                    "colorName": "tonos",
+                    "colorPic": "https://i.ibb.co/98KQv08/img1753.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 25,
+            "clave": "lp09",
+            "nombre": "Lapiz fijador de cejas",
+            "mainPic": "https://i.ibb.co/C2yZZGw/img1749.jpg",
+            "colors": [
+                {
+                    "colorName": "pencil",
+                    "colorPic": "https://i.ibb.co/wL9BsbD/img1747.jpg"
+                },
+                {
+                    "colorName": "packaging",
+                    "colorPic": "https://i.ibb.co/JF2z9rT/img1745.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 26,
+            "clave": "dt25",
+            "nombre": "kit de cejas",
+            "mainPic": "https://i.ibb.co/YyVX3Gz/img1761.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 27,
+            "clave": "gf19",
+            "nombre": "Gel fijador de cejas",
+            "mainPic": "https://i.ibb.co/m6bwYGW/img1769.jpg",
+            "colors": [
+                
+            ]
+        }
+    ],
+    "ojos": [
+        {
+            "ID": 31,
+            "clave": "ce10",
+            "nombre": "delineador doble cat eye",
+            "mainPic": "https://i.ibb.co/nzxgYCZ/img1808.jpg",
+            "colors": [
+               
+            ]
+        },
+        {
+            "ID": 32,
+            "clave": "ey15",
+            "nombre": "lapiz retractil",
+            "mainPic": "https://i.ibb.co/3ycM4DS/img1822.jpg",
+            "colors": [
+                {
+                    "colorName": "tono01",
+                    "colorPic": "https://i.ibb.co/n38tsML/img1814.jpg"
+                },
+                {
+                    "colorName": "tono02",
+                    "colorPic": "https://i.ibb.co/hVX0Qfr/img1816.jpg"
+                },
+                {
+                    "colorName": "tono03",
+                    "colorPic": "https://i.ibb.co/Bj3psrB/img1818.jpg"
+                },
+                {
+                    "colorName": "tono04",
+                    "colorPic": "https://i.ibb.co/TRC68rp/img1820.jpg"
+                },
+                {
+                    "colorName": "tono05",
+                    "colorPic": "https://i.ibb.co/3ycM4DS/img1822.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 33,
+            "clave": "pe08",
+            "nombre": "delineador perlado",
+            "mainPic": "https://i.ibb.co/BqvZgdk/img1831.jpg",
+            "colors": [
+                {
+                    "colorName": "color1",
+                    "colorPic": "https://i.ibb.co/QMDLcZw/img1833.jpg"
+                },
+                {
+                    "colorName": "color2",
+                    "colorPic": "https://i.ibb.co/gZtnLT9/img1834.jpg"
+                },
+                {
+                    "colorName": "color3",
+                    "colorPic": "https://i.ibb.co/JrvyPCm/img1835.jpg"
+                },
+                {
+                    "colorName": "color4",
+                    "colorPic": "https://i.ibb.co/MC5NYns/img1836.jpg"
+                },
+                {
+                    "colorName": "color5",
+                    "colorPic": "https://i.ibb.co/3sTBksx/img1837.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 34,
+            "clave": "ac30",
+            "nombre": "delineador plumon profesional",
+            "mainPic": "https://i.ibb.co/dcqB650/img1865.jpg",
+            "colors": [
+                {
+                    "colorName": "packaging",
+                    "colorPic": "https://i.ibb.co/z6L0P3S/img1861.jpg"
+                },
+                {
+                    "colorName": "brown",
+                    "colorPic": "https://i.ibb.co/6Z78t3b/img1863.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 35,
+            "clave": "cg05",
+            "nombre": "delineador glitter x 10",
+            "mainPic": "https://i.ibb.co/Vg8p8xg/img1880.jpg",
+            "colors": [
+                {
+                    "colorName": "glitter",
+                    "colorPic": "https://i.ibb.co/zrZ2Cvf/img1876.jpg"
+                },
+                {
+                    "colorName": "packaging",
+                    "colorPic": "https://i.ibb.co/X8Frbfc/img1878.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 36,
+            "clave": "cbae661",
+            "nombre": "lapiz de ojos negro",
+            "mainPic": "https://i.ibb.co/ZJvLBmg/img1918.jpg",
+            "colors": [
+                {
+                    "colorName": "black",
+                    "colorPic": "https://i.ibb.co/YRmfVkH/img1914.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 37,
+            "clave": "cbep654",
+            "nombre": "lapiz jumbo seashell",
+            "mainPic": "https://i.ibb.co/JcRh971/img1912.jpg",
+            "colors": [
+               
+            ]
+        },
+        {
+            "ID": 38,
+            "clave": "cbep653",
+            "nombre": "lapiz jumbo sunglasses",
+            "mainPic": "https://i.ibb.co/zVhs8YB/img1916.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 39,
+            "clave": "drt1329",
+            "nombre": "delineador glitter rock",
+            "mainPic": "https://i.ibb.co/Kj4Jqv9/img1928.jpg",
+            "colors": [
+                {
+                    "colorName": "pencil",
+                    "colorPic": "https://i.ibb.co/r37fHzt/img1930.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 40,
+            "clave": "cc3",
+            "nombre": "delineador doble ojos/cejas",
+            "mainPic": "https://i.ibb.co/2nXCGQy/img1926.jpg",
+            "colors": [
+                {
+                    "colorName": "pencil",
+                    "colorPic": "https://i.ibb.co/2nXCGQy/img1926.jpg"
+                },
+                {
+                    "colorName": "packaging",
+                    "colorPic": "https://i.ibb.co/QvdM0vN/img1924.jpg"
+                },
+                {
+                    "colorName": "cejas",
+                    "colorPic": "https://i.ibb.co/fnkDxRQ/img1932.jpg"
+                },
+                {
+                    "colorName": "delineador",
+                    "colorPic": "https://i.ibb.co/dWPZdCg/img1933.jpg"
+                }
+            ]
+        }
+    ],
+    "skincare": [
+        {
+            "ID": 41,
+            "clave": "scp",
+            "nombre": "Serum crecimiento de pestañas",
+            "mainPic": "https://i.ibb.co/7rvgkWf/img2322.jpg",
+            "colors": [
+               
+            ]
+        },
+        {
+            "ID": 42,
+            "clave": "lab01",
+            "nombre": "Colageno para labios",
+            "mainPic": "https://i.ibb.co/Hp0JDvY/img2326.jpg",
+            "colors": [
+                {
+                    "colorName": "presentacion",
+                    "colorPic": "https://i.ibb.co/GRw94Y8/img2324.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 43,
+            "clave": "scp1564",
+            "nombre": "serum cejas y pestañas doble",
+            "mainPic": "https://i.ibb.co/wCKFxzQ/img2333.jpg",
+            "colors": [
+               
+            ]
+        },
+        {
+            "ID": 44,
+            "clave": "pm03",
+            "nombre": "Primer rosas pequeño",
+            "mainPic": "https://i.ibb.co/VxTTw3c/img2353.jpg",
+            "colors": [
+               
+            ]
+        },
+        {
+            "ID": 45,
+            "clave": "pm02",
+            "nombre": "Primer Masmelo",
+            "mainPic": "https://i.ibb.co/02kQthm/img2348.jpg",
+            "colors": [
+                {
+                    "colorName": "presentacion",
+                    "colorPic": "https://i.ibb.co/R0tWB6r/img2350.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 46,
+            "clave": "spsw",
+            "nombre": "Sachet primer serum watermelon",
+            "mainPic": "https://i.ibb.co/2K6mgxQ/img2375.jpg",
+            "colors": [
+              
+            ]
+        },
+        {
+            "ID": 47,
+            "clave": "sps",
+            "nombre": "Sachet primer serum",
+            "mainPic": "https://i.ibb.co/qR8CbKF/img2373.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 48,
+            "clave": "cco",
+            "nombre": "Crema contorno de ojos",
+            "mainPic": "https://i.ibb.co/hD0vx7C/img2382.jpg",
+            "colors": [
+              
+            ]
+        },
+        {
+            "ID": 49,
+            "clave": "gav",
+            "nombre": "Gel aloe vera 120ml",
+            "mainPic": "https://i.ibb.co/DYLjGHD/img2396.jpg",
+            "colors": [
+               
+            ]
+        },
+        {
+            "ID": 50,
+            "clave": "adt",
+            "nombre": "Aceite desmaquillante trendy",
+            "mainPic": "https://i.ibb.co/XXPGQXM/img2421.jpg",
+            "colors": [
+             
+            ]
+        }
+    ],
+    "corporal": [
+        {
+            "ID": 51,
+            "clave": "mc100",
+            "nombre": "Manquequilla corporal 100ml",
+            "mainPic": "https://i.ibb.co/YNczvML/img2632.jpg",
+            "colors": [
+                {
+                    "colorName": "aroma 01",
+                    "colorPic": "https://i.ibb.co/fQtbMPG/img2616.jpg"
+                },
+                {
+                    "colorName": "aroma 02",
+                    "colorPic": "https://i.ibb.co/z8w23Fz/img2619.jpg"
+                },
+                {
+                    "colorName": "aroma 03",
+                    "colorPic": "https://i.ibb.co/xG2sV60/img2621.jpg"
+                },
+                {
+                    "colorName": "aroma 04",
+                    "colorPic": "https://i.ibb.co/6PvmjW0/img2623.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 52,
+            "clave": "es26",
+            "nombre": "Exfoliante corporal summer",
+            "mainPic": "https://i.ibb.co/mBkkwGJ/img2644.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 53,
+            "clave": "bsm1624",
+            "nombre": "BodySplash pastel morado",
+            "mainPic": "https://i.ibb.co/qJfhkNJ/img2656.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 54,
+            "clave": "bsr1625",
+            "nombre": "BodySplash pastel rosa",
+            "mainPic": "https://i.ibb.co/ZxGx8YT/img2658.jpg",
+            "colors": [
+               
+            ]
+        },
+        {
+            "ID": 55,
+            "clave": "bsv1626",
+            "nombre": "BodySplash pastel verde",
+            "mainPic": "https://i.ibb.co/nC3z5mC/img2654.jpg",
+            "colors": [
+               
+            ]
+        }
+    ],
+    "capilar": [
+        {
+            "ID": 61,
+            "clave": "lc004",
+            "nombre": "Tratamiento prelavado prewash",
+            "mainPic": "https://i.ibb.co/x5nQpWR/img2669.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 62,
+            "clave": "lc002",
+            "nombre": "Primer de cabello termoprotector",
+            "mainPic": "https://i.ibb.co/zP1NmSG/img2671.jpg",
+            "colors": [
+               
+            ]
+        },
+        {
+            "ID": 63,
+            "clave": "ca48",
+            "nombre": "Fijador fix para cabello",
+            "mainPic": "https://i.ibb.co/JdD4V8h/img2673.jpg",
+            "colors": [
+               
+            ]
+        },
+        {
+            "ID": 64,
+            "clave": "v2mdnn112mdnn222",
+            "nombre": "cepillo plancha y pinza",
+            "mainPic": "https://i.ibb.co/99YF7jV/img2681.jpg",
+            "colors": [
+                
+            ]
+        }
+    ],
+    "accesorios": [
+        {
+            "ID": 71,
+            "clave": "0M20",
+            "nombre": "Organizador de brochas",
+            "mainPic": "https://i.ibb.co/B2VnhML/img2693.jpg",
+            "colors": [
+               
+            ]
+        },
+        {
+            "ID": 72,
+            "clave": "cr20",
+            "nombre": "Kit piedritas cristal",
+            "mainPic": "https://i.ibb.co/KqMMPty/img2702.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 73,
+            "clave": "cjs400",
+            "nombre": "sacapuntas cosmetico",
+            "mainPic": "https://i.ibb.co/nsFDvc9/img2708.jpg",
+            "colors": [
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/M84408g/img2710.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 74,
+            "clave": "cr02",
+            "nombre": "lapiz de silicona para pegar piedritas",
+            "mainPic": "https://i.ibb.co/bKc4686/img2704.jpg",
+            "colors": [
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/3h4mfPL/img2706.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 75,
+            "clave": "bst1319",
+            "nombre": "Boob stickers",
+            "mainPic": "https://i.ibb.co/F374981/img2720.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 76,
+            "clave": "bb50",
+            "nombre": "Brasier invisible",
+            "mainPic": "https://i.ibb.co/376dGtm/img2718.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 77,
+            "clave": "bbtp",
+            "nombre": "Cinta Boob tape",
+            "mainPic": "https://i.ibb.co/YBR9XD8/img2726.jpg",
+            "colors": [
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/L1WmH80/img2728.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 78,
+            "clave": "ep215",
+            "nombre": "Dilusor sombras",
+            "mainPic": "https://i.ibb.co/0tsFck5/img2798.jpg",
+            "colors": [
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/wQs7QPm/img2800.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 79,
+            "clave": "c68231",
+            "nombre": "Lima para uñas x 3",
+            "mainPic": "https://i.ibb.co/0tXgtDy/img2806.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 80,
+            "clave": "c68232",
+            "nombre": "Fortalecedor de uñas",
+            "mainPic": "https://i.ibb.co/2NRhW2t/img2808.jpg",
+            "colors": [
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/H7Gt9kC/img2810.jpg"
+                },
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/f4HLDmD/img2812.jpg"
+                }
+            ]
+        }
+    ],
+    "brochas": [
+        {
+            "ID": 91,
+            "clave": "bt013",
+            "nombre": "Brocha base mini",
+            "mainPic": "https://i.ibb.co/b2XYcpH/img3109.jpg",
+            "colors": [
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/bFx9zG8/img3107.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 92,
+            "clave": "bt014",
+            "nombre": "brocha polvos mini",
+            "mainPic": "https://i.ibb.co/f0N1mCm/img3105.jpg",
+            "colors": [
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/cbRV3s0/img3103.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 93,
+            "clave": "bt08",
+            "nombre": "Brocha doble plana y difuminadora",
+            "mainPic": "https://i.ibb.co/tHB2vfC/img3119.jpg",
+            "colors": [
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/v3F8R74/img3115.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 94,
+            "clave": "bt06",
+            "nombre": "kit brocha Ojos x 3",
+            "mainPic": "https://i.ibb.co/9HPcmMn/img3124.jpg",
+            "colors": [
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/v3F8R74/img3115.jpg"
+                },
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/mvrZ8sn/img3136.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 95,
+            "clave": "bt015",
+            "nombre": "Kit brocha ojos x 6",
+            "mainPic": "https://i.ibb.co/HH3xk1W/img3152.jpg",
+            "colors": [
+                {
+                    "colorName": "",
+                    "colorPic": "https://i.ibb.co/2YSzgMy/img3138.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 96,
+            "clave": "p108",
+            "nombre": "Brocha angular y gota",
+            "mainPic": "https://i.ibb.co/kgKf9tV/img3204.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 97,
+            "clave": "tm08",
+            "nombre": "Kit brocha milkshake x 5",
+            "mainPic": "https://i.ibb.co/cgBBLvv/img3300.jpg",
+            "colors": [
+                {
+                    "colorName": "aqua",
+                    "colorPic": "https://i.ibb.co/YRYpwV7/img3302.jpg"
+                },
+                {
+                    "colorName": "amarillo",
+                    "colorPic": "https://i.ibb.co/ZV1ChjK/img3298.jpg"
+                },
+                {
+                    "colorName": "detalle",
+                    "colorPic": "https://i.ibb.co/0QdsvV1/img3296.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 98,
+            "clave": "kl10",
+            "nombre": "kit brocha tornasol x 10",
+            "mainPic": "https://i.ibb.co/FB9DG1p/img3428.jpg",
+            "colors": [
+                
+            ]
+        },
+        {
+            "ID": 99,
+            "clave": "mzd-s203",
+            "nombre": "Buny blender esponja profesional",
+            "mainPic": "https://i.ibb.co/C5c1PZY/img3545.jpg",
+            "colors": [
+                {
+                    "colorName": "orange",
+                    "colorPic": "https://i.ibb.co/4T6Mkd1/img3547.jpg"
+                },
+                {
+                    "colorName": "pink",
+                    "colorPic": "https://i.ibb.co/09txcVq/img3537.jpg"
+                },
+                {
+                    "colorName": "pink",
+                    "colorPic": "https://i.ibb.co/tmG0ZV3/img3539.jpg"
+                },
+                {
+                    "colorName": "aqua",
+                    "colorPic": "https://i.ibb.co/d5FJDzW/img3541.jpg"
+                },
+                {
+                    "colorName": "aqua",
+                    "colorPic": "https://i.ibb.co/5FP4jjb/img3543.jpg"
+                }
+            ]
+        },
+        {
+            "ID": 100,
+            "clave": "ct-ne",
+            "nombre": "limpia brochas en seco",
+            "mainPic": "https://i.ibb.co/y598dss/img3564.jpg",
+            "colors": [
+               
+            ]
+        }
+    ]
+}

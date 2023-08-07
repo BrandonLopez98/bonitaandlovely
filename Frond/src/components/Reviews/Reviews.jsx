@@ -1,120 +1,120 @@
 import React from 'react';
-
-import style from './reviews.module.css'
-
+import { FaStar } from 'react-icons/fa';
 
 const Reviews = () => {
   return (
-  
-    <div class="m-20 o-container o-container-c6db03c7-480f-45b0-97dc-f35f1973608b container sb-9963253-pt-5 sb-9963253-pb-5 lg:sb-9963253-pt-8 lg:sb-9963253-pb-8 sb-5472269-flex sb-5472269-flex-col sb-5472269-items-center sb-5472269-gap-4 lg:sb-5472269-gap-6 container-reviews ">
-      <div class="mb-8 text-center md:mb-16">
-    <p class="mb-1 md:mb-5">
-    <span class="text-2xl font-bold text-black">Tu opinión nos importa</span>
-    </p>
-    
-    </div><div class="grid grid-cols-1 gap-6 md:gap-12 md:grid-cols-3">
-    <div class="relative">
-    <div class="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
-    <span class="text-md text-gray-dark">29/07/2023</span>
-    <span x-data="{rating: 5, fullScore: 5}" class="mb-1.5 flex flex-row space-x-1" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
-    <template x-for="start in Array.from({ length: parseInt(rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    <template x-for="start in Array.from({ length: parseInt(fullScore - rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-02" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template>
-    </span>
+    <div className="m-20 o-container o-container-c6db03c7-480f-45b0-97dc-f35f1973608b container sb-9963253-pt-5 sb-9963253-pb-5 lg:sb-9963253-pt-8 lg:sb-9963253-pb-8 sb-5472269-flex sb-5472269-flex-col sb-5472269-items-center sb-5472269-gap-4 lg:sb-5472269-gap-6 container-reviews mx-auto">
+    <div className="mb-8 text-center md:mb-16">
+      <p className="mb-1 md:mb-5">
+        <span className="text-4xl font-bold text-black">Tu opinión nos importa</span>
+      </p>
     </div>
-    <div class="py-4 px-5 mt-2 border border-gray rounded-lg">
-    <p class="text-md text-gray-dark">Estoy muy contenta con la calidad de mi producto! Recomiendo!</p>
+    <div className="grid grid-cols-1 gap-6 md:gap-12 md:grid-cols-3">
+        
+        {/* Review 1 */}
+        <div className="relative">
+          <div className="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
+            <span className="text-xl text-gray-dark">29/07/2023</span>
+             <div style={{ display: 'flex', gap: '4px', color: '#B061B2' }}>
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+              </div>
+          </div>
+          <div className="py-4 px-5 mt-2 border border-gray rounded-lg">
+            <p className="text-xl text-gray-dark">Estoy muy contenta con la calidad de mi producto! Recomiendo!</p>
+          </div>
+        </div>
+
+        {/* Review 2 */}
+        <div className="relative">
+          <div className="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
+            <span className="text-xl text-gray-dark">27/07/2023</span>
+            <div style={{ display: 'flex', gap: '4px', color: '#B061B2' }}>
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+              </div>
+          </div>
+          <div className="py-4 px-5 mt-2 border border-gray rounded-lg">
+            <p className="text-xl text-gray-dark">El tiempo de entrega fue el acordado!</p>
+          </div>
+        </div>
+
+        {/* Review 3 */}
+        <div className="relative">
+          <div className="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
+            <span className="text-xl text-gray-dark">19/07/2023</span>
+            <div style={{ display: 'flex', gap: '4px', color: '#B061B2' }}>
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+              </div>
+          </div>
+          <div className="py-4 px-5 mt-2 border border-gray rounded-lg">
+          <p className="text-xl text-gray-dark">Todo excelente! Recomiendo.</p>
+          </div>
+        </div>
+
+        {/* Review 4 */}
+        <div className="relative">
+          <div className="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
+            <span className="text-xl text-gray-dark">19/07/2023</span>
+            <div style={{ display: 'flex', gap: '4px', color: '#B061B2' }}>
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+              </div>
+          </div>
+          <div className="py-4 px-5 mt-2 border border-gray rounded-lg">
+            <p className="text-xl text-gray-dark">Excelente atención y productos</p>
+          </div>
+        </div>
+
+        {/* Review 5 */}
+        <div className="relative">
+          <div className="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
+            <span className="text-xl text-gray-dark">19/07/2023</span>
+            <div style={{ display: 'flex', gap: '4px', color: '#B061B2' }}>
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+              </div>
+          </div>
+          <div className="py-4 px-5 mt-2 border border-gray rounded-lg">
+            <p className="text-xl text-gray-dark">Todo perfecto!! Voy a volver a comprar.</p>
+          </div>
+        </div>
+
+        {/* Review 6 */}
+        <div className="relative">
+          <div className="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
+            <span className="text-xl text-gray-dark">19/07/2023</span>
+            <div style={{ display: 'flex', gap: '4px', color: '#B061B2' }}>
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+                <FaStar size={15} />
+              </div>
+          </div>
+          <div className="py-4 px-5 mt-2 border border-gray rounded-lg">
+            <p className="text-xl text-gray-dark">Recomendado al 100%!</p>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    <div class="relative">
-    <div class="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
-    <span class="text-md text-gray-dark">27/07/2023</span>
-    <span x-data="{rating: 5, fullScore: 5}" class="mb-1.5 flex flex-row space-x-1" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
-    <template x-for="start in Array.from({ length: parseInt(rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    <template x-for="start in Array.from({ length: parseInt(fullScore - rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-02" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template>
-    </span>
-    </div>
-    <div class="py-4 px-5 mt-2 border border-gray rounded-lg">
-    <p class="text-md text-gray-dark">El tiempo de entrega fue el acordado! </p>
-    </div>
-    </div>
-    <div class="relative">
-    <div class="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
-    <span class="text-md text-gray-dark">19/07/2023</span>
-    <span x-data="{rating: 5, fullScore: 5}" class="mb-1.5 flex flex-row space-x-1" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
-    <template x-for="start in Array.from({ length: parseInt(rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    <template x-for="start in Array.from({ length: parseInt(fullScore - rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-02" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template>
-    </span>
-    </div>
-    <div class="py-4 px-5 mt-2 border border-gray rounded-lg">
-    <p class="text-md text-gray-dark">Todo excelente! Recomiendo.</p>
-    </div>
-    </div>
-    <div class="relative">
-    <div class="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
-    <span class="text-md text-gray-dark">19/07/2023</span>
-    <span x-data="{rating: 5, fullScore: 5}" class="mb-1.5 flex flex-row space-x-1" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
-    <template x-for="start in Array.from({ length: parseInt(rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    <template x-for="start in Array.from({ length: parseInt(fullScore - rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-02" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template>
-    </span>
-    </div>
-    <div class="py-4 px-5 mt-2 border border-gray rounded-lg">
-    <p class="text-md text-gray-dark">Excelente atención y productos</p>
-    </div>
-    </div>
-    <div class="relative">
-    <div class="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
-    <span class="text-md text-gray-dark">19/07/2023</span>
-    <span x-data="{rating: 5, fullScore: 5}" class="mb-1.5 flex flex-row space-x-1" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
-    <template x-for="start in Array.from({ length: parseInt(rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    <template x-for="start in Array.from({ length: parseInt(fullScore - rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-02" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template>
-    </span>
-    </div>
-    <div class="py-4 px-5 mt-2 border border-gray rounded-lg">
-    <p class="text-md text-gray-dark">Todo perfecto!! Voy a volver a comprar.</p>
-    </div>
-    </div>
-    <div class="relative">
-    <div class="flex flex-row flex-nowrap items-center justify-between gap-x-4 px-4">
-    <span class="text-md text-gray-dark">19/07/2023</span>
-    <span x-data="{rating: 5, fullScore: 5}" class="mb-1.5 flex flex-row space-x-1" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
-    <template x-for="start in Array.from({ length: parseInt(rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-01" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    <template x-for="start in Array.from({ length: parseInt(fullScore - rating) })" hidden="">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-3 h-3 text-product-review-02" width="24" height="24"><path d="M117.4 27.6c3.4-10.2 17.8-10.2 21.3 0l20.1 59.3c1.5 4.6 5.8 7.6 10.6 7.6h64c11 0 15.4 14.2 6.4 20.4l-50.9 35.4c-4.1 2.9-5.8 8.1-4.2 12.8l19.7 57.9c3.5 10.3-8.1 19-17 12.8L134.6 197c-3.9-2.7-9-2.7-12.8 0L69 233.8c-8.9 6.2-20.5-2.6-17-12.8l19.7-57.9c1.6-4.7-.1-10-4.2-12.8l-50.9-35.4c-9-6.3-4.6-20.4 6.4-20.4h64c4.8 0 9.1-3.1 10.6-7.6l19.8-59.3z"></path></svg>
-    </template>
-    </span>
-    </div>
-    <div class="py-4 px-5 mt-2 border border-gray rounded-lg">
-    <p class="text-md text-gray-dark">Recomendado al 100%!</p>
-    </div>
-    </div>
-    </div>
-    <div class="btn btn-primary">
-    </div>
-    </div>
-    );
-    };
-    
-  
+  );
+};
+
 export default Reviews;

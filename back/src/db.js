@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
   `postgres://${DB_User}:${DB_Password}@${DB_host}/${DB_Name}`,
   {
     logging: false, // set to console.log to see the raw SQL queries
-    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+    native: false, // lets Sequelize know we can use pg-native for ~30% more speed 
   }
 );
 
@@ -28,6 +28,10 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
+const { Producto, Subcategoria } = sequelize.models;
+
+Producto.belongsToMany(Subcategoria, { through: 'producto_subcategoria' });
+Subcategoria.belongsToMany(Producto, { through: 'producto_subcategoria' });
 
 
 

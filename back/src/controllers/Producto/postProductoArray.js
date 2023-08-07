@@ -1,46 +1,114 @@
-const { Producto, Marca } = require('../../db');
+const { Producto, Marca, Size, Proveedor, Categoria, Subcategoria } = require('../../db');
 
 module.exports = async (array) => {
   const productos = [];
 
   async function crearProducto(producto) {
+
+    let {name, descripcion, precio_compra, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId } = producto
+
     function primerLetraMayuscula(str) {
       return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
     }
-
-    producto.name = primerLetraMayuscula(producto.name);
-
+  
+    name = primerLetraMayuscula(name);
     try {
-      if (!producto.name) {
-        throw new Error('El nombre del producto es inválido.');
-      }
-
-      // Verificar si la marca existe y está activa
-      const marcaExistente = await Marca.findOne({
+      // Verificar si el proveedor existe y está activo
+      const proveedorExistente = await Proveedor.findOne({
         where: {
-          id: producto.marcaId,
+          id: proveedorId,
           activa: true,
         },
       });
-
-      if (!marcaExistente) {
-        // Si la marca no existe o no está activa, lanzar un error
-        throw new Error(`La marca con ID ${producto.marcaId} no existe o no está activa`);
+  
+      if (!proveedorExistente) {
+        throw new Error(`El proveedor con ID ${proveedorId} no existe o no está activo`);
       }
-
+  
+      // Verificar si el tamaño existe y está activo
+      const tamañoExistente = await Size.findOne({
+        where: {
+          id: tamañoId,
+          activa: true,
+        },
+      });
+  
+      if (!tamañoExistente) {
+        throw new Error(`El tamaño con ID ${tamañoId} no existe o no está activo`);
+      }
+  
+      // Verificar si la categoría existe y está activa
+      const categoriaExistente = await Categoria.findOne({
+        where: {
+          id: categoriaId,
+          activa: true,
+        },
+      });
+  
+      if (!categoriaExistente) {
+        throw new Error(`La categoría con ID ${categoriaId} no existe o no está activa`);
+      }
+  
+      // Verificar si la marca existe y está activa
+      const marcaExistente = await Marca.findOne({
+        where: {
+          id: marcaId,
+          activa: true,
+        },
+      });
+  
+      if (!marcaExistente) {
+        throw new Error(`La marca con ID ${marcaId} no existe o no está activa`);
+      }
+  
+      const productoExistente = await Producto.findOne({
+        where: {
+          name,
+        },
+      });
+  
+      if (productoExistente) {
+        throw new Error(`Ya existe un producto con el nombre ${name}`);
+      }
+  
       // Crear el producto en la base de datos
       const nuevoProducto = await Producto.create({
-        name: producto.name,
-        descripcion: producto.descripcion,
-        precio_compra: producto.precio_compra,
-        porcentaje_ganancia: producto.porcentaje_ganancia,
-        precio_venta: producto.precio_venta,
-        referencia_proveedor: producto.referencia_proveedor,
-        marcaId: producto.marcaId,
-        categoriaId: producto.categoriaId,
+        name,
+        descripcion,
+        precio_compra,
+        porcentaje_ganancia,
+        precio_venta,
+        referencia_proveedor,
+        marcaId,
+        categoriaId,
+        tamañoId,
+        proveedorId,
       });
-
+  
+  
+      const subcategorias = await Subcategoria.findAll({
+        where: {
+          id: subcategoriaId,
+        },
+      });
+  
+      const subcategoriasIncorrectas = subcategorias.filter(subcategoria => !subcategoria.activa);
+  
+      if (subcategoriasIncorrectas.length > 0) {
+        
+        const productoExistente = await Producto.findOne({
+          where: {
+            name,
+          },
+        });
+        await productoExistente.destroy() 
+        
+        throw new Error(`Las subcategorías ${subcategoriasIncorrectas.map(sub => sub.id).join(', ')} no pertenecen a la misma categoría que el producto o están inactivas.`);
+      }
+  
+      // Asignar un identificador personalizado (opcional)
       nuevoProducto.dataValues.id = `prod-${nuevoProducto.dataValues.id}`;
+      nuevoProducto.dataValues.subcategoriaId = subcategoriaId
 
       productos.push(nuevoProducto);
     } catch (error) {

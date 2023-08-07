@@ -1,6 +1,6 @@
 import React from "react";
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {Route, Routes, useLocation } from "react-router-dom";
 import LandingPage from "./views/LandingPage/LandingPage";
 import Products from "./components/Products/Products";
 import AboutUs from "./views/AboutUs/AboutUs";
@@ -10,33 +10,39 @@ import FAQs from "./views/FAQs/FAQs"
 import Catalogo from "./views/Catalogo/Catalogo.jsx";
 import Chatbot from "react-chatbot-kit";
 import Form from "./views/Form/Form";
+import Profile from "./views/Profile/Profile";
 import Configs from "./components/ChatBot/Configs";
 import MessageParser from "./components/ChatBot/MessageParser";
-
 import Detail from "../src/views/Detail/Detail";
 
 import Dashboard from "./components/Dashboard/Dashboard";
 import axios from "axios"
+import Navbar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
 //para no repetir el puerto:(se está configurando una URL base que se utilizará como prefijo para todas las peticiones realizadas con Axios) 
 axios.defaults.baseURL = "http://localhost:3001/"
 
 // import ActionProvider from "./components/ChatBot/ActionProvider";
 
 
-
 function App () {
+  const location = useLocation()
+
   return (
     <div>
+      {
+            location.pathname !== "/" ? <Navbar /> : null
+         }
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
         <Route path="/products" element={<Products />} />
         <Route path="/aboutUs" element={<AboutUs />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact/>} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/devTeam" element={<DevTeam />} />
         <Route path="/form" element={<Form />} />
-
+        <Route path="/profile" element={<Profile />} />
         <Route path="/detail/:id" element={<Detail />} />
 
         <Route path="/dashboard" element = {<Dashboard/>}/>
@@ -49,6 +55,9 @@ function App () {
           // actionProvider={ActionProvider}
         />
       </div>
+      {
+            location.pathname !== "/" ? <Footer /> : null
+         }
     </div>
   );
 }

@@ -14,9 +14,10 @@ import ChooseUs from '../../components/ChooseUsSection/Choose';
 
 
 const Container = styled.div`
-  background-color: ${props => props.darkMode ? '#1a1a1a' : '#fff'};
+  background-color: ${props => props.darkMode ? '#1a1a1a' : '#ebeaea'};
   color: ${props => props.darkMode ? '#fff' : '#333'};
-  padding: 2rem;
+  padding: 0rem;
+
 `;
 
 
@@ -45,10 +46,10 @@ const LandingPage = () => {
 
   return (
     <>
-      <Container darkMode={isDarkMode}>
         <NavBar />
+      <Container darkMode={isDarkMode}>
         <div style={{ height: '800px', overflowX: 'scroll', marginTop: '-2%' }}>
-          <Carousel />
+          <CarouselMid />
         </div>
         
         <Proveedores/>

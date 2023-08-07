@@ -3,17 +3,14 @@ import Logo from '../../../src/assets/img/logoBonitaLovelyw.png';
 import icon3 from '../../../src/assets/img/icon3.svg';
 import icon2 from '../../../src/assets/img/icon2.svg';
 import icon1 from '../../../src/assets/img/icon1.svg';
-import NavBar from '../../components/NavBar/NavBar';
-import Footer from '../../components/Footer/Footer'
 import 'tailwindcss/tailwind.css';
 
 
 const AboutUs = () => {
   return (
     <>
-      <NavBar />
 
-      <div className="grid grid-cols-14 grid-rows-20 gap-0 w-screen ml-20 pr-40">
+      <div className="grid grid-cols-14 grid-rows-20 gap-0 w-screen ml-20 pr-40 mb-40 mt-20">
         <div className="col-start-2 col-end-6 row-start-0 row-end-2 font-bold text-3xl flex justify-center items-center ">Quienes somos?</div>
 
         <div className="col-start-1 col-end-6 row-start-2 row-end-6 flex justify-center items-center ">
@@ -59,7 +56,6 @@ const AboutUs = () => {
 
       </div>
      
-     <Footer/>
     </>
   );
 };

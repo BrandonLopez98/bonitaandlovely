@@ -23,18 +23,17 @@ router.get('/', async (req,res)=>{
 
 router.post('/', async (req, res) => {
   try {
-    const { name, descripcion, precio_compra, porcentaje_ganancia, precio_venta, referencia_proveedor, productoId, categoriaId } = req.body;
+    const { name, descripcion, precio_compra, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId } = req.body;
 
     if (Array.isArray(req.body)) {
       const Productos = await postProductoArray(req.body);
       res.status(200).json(Productos);
     } else {
-      const Producto = await postProducto(name, descripcion, precio_compra, porcentaje_ganancia, precio_venta, referencia_proveedor, productoId, categoriaId);
+      const Producto = await postProducto(name, descripcion, precio_compra, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId);
       res.status(200).json(Producto);
     }
   } catch (error) {
-    console.error('Error al agregar el producto:', error.message);
-    res.status(500).json({ error: 'Ha ocurrido un error al agregar el producto.' });
+    res.status(500).json({ error: `Ha ocurrido un error al agregar el producto: ${error}` });
   }
 });
 

@@ -34,11 +34,19 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
+    marcaId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     categoriaId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    marcaId: {
+    tamañoId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    proveedorId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -46,53 +54,42 @@ module.exports = (sequelize) => {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true,
-    }
-    // tamañoId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    // },
-    // proveedorId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    // },
+    },
   },
-  { tableName: 'producto',timestamps: false });
+  { tableName: 'producto', timestamps: false });
 
-  // Establecemos las relaciones con otros modelos
-  Producto.belongsTo(sequelize.models.Categoria, {
-    foreignKey: {
-      allowNull: false,
-      name: 'categoriaId',
-    }
-  });
+  // Establecemos las relaciones con otros modelos utilizando la propiedad associate
+  Producto.associate = (models) => {
+    Producto.belongsTo(models.Categoria, {
+      foreignKey: {
+        allowNull: false,
+        name: 'categoriaId',
+      }
+    });
 
-  Producto.belongsTo(sequelize.models.Marca, {
-    foreignKey: {
-      allowNull: false,
-      name: 'marcaId',
-    }
-  });
+    Producto.belongsTo(models.Marca, {
+      foreignKey: {
+        allowNull: false,
+        name: 'marcaId',
+      }
+    });
 
-  // Producto.belongsTo(sequelize.models.Size, {
-  //   foreignKey: {
-  //     allowNull: false,
-  //     name: 'tamañoId',
-  //   }
-  // });
+    Producto.belongsTo(models.Size, {
+      foreignKey: {
+        allowNull: false,
+        name: 'tamañoId',
+      }
+    });
 
-  // Descomenta una a la vez para verificar qué asociación está causando el problema
-  // Producto.belongsTo(sequelize.models.Proveedor, { 
-  //   foreignKey: {
-  //     allowNull: false,
-  //     name: 'proveedorId',
-  //   }
-  // });
+    Producto.belongsTo(models.Proveedor, {
+      foreignKey: {
+        allowNull: false,
+        name: 'proveedorId',
+      }
+    });
+  
 
-  // Producto.belongsToMany(sequelize.models.Subcategoria, { 
-  //   through: 'producto_subcategoria',
-  //   foreignKey: 'productoId',
-  //   otherKey: 'subcategoriaId',
-  // });
+  };
 
   return Producto;
 };

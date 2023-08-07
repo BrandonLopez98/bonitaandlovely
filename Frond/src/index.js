@@ -18,11 +18,11 @@ ReactDOM.render(
     clientId={client}
     authorizationParams={{
       redirect_uri: window.location.origin
-    }}>,
+    }}>
     <Provider store={store}>
     <App />
     </Provider>
-    </Auth0Provider>,
+    </Auth0Provider>
   </Router>,
   document.getElementById('root')
 );
