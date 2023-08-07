@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL } from "./action-types";
+import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED } from "./action-types";
 
 // aca la ruta directamente porque la url base ya esta osea que solo queda por la ruta ejemplo:/producto
 
@@ -17,6 +17,22 @@ export const products = ({ page, size }) => async (dispatch) => {
     });
 
 };
+// esta accion es provisional, solo para llamar a 50 productos
+
+export const productsCopy = () => async (dispatch) => {
+  const { data } = await axios.get("/producto", {
+    params: {
+      page: 0,
+      size: 50,
+    },
+  });
+  dispatch({
+    type: COPY_ALLPRODUCTS,
+    payload: data,
+  });
+
+};
+
 
 
 export const categories = () => async dispatch => {
@@ -54,7 +70,7 @@ export const categories = () => async dispatch => {
       payload: data
    })
   };
-  export const getproductsByDetail = (id) =>{
+  export const getProductsByDetail = (id) =>{
    return async (dispatch) => {
      try {
        const { data } = await axios.get(`???`);
@@ -72,4 +88,11 @@ export const categories = () => async dispatch => {
    return {
      type: CLEAN_DETAIL
    };
- };
+  }
+
+  export const productFilter = (filtros) => {
+    return{
+      type : PRODUCTS_FILTERED,
+      payload: filtros
+  }
+  }

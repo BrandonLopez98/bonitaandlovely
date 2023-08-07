@@ -43,7 +43,7 @@ function App () {
         <Route path="/devTeam" element={<DevTeam />} />
         <Route path="/form" element={<Form />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/catalogo/detail/:id" element={<Detail />} />
 
         <Route path="/dashboard" element = {<Dashboard/>}/>
 

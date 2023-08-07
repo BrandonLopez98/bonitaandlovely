@@ -14,6 +14,10 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true
     },
+    imagenes: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     descripcion: {
       type: DataTypes.TEXT,
       allowNull: true,
@@ -65,6 +69,11 @@ module.exports = (sequelize) => {
         allowNull: false,
         name: 'categoriaId',
       }
+    });
+
+    Producto.hasMany(models.Imagen, {
+      foreignKey: 'productoId',
+      as: 'imagenes',
     });
 
     Producto.belongsTo(models.Marca, {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/img/logoBonitaLovelyw.png';
+import vector from '../../assets/img/vector.svg'
 import { AiFillHeart } from 'react-icons/ai';
-import { FiChevronDown } from 'react-icons/fi';
-import { AiFillShopping } from 'react-icons/ai';
+import {AiFillShopping} from 'react-icons/ai'
 import SearchBar from '../SearchBar/SearchBar';
 import style from './NavBar.module.css';
 import LoginButton from '../LoginComponents/Login';
@@ -101,7 +101,7 @@ const Navbar = ({ initialLanguage }) => {
         <div className="flex justify-between items-center ml-10">
           <div onClick={showCategories} onMouseEnter={showCategories} className="flex items-center mr-5">
             <h2>Categorias</h2>
-            <FiChevronDown />
+            {/* <FiChevronDown /> */}
           </div>
           {isOpen && (
               <div

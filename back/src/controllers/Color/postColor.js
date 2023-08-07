@@ -5,7 +5,6 @@ module.exports = async (nombre) => {
     function Primeraletramayuscula(str) {
       return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
     }
-
     const name = Primeraletramayuscula(nombre);
 
     if (!name) {

@@ -1,12 +1,16 @@
-const { Producto } = require('../../db');
+const { Producto, Subcategoria } = require('../../db');
 
-module.exports = async (page,size) => {
+module.exports = async (page, size) => {
   try {
     const productos = await Producto.findAndCountAll({
       limit: size,
-      offset: page * size
+      offset: page * size,
+      include: {
+        model: Subcategoria,
+        attributes: ['name'],
+        through: { attributes: [] },
+      },
     });
-
 
     productos.rows.forEach((producto) => {
       producto.dataValues.id = `col-${producto.dataValues.id}`;

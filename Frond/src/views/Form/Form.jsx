@@ -1,343 +1,421 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
-import * as yup from "yup"; // Importa yup para validar
-import axios from 'axios';
-
+import * as yup from "yup";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { sizes, categories, brands } from "../../redux/actions";
 
 import style from "./Form.module.css";
 
 const validationSchema = yup.object({
-  productName: yup.string().required("El nombre del producto es obligatorio"),
-  productPrice: yup
+  name: yup.string().required("El nombre del producto es obligatorio"),
+  precio_compra: yup
     .number()
     .typeError("El precio del producto debe ser un número válido")
     .required("El precio del producto es obligatorio")
     .positive("El precio debe ser un número positivo")
     .min(0.01, "El precio mínimo es 0.01")
-    .max(9999.99, "El precio máximo es 9999.99"),
+    .max(99999.99, "El precio máximo es 99999.99"),
 });
 
 const Form = () => {
-  const providers = [
-    "GRAPHIC STUDIO",
-    "S. SALVA ART DIRECTOR",
-    "GOLDEN STUDIO",
-    "FURNITURE DESIGN",
-    "TRAVEL LOOKBOOK",
-  ];
+  const dispatch = useDispatch();
+  const sizesOptions = useSelector((state) => state.Allsizes);
+  const categoriesOptions = useSelector((state) => state.Allcategories);
+  const brandsOptions = useSelector((state) => state.Allbrands);
 
-  const colors = ["BLUE", "YELLOW", "RED", "GREEN", "PURPLE", "PINK","BLACK"];
+  useEffect(() => {
+    dispatch(sizes());
+  }, [dispatch]);
 
-  const categories = [
-    "LABIAL",
-    "RUBOR",
-    "PINTA UÑAS",
-    "BRILLO",
-    "PESTAÑINA",
-    "QUITA ESMALTE",
-  ];
+  useEffect(() => {
+    dispatch(categories());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(brands());
+  }, [dispatch]);
+
+  //obtener proveedores
+  const [providers, setProviders] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/proveedor")
+      .then((response) => {
+        setProviders(response.data);
+      })
+      .catch((error) => {
+        console.error("Error al obtener los proveedores:", error);
+      });
+  }, []);
 
   const formik = useFormik({
     initialValues: {
-      productName: "",
-      productPrice: "",
-      productDescription: "",
+      name: "",
+      descripcion: "",
+      precio_compra: "",
+      porcentaje_ganancia: "",
+      precio_venta: "",
+      referencia_proveedor: "",
+      marcaId: "",
+      categoriaId: "",
+      tamañoId: "",
+      proveedorId: "",
     },
     validationSchema,
-    onSubmit: (values) => {
-      // Aquí puedes manejar la lógica cuando el formulario se envía
+    onSubmit: async (values, { setSubmitting, resetForm }) => {
       console.log("Valores enviados:", values);
+
+      try {
+        const response = await axios.post(
+          "http://localhost:3001/producto",
+          values
+        );
+        console.log("Producto creado:", response.data);
+        resetForm();
+      } catch (error) {
+        console.error("Error al crear el producto:", error);
+      } finally {
+        setSubmitting(false);
+      }
     },
   });
 
-  const [productName, setProductName] = useState("");
-  const [productPrice, setProductPrice] = useState("");
-  const [productDescription, setProductDescription] = useState("");
-  const [selectedProvider, setSelectedProvider] = useState("");
-  const [selectedColors, setSelectedColors] = useState([]);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedProvider, setSelectedProvider] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState(null);
+  const [selectedBrand, setSelectedBrand] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
 
   const handleSelectChange = (event) => {
-    setSelectedProvider(event.target.value);
-  };
-
-  const handleCheckboxChange = (color) => {
-    if (selectedColors.includes(color)) {
-      setSelectedColors(selectedColors.filter((c) => c !== color));
-    } else {
-      setSelectedColors([...selectedColors, color]);
-    }
-  };
-
-  const handleCategoryChange = (event) => {
-    const selectedCategory = event.target.value;
-    if (!selectedCategories.includes(selectedCategory)) {
-      setSelectedCategories([...selectedCategories, selectedCategory]);
-    }
-  };
-
-  const handleRemoveCategory = (categoryToRemove) => {
-    const updatedCategories = selectedCategories.filter(
-      (category) => category !== categoryToRemove
+    const selectedValue = event.target.value;
+    const selectedProviderObj = providers.find(
+      (option) => option.id === Number(selectedValue)
     );
-    setSelectedCategories(updatedCategories);
-  };
-
-  const handleImageChange = async (event) => {
-    const imageFile = event.target.files[0];
-    if (imageFile) {
-      const formData = new FormData();
-      formData.append('image', imageFile);
-  
-      try {
-        const response = await axios.post('https://api.imgbb.com/1/upload', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-          params: {
-            key: 'cf44a253679320997c892d7e7a273f04',
-          },
-        });
-  
-        if (response.data && response.data.data && response.data.data.url) {
-          setSelectedImage(response.data.data.url);
-          console.log('Imagen subida exitosamente:', response.data.data.url);
-        } else {
-          console.error('Hubo un problema al subir la imagen.');
-        }
-      } catch (error) {
-        console.error('Error al subir la imagen:', error);
-      }
+    if (selectedProviderObj) {
+      setSelectedProvider(selectedProviderObj);
+      formik.setFieldValue("proveedorId", selectedProviderObj.id);
     }
   };
-  
 
-  const handleFormSubmit = (values) => {
-    // Crear un objeto con los datos a guardar
-    const dataToSave = {
-      productName,
-      productPrice,
-      productDescription,
-      selectedProvider,
-      selectedColors,
-      selectedCategories,
-      selectedImage,
-    };
+  const handleSelectChangeBrands = (event) => {
+    const selectedValue = event.target.value;
+    const splitValues = selectedValue.split('-');
+    const selectedBrandId = splitValues[1];
+    const selectedBrandsObj = brandsOptions.find(
+      (option) => option.id === selectedValue
+    );
+    if (selectedBrandsObj) {
+      setSelectedBrand(selectedBrandsObj);
+      formik.setFieldValue("marcaId", selectedBrandId);
+    }
+  };
 
-    // Convertir el objeto en formato JSON
-    const jsonData = JSON.stringify(dataToSave, null, 2);
+  const handleSelectChangeCategories = (event) => {
+    const selectedValue = event.target.value;
+    const splitValues = selectedValue.split('-');
+    const selectedCategoriesId = splitValues[1];
+    const selectedCategoriesObj = categoriesOptions.find(
+      (option) => option.id === selectedValue
+    );
+    if (selectedCategoriesObj) {
+      setSelectedCategories(selectedCategoriesObj);
+      formik.setFieldValue("categoriaId", selectedCategoriesId);
+    }
+  };
 
-    // Crear un Blob (objeto binario) con los datos JSON
-    const blob = new Blob([jsonData], { type: "application/json" });
-
-    // Crear una URL para el Blob
-    const url = URL.createObjectURL(blob);
-
-    // Crear un enlace de descarga
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "productData.json";
-    a.textContent = "Descargar JSON";
-
-    // Agregar el enlace al documento y hacer clic en él para iniciar la descarga
-    document.body.appendChild(a);
-    a.click();
-
-    // Restablecer el formulario después de guardar los datos
-    formik.resetForm();
-    setSelectedProvider("");
-    setSelectedColors([]);
-    setSelectedImage(null);
-    setSelectedCategories([]);
+  const handleSelectChangeSize = (event) => {
+    const selectedValue = event.target.value;
+    const splitValues = selectedValue.split('-');
+    const selectedSizeId = splitValues[1];
+    const selectedSizeObj = sizesOptions.find(
+      (option) => option.id === selectedValue
+    );
+    if (selectedSizeObj) {
+      setSelectedSize(selectedSizeObj);
+      formik.setFieldValue("tamañoId", selectedSizeId);
+    }
   };
 
   return (
-    <><form onSubmit={formik.handleSubmit}>
-      <div className={style.formContainer}>
-        <div className={`flex justify-center ${style.leftSection}`}>
-          <div className="w-2/3">
-            <h1 className={style.mainContainer}>Crear Producto:</h1>
+    <>
+      <form onSubmit={formik.handleSubmit}>
+        <div className={style.formContainer}>
+          <div className={`flex justify-center ${style.leftSection}`}>
+            <div className="w-2/3">
+              <h1 className={style.mainContainer}>Crear Producto:</h1>
 
-            <div>
-              <label htmlFor="productName">Nombre del Producto</label>
+              {/* campo nombre del producto */}
               <div>
-                <input
-                  type="text"
-                  className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
-                  placeholder="Ingrese el nombre del producto"
-                  id="productName"
-                  name="productName"
-                  onChange={(e) => {
-                    setProductName(e.target.value);
-                    formik.handleChange(e);
-                  } }
-                  onBlur={formik.handleBlur}
-                  value={formik.values.productName} />
-                {formik.touched.productName && formik.errors.productName ? (
-                  <div className={style.error}>{formik.errors.productName}</div>
-                ) : null}
-              </div>
-            </div>
-            <div>
-              <label htmlFor="productPrice">Precio del Producto</label>
-              <div>
-                <input
-                  type="text"
-                  className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
-                  placeholder="Ingrese el precio del producto"
-                  id="productPrice"
-                  name="productPrice"
-                  onChange={(e) => {
-                    setProductPrice(e.target.value);
-                    formik.handleChange(e);
-                  } }
-                  onBlur={formik.handleBlur}
-                  value={formik.values.productPrice} />
-                {formik.touched.productPrice && formik.errors.productPrice ? (
-                  <div className={style.error}>
-                    {formik.errors.productPrice}
-                  </div>
-                ) : null}
-              </div>
-            </div>
-            <div>
-              <label htmlFor="productProviders">Proveedor</label>
-              <div>
-                <select
-                  id="productProviders"
-                  value={selectedProvider}
-                  onChange={handleSelectChange}
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
-                >
-                  <option value="">Seleccionar</option>
-                  {providers.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <strong>Proveedor Seleccionado:</strong>{" "}
-                {selectedProvider.length > 0 ? selectedProvider : "Ninguno"}
-              </div>
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="productDescription"
-                className="block font-medium text-gray-700"
-              >
-                Descripción del Producto
-              </label>
-              <textarea
-                id="productDescription"
-                name="productDescription"
-                placeholder="Escriba una breve descripcion del producto"
-                rows="4"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
-                onChange={(e) => {
-                  setProductDescription(e.target.value);
-                  formik.handleChange(e);
-                } }
-                onBlur={formik.handleBlur} />
-            </div>
-            <div>
-              <label htmlFor="productCategories">Categorias</label>
-              <div>
-                <select
-                  value=""
-                  onChange={handleCategoryChange}
-                  className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
-                >
-                  <option value="" disabled>
-                    Seleccionar
-                  </option>
-                  {categories.map((category) => (
-                    <option key={category} value={category}>
-                      {category}
-                    </option>
-                  ))}
-                </select>
-                <div className="mt-4">
-                  <h2>Categorías seleccionadas:</h2>
-                  <ul>
-                    {selectedCategories.map((category, index) => (
-                      <li key={index}>
-                        {category}
-                        <button
-                          className="ml-2 text-red-500"
-                          onClick={() => handleRemoveCategory(category)}
-                        >
-                          Eliminar
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
+                <label htmlFor="productName">Nombre del Producto</label>
+                <div>
+                  <input
+                    type="text"
+                    className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="Ingrese el nombre del producto"
+                    id="productName"
+                    name="name"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.name}
+                  />
+                  {formik.touched.name && formik.errors.name ? (
+                    <div className={style.error}>{formik.errors.name}</div>
+                  ) : null}
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className={`flex justify-center ${style.rightSection}`}>
-          <div className="w-2/3">
-            <div>
-              <h3>Selecciona colores:</h3>
-              {colors.map((color) => (
-                <label key={color} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    value={color}
-                    checked={selectedColors.includes(color)}
-                    onChange={() => handleCheckboxChange(color)}
-                    className="mr-2" />
-                  {color}
-                </label>
-              ))}
+
+              {/* campo precio Compra */}
               <div>
-                <strong>Colores seleccionados:</strong>{" "}
-                {selectedColors.length > 0
-                  ? selectedColors.join(", ")
-                  : "Ninguno"}
+                <label htmlFor="productPrice">
+                  Precio de compra del Producto{" "}
+                </label>
+                <div>
+                  <input
+                    type="text"
+                    className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="Ingrese el precio del producto"
+                    id="productPrice"
+                    name="precio_compra"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.precio_compra}
+                  />
+                  {formik.touched.precio_compra &&
+                  formik.errors.precio_compra ? (
+                    <div className={style.error}>
+                      {formik.errors.precio_compra}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+
+
+              {/* campo Porcentaje De Ganancia*/}
+              <div>
+                <label htmlFor="PercentageOfProfit">
+                  Porcentaje De Ganancia{" "}
+                </label>
+                <div>
+                  <input
+                    type="text"
+                    className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="Ingrese el Porcentaje de ganancia"
+                    id="PercentageOfProfit"
+                    name="porcentaje_ganancia"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.porcentaje_ganancia}
+                  />
+                  {formik.touched.porcentaje_ganancia &&
+                  formik.errors.porcentaje_ganancia ? (
+                    <div className={style.error}>
+                      {formik.errors.porcentaje_ganancia}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+
+              {/* campo precio venta  */}
+              <div>
+                <label htmlFor="salePrice">Precio de Venta del Producto </label>
+                <div>
+                  <input
+                    type="text"
+                    className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="Ingrese el precio de Venta producto"
+                    id="salePrice"
+                    name="precio_venta"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.precio_venta}
+                  />
+                  {formik.touched.precio_venta && formik.errors.precio_venta ? (
+                    <div className={style.error}>
+                      {formik.errors.precio_venta}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+
+              {/* campo Proveedor  */}
+              <div>
+                <label htmlFor="productProviders">Proveedor</label>
+                <div>
+                  <select
+                    id="productProviders"
+                    value={
+                      selectedProvider && selectedProvider.id
+                        ? selectedProvider.id
+                        : ""
+                    }
+                    onChange={handleSelectChange}
+                    name="proveedorId"
+                    className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
+                  >
+                    <option value="">Seleccionar</option>
+                    {providers.map((option) => (
+                      <option key={option.id} value={option.id}>
+                        {option.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* campo referencia Proveedor */}
+              <div>
+                <label htmlFor="refProv">Referencia del Proveedor</label>
+                <div>
+                  <input
+                    type="text"
+                    className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="Ingrese la fererencia del proveedor"
+                    id="refProv"
+                    name="referencia_proveedor"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.referencia_proveedor}
+                  />
+                  {formik.touched.referencia_proveedor &&
+                  formik.errors.referencia_proveedor ? (
+                    <div className={style.error}>
+                      {formik.errors.referencia_proveedor}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+
+              {/* campo Descripcion del producto  */}
+              <div className="mb-4">
+                <label
+                  htmlFor="productDescription"
+                  className="block font-medium text-gray-700"
+                >
+                  Descripción del Producto
+                </label>
+                <textarea
+                  id="productDescription"
+                  name="descripcion"
+                  placeholder="Escriba una breve descripcion del producto"
+                  rows="4"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
               </div>
             </div>
-            {selectedImage && (
-              <div className="w-full h-64 border border-gray-300 rounded-lg overflow-hidden">
-                <img
-                  src={selectedImage}
-                  alt="Imagen seleccionada"
-                  className="w-full h-full object-cover" />
+          </div>
+          <div className={`flex justify-center ${style.rightSection}`}>
+            <div className="w-2/3">
+              {/* campo Tamaño Producto  */}
+              <div>
+                <label htmlFor="productSize">Tamaño</label>
+                <div>
+                  <select
+                    id="productSize"
+                    value={
+                      selectedSize && selectedSize.id ? selectedSize.id : ""
+                    }
+                    onChange={handleSelectChangeSize}
+                    name="tamañoId"
+                    className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
+                  >
+                    <option value="">Seleccionar</option>
+                    {sizesOptions.map((option) => (
+                      <option key={option.id} value={option.id}>
+                        {option.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
-            )}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="mb-4" />
-            <div className="flex gap-2">
-              <button
-                type="button"
-                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-red-300"
-              >
-                Cancelar
-              </button>
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                disabled={formik.isSubmitting ||
-                  !formik.isValid ||
-                  Object.keys(formik.touched).length !==
-                  Object.keys(formik.values).length ||
-                  Object.keys(formik.errors).length !== 0}
-                onClick={handleFormSubmit} // Llamar a la función de guardado en clic del botón
-              >
-                Guardar Producto
-              </button>
+
+              {/* campo Marca Producto  */}
+              <div>
+                <label htmlFor="productMarca">Marca</label>
+                <div>
+                  <select
+                    id="productMarca"
+                    value={
+                      selectedBrand && selectedBrand.id ? selectedBrand.id : ""
+                    }
+                    onChange={handleSelectChangeBrands}
+                    name="marcaId"
+                    className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
+                  >
+                    <option value="">Seleccionar</option>
+                    {brandsOptions.map((option) => (
+                      <option key={option.id} value={option.id}>
+                        {option.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* campo Categorias del producto  */}
+              <div>
+                <label htmlFor="productCategories">Categoría</label>
+                <div>
+                  <select
+                    id="productCategories"
+                    value={
+                      selectedCategories && selectedCategories.id
+                        ? selectedCategories.id
+                        : ""
+                    }
+                    onChange={handleSelectChangeCategories}
+                    name="categoriaId"
+                    className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
+                  >
+                    <option value="">Seleccionar</option>
+                    {categoriesOptions.map((option) => (
+                      <option key={option.id} value={option.id}>
+                        {option.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* campo imagen del producto */}
+              {/* {selectedImage && (
+                <div className="w-full h-64 border border-gray-300 rounded-lg overflow-hidden">
+                  <img
+                    src={selectedImage}
+                    alt="Imagen seleccionada"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                className="mb-4"
+              /> */}
+
+              {/* Botones del Form */}
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-red-300"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300" // Llamar a la función de guardado en clic del botón
+                >
+                  Guardar Producto
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </form></>
+      </form>
+    </>
   );
 };
 

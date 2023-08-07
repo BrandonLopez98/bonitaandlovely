@@ -5,13 +5,10 @@ module.exports = async (array) => {
 
   async function crearProducto(producto) {
 
-    let {name, descripcion, precio_compra, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId } = producto
+    let {name, descripcion, precio_compra, imagenes, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId } = producto
 
-    function primerLetraMayuscula(str) {
-      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-    }
-  
-    name = primerLetraMayuscula(name);
+    name = name.toLowerCase();
+    
     try {
       // Verificar si el proveedor existe y está activo
       const proveedorExistente = await Proveedor.findOne({
@@ -77,6 +74,7 @@ module.exports = async (array) => {
         descripcion,
         precio_compra,
         porcentaje_ganancia,
+        imagenes,
         precio_venta,
         referencia_proveedor,
         marcaId,
@@ -91,6 +89,8 @@ module.exports = async (array) => {
           id: subcategoriaId,
         },
       });
+
+      await nuevoProducto.addSubcategoria(subcategorias);
   
       const subcategoriasIncorrectas = subcategorias.filter(subcategoria => !subcategoria.activa);
   

@@ -3,8 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 import bagIcon from '../../assets/img/baghandleWhite.svg';
 import colorIcon from '../../assets/img/colorIcon.svg'
-//import { getproductsByDetail, cleanDetail } from "../../redux/actions";
-//import { useDispatch, useSelector } from "react-redux";
+import { getProductsByDetail, cleanDetail } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const Button = styled.button`
   display: flex;
@@ -31,18 +32,20 @@ const Button = styled.button`
 
 const Detail = () => {
     const back = useNavigate();
+    const dispatch = useDispatch();
     const { id } = useParams();
-   // const products = useSelector ((state) => state.Allproducts); 
-   // console.log(products)
+    const stateProducts = useSelector(state => state.productsDetail);
+   console.log(stateProducts)
 
-   /* useEffect(() => {
-    dispatch(getCountryByDetail(id)) //despacha cuando se monta
+  /* useEffect(() => {
+    dispatch(getProductsByDetail()); // despacha cuando se monta
+  
     return () => {
-      dispatch(cleanDetail()) // despacha cuando se desmonta
-    }
+      dispatch(cleanDetail()); // despacha cuando se desmonta
+    };
   }, [dispatch, id]); */
 
-
+  
     const [images, setImages] = useState({
         img1: "https://cdn2.primor.eu/media/catalog/product/cache/8d3aba296f7a18b5251ee30fa5db42b2/0/M/0ML19241_1_1c53.webp",
         img2: "https://cdn2.primor.eu/media/catalog/product/cache/8d3aba296f7a18b5251ee30fa5db42b2/0/M/0ML21209_1_ac93.webp",
@@ -61,6 +64,7 @@ const Detail = () => {
     const handleIncrement = () => {
         setAmount((prev) => Math.min(prev + 1, 10));
     };
+
 
     // La cantidad del stock no puede ser menor a cero y como maximo tiene que ser
     // el stock disponible (que en este caso es 10);
@@ -88,7 +92,6 @@ const Detail = () => {
 */
     return (
         <div>
-            
             <div className="m-15">
                 <Button primary onClick={() => back('/')}>
                     Atrás
@@ -99,29 +102,29 @@ const Detail = () => {
 
                     <img src={activeImg} alt="" className='w-40% h-40% aspect-square object-cover rounded-xl ml-1' />
                     <div className='flex flex-row justify-between h-24'>
-                        <img src={images.img1} alt="" className='w-36 h-36 p-2 m-3rounded-md cursor-pointer border border-grey-500 border-5 rounded-lg' onClick={() => setActiveImage(images.img1)} />
-                        <img src={images.img2} alt="" className='w-36 h-36 p-2 m-3rounded-md cursor-pointer border border-grey-500 border-5 rounded-lg' onClick={() => setActiveImage(images.img2)} />
-                        <img src={images.img3} alt="" className='w-36 h-36 p-2 m-3rounded-md cursor-pointer border border-grey-500 border-5 rounded-lg' onClick={() => setActiveImage(images.img3)} />
-                        <img src={images.img4} alt="" className='w-36 h-36 p-2 m-3rounded-md cursor-pointer border border-grey-500 border-5 rounded-lg' onClick={() => setActiveImage(images.img4)} />
+                        <img src={images.img1} alt="" className='w-20 h-30 p-2 m-3rounded-md cursor-pointer border border-grey-500 border-5 rounded-lg' onClick={() => setActiveImage(images.img1)} />
+                        <img src={images.img2} alt="" className='w-20 h-30 p-2 m-3rounded-md cursor-pointer border border-grey-500 border-5 rounded-lg' onClick={() => setActiveImage(images.img2)} />
+                        <img src={images.img3} alt="" className='w-20 h-30 p-2 m-3rounded-md cursor-pointer border border-grey-500 border-5 rounded-lg' onClick={() => setActiveImage(images.img3)} />
+                        <img src={images.img4} alt="" className='w-20 h-30 p-2 m-3rounded-md cursor-pointer border border-grey-500 border-5 rounded-lg' onClick={() => setActiveImage(images.img4)} />
                     </div>
                 </div>
 
                 <div className='flex flex-col gap-4 lg:w-2/4'>
-                    <div>
-                        {/*
-                        <div>
-                        {products?.map((item) => (
-                            <p key={item.id}>{item.name.toUpperCase()}</p
-                            s  ))}
-                            </div>
-                            */}
-                        <p className='font-semibold text-customColor text-2xl'>Lipstick 24 hs</p>
-                        <h1 className='text-5xl font-bold'> {/* products.name */}MAYBELLINE NEW YORK</h1>
-                    </div>
-                    <p className='text-gray-700 text-3xl'> {/* products.description */}
+                <div>
+    <div>
+        {stateProducts.productos && stateProducts.productos.map((item) => (
+            <p key={item.id}>{item.name.toUpperCase()}</p>
+        ))}
+    </div>
+    <p className='font-semibold text-customColor text-2xl'>Lipstick 24 hs</p>
+    
+    
+    <h1 className='text-5xl font-bold'>{stateProducts.name} MAYBELLINE NEW YORK</h1>
+</div>
+                    <p className='text-gray-700 text-3xl'> {stateProducts.description }
                         Pintalabios mate de larga duración SuperStay Matte Ink
                     </p>
-                    <h6 className='text-3xl font-semibold'> {/* products.precio_venta */}$ 3000.00</h6>
+                    <h6 className='text-3xl font-semibold'> { stateProducts.precio_venta }$ 3000.00</h6>
                     <div className='flex flex-row items-center gap-12'>
                         <div className='flex flex-row gap-3'>
                             <div className='relative'>

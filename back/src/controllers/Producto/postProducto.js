@@ -1,12 +1,9 @@
 const { Producto, Categoria, Marca, Size, Proveedor, Subcategoria } = require('../../db');
 
-module.exports = async (name, descripcion, precio_compra, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId) => {
+module.exports = async (name, descripcion, precio_compra, imagenes, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId) => {
 
-  function primerLetraMayuscula(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-  }
-
-  name = primerLetraMayuscula(name);
+  
+  name = name.toLowerCase();
   try {
     // Verificar si el proveedor existe y está activo
     const proveedorExistente = await Proveedor.findOne({
@@ -70,6 +67,7 @@ module.exports = async (name, descripcion, precio_compra, porcentaje_ganancia, p
     const nuevoProducto = await Producto.create({
       name,
       descripcion,
+      imagenes,
       precio_compra,
       porcentaje_ganancia,
       precio_venta,
@@ -86,6 +84,8 @@ module.exports = async (name, descripcion, precio_compra, porcentaje_ganancia, p
         id: subcategoriaId,
       },
     });
+
+    await nuevoProducto.addSubcategoria(subcategorias);
 
     const subcategoriasIncorrectas = subcategorias.filter(subcategoria => !subcategoria.activa);
 

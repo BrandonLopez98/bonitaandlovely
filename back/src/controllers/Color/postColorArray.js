@@ -10,7 +10,6 @@ module.exports = async (coloresArray) => {
       }
 
       const name = nombre.charAt(0).toUpperCase() + nombre.slice(1).toLowerCase();
-
       if (!name) {
         throw new Error('El nombre de color es inválido.');
       }
