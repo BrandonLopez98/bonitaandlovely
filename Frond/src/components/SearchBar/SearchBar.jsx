@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import loupe from '../../assets/img/Loupe.svg';
 import styled from 'styled-components';
 import { getProductByName } from '../../redux/actions';
+import { useNavigate } from 'react-router-dom';
 
 const FormSearchBar = styled.form`
 background: var(--clr-white);
@@ -53,10 +54,11 @@ button:focus, input:focus{
 }
 `;
 
-const SearchBar = ({ placeholder, history}) => {
+const SearchBar = ({ placeholder}) => {
   const dispatch = useDispatch();
   const [inputText, setInputText] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(async () => {
@@ -84,9 +86,10 @@ const SearchBar = ({ placeholder, history}) => {
 		const ProductFound = await dispatch(getProductByName(inputText));
 		setSuggestions(ProductFound.payload);
   };
-  history.push('/catalog');
+  
   }
   const handleSuggestionClick = (suggestion) => {
+    navigate('/catalogo');
     setInputText(suggestion.name);
     setSuggestions([]);
   };
