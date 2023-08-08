@@ -10,7 +10,7 @@ const InitialState = {
     Allcolors: [],
     productsDetail: [],
     productsFiltered: [], 
-    GETPRODUCT_BYNAME
+    searchResults: []
 }
 
 const reducer = (state = InitialState, {type, payload}) => {
@@ -101,7 +101,7 @@ const reducer = (state = InitialState, {type, payload}) => {
         case GETPRODUCT_BYNAME:
             return {
                 ...state,
-                Allproducts: payload
+                searchResults: payload
             };
         
         default:

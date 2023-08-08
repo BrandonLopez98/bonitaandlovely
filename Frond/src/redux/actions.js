@@ -100,7 +100,7 @@ export const categories = () => async dispatch => {
   export const getProductByName = (name) =>{
     return async (dispatch)=>{
       try {
-        const {data} = await axios.get('/producto?name=${name}');
+        const {data} = await axios.get(`/producto?name=${name}`);
         return dispatch({
           type: GETPRODUCT_BYNAME,
           payload: data
