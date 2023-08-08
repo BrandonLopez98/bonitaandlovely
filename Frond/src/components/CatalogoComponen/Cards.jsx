@@ -41,6 +41,10 @@ const Cards = ({ stateProducts }) => {
 
   const productsToDisplay = filteredProducts.length > 0 ? filteredProducts : searchResults.length > 0 ? searchResults : stateProducts.productos;
 
+  if (!productsToDisplay) {
+    return null; 
+  }
+
   return (
       <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-auto-rows grid-rows-1 gap-5">
           {productsToDisplay.map(({ id, name, descripcion, precio_venta }) => {

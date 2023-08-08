@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/img/logoBonitaLovelyw.png';
 import vector from '../../assets/img/vector.svg'
 import { AiFillHeart } from 'react-icons/ai';
-import {AiFillShopping} from 'react-icons/ai'
+import { AiFillShopping } from 'react-icons/ai'
 import SearchBar from '../SearchBar/SearchBar';
 import style from './NavBar.module.css';
 import LoginButton from '../LoginComponents/Login';
@@ -23,9 +23,9 @@ const Navbar = ({ initialLanguage }) => {
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
   const [language, setLanguage] = useState(initialLanguage || 'en');
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(categories())
-}, [dispatch])
+  }, [dispatch])
 
   const toggleLanguageMenu = () => {
     setShowLanguageMenu(!showLanguageMenu);
@@ -51,24 +51,24 @@ const Navbar = ({ initialLanguage }) => {
   const navigate = useNavigate()
 
   const filterByCategories = (event) => {
-   const categoryToFilter = event.target.textContent
-   switch (categoryToFilter) {
-    case 'Maquillaje':
-      navigate('/catalogo')
-      break;
+    const categoryToFilter = event.target.textContent
+    switch (categoryToFilter) {
+      case 'Maquillaje':
+        navigate('/catalogo')
+        break;
 
-    case 'Skincare':
-      navigate('/catalogo')
-      break;
+      case 'Skincare':
+        navigate('/catalogo')
+        break;
 
-    case 'Accesorios':
-      navigate('/catalogo')
-      break;
-      
-   
-    default:
-      break;
-   }
+      case 'Accesorios':
+        navigate('/catalogo')
+        break;
+
+
+      default:
+        break;
+    }
   }
 
   return (
@@ -84,12 +84,17 @@ const Navbar = ({ initialLanguage }) => {
           </div>
 
           <div className={style.icons}>
+
             <button className={style.btnb}>
-              <AiFillShopping />
+              <Link to="/carrito"> {/* Utiliza Link en lugar de button */}
+                <AiFillShopping/>
+              </Link>
             </button>
+
             <button className={style.btnb}>
               <AiFillHeart />
             </button>
+
             <div className={style.menuItem}>
               <Profile />
               <LoginButton />
@@ -104,23 +109,23 @@ const Navbar = ({ initialLanguage }) => {
             {/* <FiChevronDown /> */}
           </div>
           {isOpen && (
-              <div
-                onMouseLeave={hideCategories}
-                className="absolute top-30 z-20 w-48 right-50 bg-white border rounded-md shadow-lg mt-20"
-              >
+            <div
+              onMouseLeave={hideCategories}
+              className="absolute top-30 z-20 w-48 right-50 bg-white border rounded-md shadow-lg mt-20"
+            >
 
               <ul>
-              {categorias && (
-                categorias.map((categoria) => {
-                  return  <li onClick={filterByCategories} onMouseEnter={showSub} onMouseLeave={hideSub} key={categoria.id} className="block px-4 py-2 text-gray-800 hover:bg-gray-200 cursor-pointer border-b border-b-2 border-solid ">{categoria.name}</li>
+                {categorias && (
+                  categorias.map((categoria) => {
+                    return <li onClick={filterByCategories} onMouseEnter={showSub} onMouseLeave={hideSub} key={categoria.id} className="block px-4 py-2 text-gray-800 hover:bg-gray-200 cursor-pointer border-b border-b-2 border-solid ">{categoria.name}</li>
 
-                })
-              )}
+                  })
+                )}
               </ul>
-              </div>
-            )}
+            </div>
+          )}
 
-         
+
           <div className={`${style.categoriesMenu}`}>
             <ul className={`${style.menu} ${showMenu ? style.show : ''}`}>
               <li>
