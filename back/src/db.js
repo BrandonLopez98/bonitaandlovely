@@ -38,4 +38,4 @@ Subcategoria.belongsToMany(Producto, { through: 'producto_subcategoria' });
 module.exports = {
   ...sequelize.models,
   conn: sequelize,
-};
+}
