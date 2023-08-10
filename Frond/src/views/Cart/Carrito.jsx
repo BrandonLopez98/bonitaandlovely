@@ -86,6 +86,8 @@ const itemsData = [
     },
 ];
 
+const cantidad = 1;
+
 
 const Carrito = () => {
     const [showItem, setShowItem] = useState(-1);
@@ -107,7 +109,7 @@ const Carrito = () => {
                             00
                         </div>
                         <div class="col-start-6 col-span-1 flex items-center justify-center font-medium ">
-                            $00.00
+                        {item.precio_venta * cantidad}
                         </div>
                     </div>
                 ))}
