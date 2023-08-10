@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import ReactDOM from 'react-dom';
 import './App.css';
 import {Route, Routes, useLocation } from "react-router-dom";
 import LandingPage from "./views/LandingPage/LandingPage";
@@ -8,12 +9,13 @@ import Contact from "./views/Contact/Contact";
 import DevTeam from './views/DevTeam/devTeam.jsx'
 import FAQs from "./views/FAQs/FAQs"
 import Catalogo from "./views/Catalogo/Catalogo.jsx";
-import Chatbot from "react-chatbot-kit";
+import ChatbotProvider from "react-chatbot-kit";
 import Form from "./views/Form/Form";
 import Profile from "./views/Profile/Profile";
-import Configs from "./components/ChatBot/Configs";
-import MessageParser from "./components/ChatBot/MessageParser";
+import Config from "./components/Chatbot/Chatbot/config.jsx";
+import MessageParser from "./components/Chatbot/Chatbot/MessageParser";
 import Detail from "../src/views/Detail/Detail";
+import ActionProvider from "./components/Chatbot/Chatbot/actionProvider";
 
 import Dashboard from "./components/Dashboard/Dashboard";
 import axios from "axios"
@@ -22,12 +24,31 @@ import Footer from "./components/Footer/Footer";
 //para no repetir el puerto:(se está configurando una URL base que se utilizará como prefijo para todas las peticiones realizadas con Axios) 
 axios.defaults.baseURL = "http://localhost:3001/"
 
-// import ActionProvider from "./components/ChatBot/ActionProvider";
+
 
 
 function App () {
-  const location = useLocation()
+  const location = useLocation();
+  
+  const messageParser = (message) => {
+    return JSON.parse(message);
+  };
+  
+  const actionProvider = (action) => {
+    console.log(action);
+  };
+  
+  const Chatbot = ({ config, messageParser, actionProvider }) => {
+    return (
+        <ul>
+          {Object.entries(config).map(([key, value]) => (
+            <li key={key}>{key}: {value}</li>
+          ))}
+        </ul>
+    );
+  };
 
+  
   return (
     <div>
       {
@@ -46,14 +67,16 @@ function App () {
         <Route path="/catalogo/detail/:id" element={<Detail />} />
 
         <Route path="/dashboard" element = {<Dashboard/>}/>
-
+        
       </Routes>
       <div className="chatbot-container">
-        <Chatbot
-          config={Configs}
+      <ChatbotProvider>
+        <chatbot 
+          config={Config}
+          floating='true' headerTitle='BellaBot' placeholder='Escribe tu pregunta'
           messageParser={MessageParser}
-          // actionProvider={ActionProvider}
-        />
+          actionProvider={ActionProvider} />
+      </ChatbotProvider>
       </div>
       {
             location.pathname !== "/" ? <Footer /> : null

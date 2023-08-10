@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
+// import ChatbotProvider from "react-chatbot-kit";
 
 const domain = 'dev-oh6m6lnus4nehfc3.us.auth0.com';
 const client = 'QoLf3RkpUfrTIfn1xpAo30bC2mYxqv7o';
@@ -21,6 +22,7 @@ ReactDOM.render(
     }}>
     <Provider store={store}>
     <App />
+    {/* <ChatbotProvider /> */}
     </Provider>
     </Auth0Provider>
   </Router>,

@@ -8,7 +8,7 @@ import CarouselMid from '../../components/CarouselMid/Carousel'
 import Products from '../../components/Products/Products'
 // import Offers from '../../components/offers/offers'
 import Footer from '../../components/Footer/Footer';
-import ChatBotComponent from '../../components/ChatBot/ChatBot';
+import ChatBot from '../../components/Chatbot/BellaBot';
 import Reviews from '../../components/Reviews/Reviews'
 import ChooseUs from '../../components/ChooseUsSection/Choose';
 
@@ -68,7 +68,7 @@ const LandingPage = () => {
         </>
 
       </Container>
-      <ChatBotComponent language={language} />
+      <ChatBot />
       <Footer />
     </>
   );

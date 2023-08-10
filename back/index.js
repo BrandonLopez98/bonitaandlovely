@@ -30,7 +30,7 @@ async function startServer() {
 
     // Iniciamos el servidor para escuchar en el puerto
     server.listen(PORT, () => {
-      console.log('Server listening on port', PORT);
+      console.log('Server listening on port', 3001);
     });
   } catch (error) {
     console.error('Error starting server:', error.message);
