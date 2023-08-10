@@ -48,7 +48,7 @@ const LandingPage = () => {
     <>
         <NavBar />
       <Container darkMode={isDarkMode}>
-        <div style={{ height: '800px', overflowX: 'scroll', marginTop: '-2%' }}>
+        <div style={{ height: '500px', overflowX: 'scroll', marginTop: '-2%' }}>
           <CarouselMid />
         </div>
         

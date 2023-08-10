@@ -4,6 +4,12 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
 const helmet = require('helmet'); // Agregamos el paquete 'helmet' para seguridad
+const mercadopago = require("mercadopago");
+require('dotenv').config()
+const { MERCADO_PAGO_ACCESS_TOKEN, MERCADO_PAGO_KEY } = process.env
+mercadopago.configure({
+  access_token: MERCADO_PAGO_ACCESS_TOKEN,
+});
 
 require('./db.js');
 
@@ -42,5 +48,52 @@ server.use((err, req, res, next) => {
   console.error('Error:', err.message);
   res.status(500).send('Internal Server Error');
 });
+
+//Mercado pago:
+server.get("/", function (req, res) {
+  const filePath = path.resolve(__dirname, "..", "client", "index.html");
+  res.sendFile(filePath);
+});
+
+server.post("/pago", (req, res) => {
+  const producto = req.body;
+
+  let preference = {
+    items: [
+      {
+        id: producto.id,
+        title: producto.nombre,
+        unit_price: Number(producto.precio),
+        description: producto.descripcion,
+        quantity: 1
+      },
+    ],
+    back_urls: {
+      success: "http://localhost:3000",
+      failure: "http://localhost:3000",
+      pending: "",
+    },
+    auto_return: "approved",
+    binary_mode:true,
+  };
+
+  mercadopago.preferences
+    .create(preference)
+    .then((response)=> {
+   res.status(200).send({response})
+    })
+    .catch((error)=> {
+      res.status(400).send(error.message)
+    });
+});
+
+server.get("/feedback", function (req, res) {
+  res.json({
+    Payment: req.query.payment_id,
+    Status: req.query.status,
+    MerchantOrder: req.query.merchant_order_id,
+  });
+});
+
 
 module.exports = server;

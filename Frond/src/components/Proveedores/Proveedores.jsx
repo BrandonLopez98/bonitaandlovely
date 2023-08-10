@@ -1,5 +1,7 @@
 import React from 'react';
-import Marca from '../../assets/img/marca.png'
+import proveedor1 from '../../assets/img/proveedor1.png'
+import proveedor2 from '../../assets/img/proveedor2.png'
+import proveedor3 from '../../assets/img/proveedor3.png'
 import style from './Proveedores.module.css'
 import styled from 'styled-components'
 const Card = styled.div`
@@ -28,15 +30,15 @@ return (
 
         <div className={style.flex}>
         <Card>
-        <img src={Marca} alt="" />
+        <img src={proveedor1} alt="" />
         </Card>
 
         <Card>
-        <img src={Marca} alt="" />
+        <img src={proveedor2} alt="" />
         </Card>
 
         <Card>
-        <img src={Marca} alt="" />
+        <img src={proveedor3} alt="" />
         </Card>
 
        

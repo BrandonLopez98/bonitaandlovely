@@ -3,6 +3,7 @@ const router = express.Router();
 
 const getAllProducto = require('../controllers/Producto/getAllProductos')
 const getIdProducto = require('../controllers/Producto/getIdProducto')
+const getProductos = require('../controllers/Producto/getProductos')
 const getNameProducto = require('../controllers/Producto/getNameProductos')
 const postProducto = require('../controllers/Producto/postProducto')
 const postProductoArray = require('../controllers/Producto/postProductoArray')
@@ -22,6 +23,9 @@ router.get('/', async (req,res)=>{
       paginas: Math.ceil(producto.count / size),
       productos: producto.rows      
     }) 
+  }else{
+    let producto = await getProductos()
+      res.status(200).send(producto)
   }
   } catch (error) {
     res.status(400).send(error.message)
@@ -40,13 +44,13 @@ router.get('/:productoId', async (req,res)=>{
 
 router.post('/', async (req, res) => {
   try {
-    const { name, descripcion, precio_compra, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId } = req.body;
+    const { name, descripcion, precio_compra, imagenPrincipal, imagenes, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId } = req.body;
 
     if (Array.isArray(req.body)) {
       const Productos = await postProductoArray(req.body);
       res.status(200).json(Productos);
     } else {
-      const Producto = await postProducto(name, descripcion, precio_compra, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId);
+      const Producto = await postProducto(name, descripcion, precio_compra, imagenPrincipal, imagenes, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId);
       res.status(200).json(Producto);
     }
   } catch (error) {

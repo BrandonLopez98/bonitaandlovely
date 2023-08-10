@@ -13,7 +13,7 @@ module.exports = async (page, size) => {
     });
 
     productos.rows.forEach((producto) => {
-      producto.dataValues.id = `col-${producto.dataValues.id}`;
+      producto.dataValues.id = `prod-${producto.dataValues.id}`;
     });
 
     return productos;

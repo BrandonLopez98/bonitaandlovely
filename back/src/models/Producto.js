@@ -14,8 +14,12 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true
     },
-    imagenes: {
+    imagenPrincipal: {
       type: DataTypes.STRING,
+      allowNull: true,
+    },
+    imagenes: {
+      type: DataTypes.ARRAY(DataTypes.INTEGER),
       allowNull: false,
     },
     descripcion: {
@@ -23,7 +27,7 @@ module.exports = (sequelize) => {
       allowNull: true,
     },
     precio_compra: {
-      type: DataTypes.DECIMAL(10, 2),
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     porcentaje_ganancia: {
@@ -31,7 +35,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     precio_venta: {
-      type: DataTypes.DECIMAL(10, 2),
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     referencia_proveedor: {

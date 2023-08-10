@@ -1,6 +1,6 @@
-const { Producto, Categoria, Marca, Size, Proveedor, Subcategoria } = require('../../db');
+const { Producto, Categoria, Marca, Size, Proveedor, Subcategoria, Imagen } = require('../../db');
 
-module.exports = async (name, descripcion, precio_compra, imagenes, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId) => {
+module.exports = async (name, descripcion, precio_compra, imagenPrincipal, imagenes, porcentaje_ganancia, precio_venta, referencia_proveedor, marcaId, categoriaId, tamañoId, proveedorId, subcategoriaId) => {
 
   
   name = name.toLowerCase();
@@ -63,10 +63,21 @@ module.exports = async (name, descripcion, precio_compra, imagenes, porcentaje_g
       throw new Error(`Ya existe un producto con el nombre ${name}`);
     }
 
+    const imagenesExistente = await Imagen.findAll({
+      where: {
+        id: imagenes,
+      },
+    });
+
+    if (imagenesExistente.length !== imagenes.length) {
+      throw new Error('Una o más imágenes no existen.');
+    }
+
     // Crear el producto en la base de datos
     const nuevoProducto = await Producto.create({
       name,
       descripcion,
+      imagenPrincipal,
       imagenes,
       precio_compra,
       porcentaje_ganancia,

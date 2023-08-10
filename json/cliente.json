@@ -1,0 +1,235 @@
+[
+    {
+      "name": "Ana Rodríguez",
+      "fecha_nacimiento": "1985-10-20",
+      "telefono": "555-123-4567",
+      "correo_electronico": "ana@example.com",
+      "direccion": "Avenida Ficticia 456",
+      "contraseña": "AnaPass123"
+    },
+    {
+      "name": "Luis Martínez",
+      "fecha_nacimiento": "1992-03-08",
+      "telefono": "777-987-6543",
+      "correo_electronico": "luis@example.com",
+      "direccion": "Calle Ficticia 789",
+      "contraseña": "LuisPass456"
+    },
+    {
+      "name": "María Gómez",
+      "fecha_nacimiento": "1988-12-15",
+      "telefono": "333-555-8888",
+      "correo_electronico": "maria@example.com",
+      "direccion": "Plaza Ficticia 101",
+      "contraseña": "MariaPass789"
+    },
+    {
+      "name": "Carlos Sánchez",
+      "fecha_nacimiento": "1977-06-25",
+      "telefono": "444-222-1111",
+      "correo_electronico": "carlos@example.com",
+      "direccion": "Carrera Ficticia 555",
+      "contraseña": "CarlosPass555"
+    },
+    {
+      "name": "Isabel López",
+      "fecha_nacimiento": "1998-08-02",
+      "telefono": "666-777-9999",
+      "correo_electronico": "isabel@example.com",
+      "direccion": "Callejón Ficticio 222",
+      "contraseña": "IsabelPass222"
+    },
+    {
+      "name": "Manuel García",
+      "fecha_nacimiento": "1991-01-12",
+      "telefono": "888-555-4444",
+      "correo_electronico": "manuel@example.com",
+      "direccion": "Avenida Ficticia 789",
+      "contraseña": "ManuelPass789"
+    },
+    {
+      "name": "Laura Fernández",
+      "fecha_nacimiento": "1995-07-30",
+      "telefono": "999-333-2222",
+      "correo_electronico": "laura@example.com",
+      "direccion": "Calle Ficticia 567",
+      "contraseña": "LauraPass567"
+    },
+    {
+      "name": "Pedro Ramírez",
+      "fecha_nacimiento": "1982-11-05",
+      "telefono": "111-222-3333",
+      "correo_electronico": "pedro@example.com",
+      "direccion": "Avenida Ficticia 123",
+      "contraseña": "PedroPass123"
+    },
+    {
+      "name": "Sofía Morales",
+      "fecha_nacimiento": "1993-09-18",
+      "telefono": "222-444-5555",
+      "correo_electronico": "sofia@example.com",
+      "direccion": "Plaza Ficticia 456",
+      "contraseña": "SofiaPass456"
+    },
+    {
+      "name": "Eduardo López",
+      "fecha_nacimiento": "1987-04-09",
+      "telefono": "333-111-6666",
+      "correo_electronico": "eduardo@example.com",
+      "direccion": "Calle Ficticia 789",
+      "contraseña": "EduardoPass789"
+    },
+    {
+      "name": "Carolina Martín",
+      "fecha_nacimiento": "1990-06-21",
+      "telefono": "444-666-7777",
+      "correo_electronico": "carolina@example.com",
+      "direccion": "Avenida Ficticia 101",
+      "contraseña": "CarolinaPass101"
+    },
+    {
+      "name": "Andrés Pérez",
+      "fecha_nacimiento": "1984-03-28",
+      "telefono": "555-888-9999",
+      "correo_electronico": "andres@example.com",
+      "direccion": "Calle Ficticia 222",
+      "contraseña": "AndresPass222"
+    },
+    {
+      "name": "Valentina Ruiz",
+      "fecha_nacimiento": "1997-02-14",
+      "telefono": "666-222-3333",
+      "correo_electronico": "valentina@example.com",
+      "direccion": "Plaza Ficticia 333",
+      "contraseña": "ValentinaPass333"
+    },
+    {
+      "name": "Javier García",
+      "fecha_nacimiento": "1989-08-16",
+      "telefono": "777-555-6666",
+      "correo_electronico": "javier@example.com",
+      "direccion": "Avenida Ficticia 444",
+      "contraseña": "JavierPass444"
+    },
+    {
+      "name": "Gabriela Castro",
+      "fecha_nacimiento": "1994-12-03",
+      "telefono": "888-111-2222",
+      "correo_electronico": "gabriela@example.com",
+      "direccion": "Calle Ficticia 555",
+      "contraseña": "GabrielaPass555"
+    },
+    {
+      "name": "Ricardo Soto",
+      "fecha_nacimiento": "1983-05-10",
+      "telefono": "999-444-5555",
+      "correo_electronico": "ricardo@example.com",
+      "direccion": "Avenida Ficticia 666",
+      "contraseña": "RicardoPass666"
+    },
+    {
+      "name": "Fernanda Mendoza",
+      "fecha_nacimiento": "1996-09-27",
+      "telefono": "111-777-8888",
+      "correo_electronico": "fernanda@example.com",
+      "direccion": "Plaza Ficticia 777",
+      "contraseña": "FernandaPass777"
+    },
+    {
+      "name": "José Torres",
+      "fecha_nacimiento": "1986-07-08",
+      "telefono": "222-333-4444",
+      "correo_electronico": "jose@example.com",
+      "direccion": "Calle Ficticia 888",
+      "contraseña": "JosePass888"
+    },
+    {
+      "name": "Paula Medina",
+      "fecha_nacimiento": "1999-04-25",
+      "telefono": "333-555-6666",
+      "correo_electronico": "paula@example.com",
+      "direccion": "Avenida Ficticia 999",
+      "contraseña": "PaulaPass999"
+    },
+    {
+      "name": "Héctor Vargas",
+      "fecha_nacimiento": "1980-11-12",
+      "telefono": "444-777-8888",
+      "correo_electronico": "hector@example.com",
+      "direccion": "Calle Ficticia 123",
+      "contraseña": "HectorPass123"
+    },
+    {
+      "name": "Carmen Fuentes",
+      "fecha_nacimiento": "1991-03-17",
+      "telefono": "555-999-1111",
+      "correo_electronico": "carmen@example.com",
+      "direccion": "Plaza Ficticia 234",
+      "contraseña": "CarmenPass234"
+    },
+    {
+      "name": "Miguel Silva",
+      "fecha_nacimiento": "1987-06-05",
+      "telefono": "666-222-3333",
+      "correo_electronico": "miguel@example.com",
+      "direccion": "Avenida Ficticia 345",
+      "contraseña": "MiguelPass345"
+    },
+    {
+      "name": "Lorena Cordero",
+      "fecha_nacimiento": "1993-01-30",
+      "telefono": "777-555-4444",
+      "correo_electronico": "lorena@example.com",
+      "direccion": "Calle Ficticia 456",
+      "contraseña": "LorenaPass456"
+    },
+    {
+      "name": "Raúl Mora",
+      "fecha_nacimiento": "1988-09-21",
+      "telefono": "888-333-2222",
+      "correo_electronico": "raul@example.com",
+      "direccion": "Plaza Ficticia 567",
+      "contraseña": "RaulPass567"
+    },
+    {
+      "name": "Adriana Paredes",
+      "fecha_nacimiento": "1997-07-11",
+      "telefono": "999-444-5555",
+      "correo_electronico": "adriana@example.com",
+      "direccion": "Avenida Ficticia 678",
+      "contraseña": "AdrianaPass678"
+    },
+    {
+      "name": "Hugo Ríos",
+      "fecha_nacimiento": "1984-02-08",
+      "telefono": "111-777-8888",
+      "correo_electronico": "hugo@example.com",
+      "direccion": "Calle Ficticia 789",
+      "contraseña": "HugoPass789"
+    },
+    {
+      "name": "Valeria Pino",
+      "fecha_nacimiento": "1990-05-14",
+      "telefono": "222-555-6666",
+      "correo_electronico": "valeria@example.com",
+      "direccion": "Plaza Ficticia 890",
+      "contraseña": "ValeriaPass890"
+    },
+    {
+      "name": "Roberto Cortez",
+      "fecha_nacimiento": "1989-10-03",
+      "telefono": "333-444-5555",
+      "correo_electronico": "roberto@example.com",
+      "direccion": "Avenida Ficticia 901",
+      "contraseña": "RobertoPass901"
+    },
+    {
+      "name": "Natalia Ramos",
+      "fecha_nacimiento": "1995-06-19",
+      "telefono": "444-777-8888",
+      "correo_electronico": "natalia@example.com",
+      "direccion": "Calle Ficticia 012",
+      "contraseña": "NataliaPass012"
+    }
+  ]
+  

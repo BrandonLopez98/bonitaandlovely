@@ -8,14 +8,43 @@ import { sizes, categories, brands } from "../../redux/actions";
 import style from "./Form.module.css";
 
 const validationSchema = yup.object({
-  name: yup.string().required("El nombre del producto es obligatorio"),
+  name: yup
+    .string()
+    .required("El nombre del producto es obligatorio")
+    .min(5, "El nombre debe tener al menos 3 caracteres")
+    .max(50, "El nombre no debe exceder los 50 caracteres"),
+  descripcion: yup
+    .string()
+    .required("La descripción es obligatoria")
+    .min(10, "La descripción debe tener al menos 10 caracteres")
+    .max(200, "La descripción no debe exceder los 200 caracteres"),
   precio_compra: yup
     .number()
     .typeError("El precio del producto debe ser un número válido")
     .required("El precio del producto es obligatorio")
     .positive("El precio debe ser un número positivo")
-    .min(0.01, "El precio mínimo es 0.01")
-    .max(99999.99, "El precio máximo es 99999.99"),
+    .min(1000, "El precio mínimo es 1000")
+    .max(1000000, "El precio máximo es 1000000"),
+  porcentaje_ganancia: yup
+    .number()
+    .typeError("El porcentaje de ganancia debe ser un número válido")
+    .required("El porcentaje de ganancia es obligatorio")
+    .min(10, "El porcentaje mínimo de ganancia es 10")
+    .max(100, "El porcentaje máximo de ganancia es 100"),
+  precio_venta: yup
+    .number()
+    .typeError("El precio de venta debe ser un número válido")
+    .required("El precio de venta es obligatorio")
+    .positive("El precio de venta debe ser un número positivo")
+    .min(0.01, "El precio mínimo de venta es 0.01")
+    .max(99999.99, "El precio máximo de venta es 99999.99"),
+  referencia_proveedor: yup
+    .string()
+    .required("La referencia del proveedor es obligatoria"),
+  marcaId: yup.number().required("Selecciona una marca"),
+  categoriaId: yup.number().required("Selecciona una categoría"),
+  tamañoId: yup.number().required("Selecciona un tamaño"),
+  proveedorId: yup.number().required("Selecciona un proveedor"),
 });
 
 const Form = () => {
@@ -23,6 +52,11 @@ const Form = () => {
   const sizesOptions = useSelector((state) => state.Allsizes);
   const categoriesOptions = useSelector((state) => state.Allcategories);
   const brandsOptions = useSelector((state) => state.Allbrands);
+
+  const [imageUrl, setImageUrl] = useState("");
+
+  const imgbbApiKey = "cf44a253679320997c892d7e7a273f04";
+  const imgbbUploadUrl = "https://api.imgbb.com/1/upload";
 
   useEffect(() => {
     dispatch(sizes());
@@ -41,7 +75,7 @@ const Form = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/proveedor")
+      .get("/proveedor")
       .then((response) => {
         setProviders(response.data);
       })
@@ -54,25 +88,37 @@ const Form = () => {
     initialValues: {
       name: "",
       descripcion: "",
+      imagenPrincipal: null,
       precio_compra: "",
-      porcentaje_ganancia: "",
+      porcentaje_ganancia: 10,
       precio_venta: "",
       referencia_proveedor: "",
       marcaId: "",
       categoriaId: "",
       tamañoId: "",
       proveedorId: "",
+      subcategoriaId: [ 12, 9, 19, 16 ],
+      imagenes: [8,38,36,14,4,27],
     },
     validationSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       console.log("Valores enviados:", values);
 
       try {
-        const response = await axios.post(
-          "http://localhost:3001/producto",
-          values
-        );
-        console.log("Producto creado:", response.data);
+        const imageUrl = await handleImageUpload(values.imagenPrincipal);
+
+        console.log(imageUrl);
+        // Actualiza los valores con la URL de la imagen subida
+        const updatedValues = {
+          ...values,
+          imagenPrincipal: imageUrl,
+        };
+
+        console.log(updatedValues);
+        // Realiza la solicitud al servidor para crear el producto
+        const responseProducto = await axios.post("/producto", updatedValues);
+
+        console.log("Producto creado:", responseProducto.data);
         resetForm();
       } catch (error) {
         console.error("Error al crear el producto:", error);
@@ -87,6 +133,20 @@ const Form = () => {
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
 
+  const handleImageUpload = async (imageFile) => {
+    try {
+      const formData = new FormData();
+      formData.append("key", imgbbApiKey);
+      formData.append("image", imageFile);
+
+      const response = await axios.post(imgbbUploadUrl, formData);
+      return response.data.data.url;
+    } catch (error) {
+      console.error("Error al subir la imagen a imgbb:", error);
+      throw error;
+    }
+  };
+
   const handleSelectChange = (event) => {
     const selectedValue = event.target.value;
     const selectedProviderObj = providers.find(
@@ -100,7 +160,7 @@ const Form = () => {
 
   const handleSelectChangeBrands = (event) => {
     const selectedValue = event.target.value;
-    const splitValues = selectedValue.split('-');
+    const splitValues = selectedValue.split("-");
     const selectedBrandId = splitValues[1];
     const selectedBrandsObj = brandsOptions.find(
       (option) => option.id === selectedValue
@@ -113,7 +173,7 @@ const Form = () => {
 
   const handleSelectChangeCategories = (event) => {
     const selectedValue = event.target.value;
-    const splitValues = selectedValue.split('-');
+    const splitValues = selectedValue.split("-");
     const selectedCategoriesId = splitValues[1];
     const selectedCategoriesObj = categoriesOptions.find(
       (option) => option.id === selectedValue
@@ -126,7 +186,7 @@ const Form = () => {
 
   const handleSelectChangeSize = (event) => {
     const selectedValue = event.target.value;
-    const splitValues = selectedValue.split('-');
+    const splitValues = selectedValue.split("-");
     const selectedSizeId = splitValues[1];
     const selectedSizeObj = sizesOptions.find(
       (option) => option.id === selectedValue
@@ -158,9 +218,12 @@ const Form = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.name}
+                    style={{ borderColor: "rgb(222, 190, 234)" }}
                   />
                   {formik.touched.name && formik.errors.name ? (
-                    <div className={style.error}>{formik.errors.name}</div>
+                    <div className="text-red-500 text-sm mt-1">
+                      {formik.errors.name}
+                    </div>
                   ) : null}
                 </div>
               </div>
@@ -170,7 +233,8 @@ const Form = () => {
                 <label htmlFor="productPrice">
                   Precio de compra del Producto{" "}
                 </label>
-                <div>
+                <div className="flex">
+                  <span className="text-gray-600">$</span>
                   <input
                     type="text"
                     className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
@@ -180,40 +244,48 @@ const Form = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.precio_compra}
+                    inputMode="numeric"
                   />
                   {formik.touched.precio_compra &&
                   formik.errors.precio_compra ? (
-                    <div className={style.error}>
+                    <div className="text-red-500 text-sm mt-1">
                       {formik.errors.precio_compra}
                     </div>
                   ) : null}
                 </div>
               </div>
 
-
               {/* campo Porcentaje De Ganancia*/}
               <div>
-                <label htmlFor="PercentageOfProfit">
-                  Porcentaje De Ganancia{" "}
+                <label
+                  htmlFor="PercentageOfProfit"
+                  className="block font-bold mb-2"
+                >
+                  Porcentaje De Ganancia
                 </label>
-                <div>
+                <div className="flex items-center">
                   <input
-                    type="text"
-                    className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
-                    placeholder="Ingrese el Porcentaje de ganancia"
+                    type="range"
+                    min="10"
+                    max="100"
+                    step="10"
+                    className="w-full"
                     id="PercentageOfProfit"
                     name="porcentaje_ganancia"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.porcentaje_ganancia}
                   />
-                  {formik.touched.porcentaje_ganancia &&
-                  formik.errors.porcentaje_ganancia ? (
-                    <div className={style.error}>
+                  <span className="ml-4">
+                    {formik.values.porcentaje_ganancia}%
+                  </span>
+                </div>
+                {formik.touched.porcentaje_ganancia &&
+                  formik.errors.porcentaje_ganancia && (
+                    <div className="text-red-500 text-sm mt-1">
                       {formik.errors.porcentaje_ganancia}
                     </div>
-                  ) : null}
-                </div>
+                  )}
               </div>
 
               {/* campo precio venta  */}
@@ -231,7 +303,7 @@ const Form = () => {
                     value={formik.values.precio_venta}
                   />
                   {formik.touched.precio_venta && formik.errors.precio_venta ? (
-                    <div className={style.error}>
+                    <div className="text-red-500 text-sm mt-1">
                       {formik.errors.precio_venta}
                     </div>
                   ) : null}
@@ -279,7 +351,7 @@ const Form = () => {
                   />
                   {formik.touched.referencia_proveedor &&
                   formik.errors.referencia_proveedor ? (
-                    <div className={style.error}>
+                    <div className="text-red-500 text-sm mt-1">
                       {formik.errors.referencia_proveedor}
                     </div>
                   ) : null}
@@ -299,13 +371,24 @@ const Form = () => {
                   name="descripcion"
                   placeholder="Escriba una breve descripcion del producto"
                   rows="4"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
+                  className={`w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300 ${
+                    formik.touched.descripcion && formik.errors.descripcion
+                      ? "border-red-500"
+                      : "border-gray-300"
+                  }`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
+                  value={formik.values.descripcion}
                 />
+                {formik.touched.descripcion && formik.errors.descripcion ? (
+                  <div className="text-red-500 text-sm mt-1">
+                    {formik.errors.descripcion}
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
+
           <div className={`flex justify-center ${style.rightSection}`}>
             <div className="w-2/3">
               {/* campo Tamaño Producto  */}
@@ -328,6 +411,11 @@ const Form = () => {
                       </option>
                     ))}
                   </select>
+                  {formik.touched.tamañoId && formik.errors.tamañoId ? (
+                    <div className="text-red-500 text-sm mt-1">
+                      {formik.errors.tamañoId}
+                    </div>
+                  ) : null}
                 </div>
               </div>
 
@@ -351,6 +439,11 @@ const Form = () => {
                       </option>
                     ))}
                   </select>
+                  {formik.touched.marcaId && formik.errors.marcaId ? (
+                    <div className="text-red-500 text-sm mt-1">
+                      {formik.errors.marcaId}
+                    </div>
+                  ) : null}
                 </div>
               </div>
 
@@ -376,25 +469,42 @@ const Form = () => {
                       </option>
                     ))}
                   </select>
+                  {formik.touched.categoriaId && formik.errors.categoriaId ? (
+                    <div className="text-red-500 text-sm mt-1">
+                      {formik.errors.categoriaId}
+                    </div>
+                  ) : null}
                 </div>
               </div>
 
               {/* campo imagen del producto */}
-              {/* {selectedImage && (
-                <div className="w-full h-64 border border-gray-300 rounded-lg overflow-hidden">
-                  <img
-                    src={selectedImage}
-                    alt="Imagen seleccionada"
-                    className="w-full h-full object-cover"
-                  />
+              <div className="w-full h-80 border border-gray-300 rounded-lg overflow-hidden flex items-center justify-center">
+                {/* Círculo más grande */}
+                <div className="w-64 h-64 bg-gray-200 rounded-full flex items-center justify-center">
+                  {formik.values.imagenPrincipal ? (
+                    <img
+                      src={URL.createObjectURL(formik.values.imagenPrincipal)}
+                      alt="Imagen seleccionada"
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  ) : (
+                    <span className="text-gray-600">Cargar imagen</span>
+                  )}
                 </div>
-              )}
+              </div>
               <input
                 type="file"
+                id="imagenPrincipal"
+                name="imagenPrincipal"
                 accept="image/*"
-                onChange={handleImageChange}
+                onChange={(event) => {
+                  formik.setFieldValue(
+                    "imagenPrincipal",
+                    event.currentTarget.files[0]
+                  );
+                }}
                 className="mb-4"
-              /> */}
+              />
 
               {/* Botones del Form */}
               <div className="flex gap-2">

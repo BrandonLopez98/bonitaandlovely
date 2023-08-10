@@ -1,8 +1,10 @@
 import styled from 'styled-components'
-import ofertas from '../../assets/img/Ofertas img.jpeg'
-
-
+import categoriasBg from '../../assets/img/categoriasBg.jpg'
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { categories } from '../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const CardContainer = styled.div`
   display: flex;
@@ -38,20 +40,29 @@ const Img = styled.img`
 width: 520px`
 
 const Products = () => {
+  useEffect(()=>{
+    dispatch(categories())
+  })
+  const categorias = useSelector((state) => state.Allcategories)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const filterByCategories = (event) => {
     const categoryToFilter = event.target.name
+    const categoryId = event.target.id
     switch (categoryToFilter) {
-     case 'Maquillaje':
-       navigate('/catalogo')
+     case 'maquillaje':
+      navigate('/catalogo')
+      // dispatch(filtrarPorCategoria(categoryId))
        break;
  
-     case 'Skincare':
+     case 'skinCare':
        navigate('/catalogo')
+      //  dispatch(filtrarPorCategoria(categoryId))
        break;
  
-     case 'Accesorios':
+     case 'accesorios':
        navigate('/catalogo')
+      //  dispatch(filtrarPorCategoria(categoryId))
        break;
        
     
@@ -62,28 +73,33 @@ const Products = () => {
 
 return (
   <><H1>Descubre nuestras categorias</H1><CardContainer>
-   
+
     <Card>
-    <Img src={ofertas} alt="img" />
-    <button name='Maquillaje' onClick={filterByCategories} class="absolute h-10 px-10 font-semibold rounded-md bg-black mt-20 ml-10 text-white" type="submit">
+    <Img src={categoriasBg} alt="img" />
+    <h2 className='absolute m-6 text-white text-4xl font-bold'>Maquillaje</h2>
+    <button  name='maquillaje' onClick={filterByCategories} class="absolute h-10 px-10 font-semibold rounded-md  bg-indigo-400 mt-20 ml-10 text-white" type="submit">
             Ver mas
           </button>
 
     </Card>
 
     <Card>
-    <Img src={ofertas} alt="img" />
-    <button name='Skincare' onClick={filterByCategories} class="absolute h-10 px-10 font-semibold rounded-md bg-black mt-20 ml-10 text-white" type="submit">
+    <Img src={categoriasBg} alt="img" />
+    <h2 className='absolute m-6 text-white text-4xl font-bold'>Skincare</h2>
+    <button  name='skinCare' onClick={filterByCategories} class="absolute h-10 px-10 font-semibold rounded-md  bg-indigo-400 mt-20 ml-10 text-white" type="submit">
             Ver mas
           </button>
+
   
     </Card>
 
     <Card>
-    <Img src={ofertas} alt="img" />
-    <button name='Accesorios' onClick={filterByCategories} class="absolute h-10 px-10 font-semibold rounded-md bg-black mt-20 ml-10 text-white" type="submit">
+    <Img src={categoriasBg} alt="img" />
+    <h2 className='absolute m-6 text-white text-4xl font-bold'>Accesorios</h2>
+    <button  name='accesorios' onClick={filterByCategories} class="absolute h-10 px-10 font-semibold rounded-md  bg-indigo-400 mt-20 ml-10 text-white" type="submit">
             Ver mas
           </button>
+
     </Card>
 
     
