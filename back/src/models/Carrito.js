@@ -16,7 +16,11 @@ module.exports = (Sequelize) => {
         defaultValue: false,
         allowNull: false
       },
-      
+      cantidad: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 1 // Puedes ajustar el valor por defecto según tus necesidades
+      }
     }
   );
   Carrito.associate = models => {
