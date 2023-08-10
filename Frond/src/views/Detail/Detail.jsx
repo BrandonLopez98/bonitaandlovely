@@ -33,6 +33,7 @@ const Button = styled.button`
 const Detail = () => {
     const back = useNavigate();
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const { id } = useParams();
     const stateProducts = useSelector(state => state.productsDetail);
     console.log(stateProducts)
@@ -55,7 +56,7 @@ const Detail = () => {
 
     const [activeImg, setActiveImage] = useState(images.img1)
 
-    const [amount, setAmount] = useState(1);
+    const [amount, setAmount] = useState(0);
 
     const handleDecrement = () => {
         setAmount((prev) => Math.max(prev - 1, 0));
@@ -65,9 +66,6 @@ const Detail = () => {
         setAmount((prev) => Math.min(prev + 1, 10));
     };
 
-
-    // La cantidad del stock no puede ser menor a cero y como maximo tiene que ser
-    // el stock disponible (que en este caso es 10);
     // border border-blue-500 border-5 rounded-lg'
 
     /*
@@ -90,10 +88,16 @@ const Detail = () => {
         },
     
     */
+
+        const addToCart = () => {
+            const carritotUrl = `/itemadded/${id}?quantity=${amount}`; 
+            navigate(carritotUrl);
+          };
+
     return (
         <div>
             <div className="m-15">
-                <Button primary onClick={() => back('/')}>
+                <Button primary onClick={() => back('/catalogo')}>
                     Atrás
                 </Button>
             </div>
@@ -148,7 +152,7 @@ const Detail = () => {
                         <span className='py-2 px-4 rounded-lg'>{amount}</span>
                         <button className='bg-gray-200 py-2 px-4 mr-4 rounded-lg text-customColor text-3xl' onClick={handleIncrement}>+</button>
 
-                        <button className='bg-customColor text-white font-semibold py-3 px-14 rounded-xl h-full flex items-center gap-2'>
+                        <button onClick={addToCart} className='bg-customColor text-white font-semibold py-3 px-14 rounded-xl h-full flex items-center gap-2'>
                             <img src={bagIcon} alt="bag icon" className="w-6 h-6 " />
                             Agregar al carrito
                         </button>

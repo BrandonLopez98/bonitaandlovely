@@ -14,11 +14,12 @@ import Profile from "./views/Profile/Profile";
 import Configs from "./components/ChatBot/Configs";
 import MessageParser from "./components/ChatBot/MessageParser";
 import Detail from "../src/views/Detail/Detail";
-
 import Dashboard from "./components/Dashboard/Dashboard";
 import axios from "axios"
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import AddToCart from "./views/Cart/AddToCart";
+import Carrito from "./views/Cart/Carrito";
 //para no repetir el puerto:(se está configurando una URL base que se utilizará como prefijo para todas las peticiones realizadas con Axios) 
 axios.defaults.baseURL = "http://localhost:3001/"
 
@@ -44,7 +45,8 @@ function App () {
         <Route path="/form" element={<Form />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/catalogo/detail/:id" element={<Detail />} />
-
+        <Route path="/itemadded/:id" element={<AddToCart />} />
+        <Route path="/carrito/:id" element={<Carrito />} />
         <Route path="/dashboard" element = {<Dashboard/>}/>
 
       </Routes>
