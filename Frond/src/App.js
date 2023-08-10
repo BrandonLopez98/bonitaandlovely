@@ -14,7 +14,7 @@ import Profile from "./views/Profile/Profile";
 import Configs from "./components/ChatBot/Configs";
 import MessageParser from "./components/ChatBot/MessageParser";
 import Detail from "../src/views/Detail/Detail";
-import Carrito from "./components/ShoppingCart/Carrito";
+import Carrito from "./views/Cart/Carrito";
 
 import Dashboard from "./components/Dashboard/Dashboard";
 import axios from "axios"
@@ -48,7 +48,7 @@ function App () {
         <Route path="/profile" element={<Profile />} />
         <Route path="/catalogo/detail/:id" element={<Detail />} />
         <Route path="/itemadded/:id" element={<AddToCart />} />
-        <Route path="/carrito/:id" element={<Carrito />} />        <Route path="/carrito" element={<Carrito />} />
+        <Route path="/carrito/:id" element={<Carrito />} />        
 
         <Route path="/dashboard" element = {<Dashboard/>}/>
 
