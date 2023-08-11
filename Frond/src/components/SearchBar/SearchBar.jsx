@@ -275,8 +275,6 @@ const SearchBar = ({ placeholder }) => {
 		navigate('/catalogo');
 		ev.preventDefault();
 		const ProductFound = await dispatch(getProductByName(inputText));
-		console.log("handle submit de seacrhbar");
-		console.log(ProductFound);
 		if (ProductFound.payload.length > 0) {
 			setInputText('');
 		} else {

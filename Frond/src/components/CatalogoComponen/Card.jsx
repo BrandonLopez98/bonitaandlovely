@@ -17,10 +17,12 @@ const Card = ({ id, name, precio_venta }) => {
   //   const match = string.match(/\d+/); // Busca uno o más dígitos en la cadena
   //   return match ? parseInt(match[0]) : 0; // Convierte el resultado a un número o devuelve 0 si no hay coincidencia
   // };
-  const extractNumber = (string) => {
-    console.log('tipo de string:', typeof string);
+  // a veces el string viene como number, asi que convierte cualquier tipo a string para continuar 
+  // la funcion como habia sido establecida (ivt)
+
+  const extractNumber = (input) => {
+    const string = String(input); // Convertir la entrada a una cadena
     const match = string.match(/\d+/);
-    console.log('Match result:', match);
     return match ? parseInt(match[0]) : 0;
   };
 
