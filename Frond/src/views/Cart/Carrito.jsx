@@ -1,8 +1,9 @@
 import Navbar from "../../components/NavBar/NavBar";
 import Footer from "../../components/NavBar/NavBar";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
-const itemsData = [
+const itemsDataH = [
     {
         "name": "Labial Glamour",
         "descripcion": "Labial de larga duración y acabado mate",
@@ -90,16 +91,17 @@ const cantidad = 1;
 
 
 const Carrito = () => {
-    const [showItem, setShowItem] = useState(-1);
-
+    // const [showItem, setShowItem] = useState(-1);
+    const cartProducts = useSelector(state => state.cartProducts);
+    console.log(cartProducts.length);
     return (
         <>
 
             <div class="grid grid-cols-3 grid-rows-6 gap-5 mx-8 mt-6">
-                
-                
+
+
                 {/* columna izquierda detallar productos en carrito */}
-                {itemsData.map((item, index) => (
+                {/* {itemsData.map((item, index) => (
                     <div key={index} class="col-span-2 grid grid-cols-6 px-6 mx-6 shadow-md rounded-lg bg-fuchsia-200">
                         <img src={item.imagenPrincipal} alt="fotoProducto" class="col-span-1 w-12 bg-white my-2 border-2 border-purple-300 justify-self-left" />
                         <div class="col-start-2 col-span-3 place-self-center font-medium">
@@ -112,8 +114,17 @@ const Carrito = () => {
                         {item.precio_venta * cantidad}
                         </div>
                     </div>
+                ))} */}
+                {cartProducts.productos && cartProducts.productos.map((item) => (
+                    <div key={item.id}>
+                        <img src={item.image} alt={item.name} />
+                        <p>{item.name}</p>
+                        <p>Cantidad: {item.quantity}</p>
+                        <p>Precio: {item.price}</p>
+                    </div>
                 ))}
-                
+
+
 
                 {/* columna derecha, total y boton a pasarela */}
                 <div class="col-start-3 row-start-1 row-end-4 px-6 mx-6 rounded-lg bg-purple-200">
@@ -124,7 +135,7 @@ const Carrito = () => {
                         </h2>
 
                         <h3 class="col-start-1 col-end-3 row-start-2 place-self-start">
-                            Productos ({itemsData.length})
+                            Productos ({cartProducts.length})
                         </h3>
                         <h3 class="col-start-1 col-end-3 row-start-3 place-self-start">
                             Envio
