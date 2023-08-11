@@ -42,12 +42,12 @@ const Cards = ({ stateProducts }) => {
   const productsToDisplay = filteredProducts.length > 0 ? filteredProducts : searchResults.length > 0 ? searchResults : stateProducts.productos;
 
   if (!productsToDisplay) {
-    return null; 
+    return null;
   }
 
   return (
     <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-auto-rows grid-rows-1 gap-5">
-      {productosFiltrados.length>0? productosFiltrados.map(({id, name, descripcion, precio_venta,imagenPrincipal}) => {
+      {productsToDisplay.length > 0 ? productsToDisplay.map(({ id, name, descripcion, precio_venta, imagenPrincipal }) => {
         return (
           <Card
             id={id}
@@ -58,7 +58,7 @@ const Cards = ({ stateProducts }) => {
             imagenPrincipal={imagenPrincipal}
           />
         );
-      }): stateProducts.productos?.map(({id, name, descripcion, precio_venta,imagenPrincipal}) => {
+      }) : stateProducts.productos?.map(({ id, name, descripcion, precio_venta, imagenPrincipal }) => {
         return (
           <Card
             id={id}

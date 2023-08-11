@@ -12,10 +12,18 @@ const Card = ({ id, name, precio_venta }) => {
   const favoritesRaw = useSelector(state=> state.favoritesRaw)
   const {user, isAuthenticated} = useAuth0()
   const [isFavorite, setIsFavorite] = useState(localFavorites.some(item => item.id === id));
+
+  // const extractNumber = (string) => {
+  //   const match = string.match(/\d+/); // Busca uno o más dígitos en la cadena
+  //   return match ? parseInt(match[0]) : 0; // Convierte el resultado a un número o devuelve 0 si no hay coincidencia
+  // };
   const extractNumber = (string) => {
-    const match = string.match(/\d+/); // Busca uno o más dígitos en la cadena
-    return match ? parseInt(match[0]) : 0; // Convierte el resultado a un número o devuelve 0 si no hay coincidencia
+    console.log('tipo de string:', typeof string);
+    const match = string.match(/\d+/);
+    console.log('Match result:', match);
+    return match ? parseInt(match[0]) : 0;
   };
+
   const productoId = extractNumber(id)
   const correo_electronico = user?.email
   const favorito = {
