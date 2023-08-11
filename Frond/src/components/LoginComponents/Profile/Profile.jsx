@@ -36,12 +36,10 @@ const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, isAuthenticated, isLoading } = useAuth0();
 
-  const showUserMenu = () => {
-    setIsOpen(true);
-  };
-  const hideUserMenu = () => {
-    setIsOpen(false);
-  };
+  const toggleUserMenu = () => {
+    setIsOpen(!isOpen)
+  }
+ 
   
 
 
@@ -55,10 +53,10 @@ const Profile = () => {
   return (
     isAuthenticated && (
     <div >
-      <img onMouseEnter={showUserMenu} onMouseLeave={hideUserMenu} className={style.imgProfile} src={user.picture} alt={user.name} />
+      <img onClick={toggleUserMenu}  className={style.imgProfile} src={user.picture} alt={user.name} />
       <Online>.</Online>
       {isOpen && (
-    <div onMouseEnter={showUserMenu} onMouseLeave={hideUserMenu} className="absolute top-8 right-0 z-20 w-48 bg-white border rounded-md shadow-lg pt-3 mt-7 mr-2">
+    <div className="absolute top-8 right-0 z-20 w-48 bg-white border rounded-md shadow-lg pt-3 mt-7 mr-2">
       <img className={style.drop} src={user.picture} alt={user.name} />
       <OnlineDrop>.</OnlineDrop>
 

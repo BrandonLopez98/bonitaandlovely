@@ -199,8 +199,11 @@
 
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import loupe from '../../assets/img/Loupe.svg';
 import styled from 'styled-components';
+import { getProductByName } from "../../redux/actions";
+import { useNavigate } from 'react-router-dom';
 import { getProductByName } from "../../redux/actions";
 import { useNavigate } from 'react-router-dom';
 
@@ -250,7 +253,15 @@ const FormSearchBar = styled.form`
 	
     button:focus, input:focus{
        outline: 2px solid var(--clr-primary);
+       outline: 2px solid var(--clr-primary);
     }
+`;
+const ErrorMessage = styled.p`
+  color: red;
+  margin-left: 15px;
+  font-size: 15px;
+  color: #a53fc7;
+`;
 `;
 const ErrorMessage = styled.p`
   color: red;
@@ -261,7 +272,12 @@ const ErrorMessage = styled.p`
 
 const SearchBar = ({ placeholder }) => {
 	const dispatch = useDispatch();
+const SearchBar = ({ placeholder }) => {
+	const dispatch = useDispatch();
 	const [inputText, setInputText] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+	
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 	
@@ -269,8 +285,19 @@ const SearchBar = ({ placeholder }) => {
 	const handleChange = (ev) => {
 		setInputText(ev.target.value);
     setErrorMessage('');
+    setErrorMessage('');
 	};
 
+	const handleSubmit = async(ev) => {
+    navigate('/catalogo');
+		ev.preventDefault();	
+		const ProductFound = await dispatch (getProductByName(inputText));
+		if (ProductFound.payload.length>0){
+			setInputText('');
+		}else{
+			setErrorMessage('Producto no encontrado');
+      setInputText('');
+		}
 	const handleSubmit = async(ev) => {
     navigate('/catalogo');
 		ev.preventDefault();	
@@ -285,6 +312,7 @@ const SearchBar = ({ placeholder }) => {
 
 	return (
     <>
+    <>
 		<FormSearchBar onSubmit={handleSubmit}>
 			<input 
         onChange={handleChange} 
@@ -297,17 +325,10 @@ const SearchBar = ({ placeholder }) => {
 		</FormSearchBar>
     {errorMessage && <ErrorMessage> {errorMessage} </ErrorMessage>}
     </>
+    {errorMessage && <ErrorMessage> {errorMessage} </ErrorMessage>}
+    </>
 	);
 };
 
 export default SearchBar;
  
-
-
-
-
-
-
-
-
-

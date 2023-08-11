@@ -21,7 +21,8 @@ import axios from "axios"
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import AddToCart from "./views/Cart/AddToCart";
-
+import Carrito from "./views/Cart/Carrito";
+import { useParams } from "react-router-dom"; 
 //para no repetir el puerto:(se está configurando una URL base que se utilizará como prefijo para todas las peticiones realizadas con Axios) 
 axios.defaults.baseURL = "http://localhost:3001/"
 
@@ -30,6 +31,7 @@ axios.defaults.baseURL = "http://localhost:3001/"
 
 function App () {
   const location = useLocation()
+  const params = useParams();
 
   return (
     <div>

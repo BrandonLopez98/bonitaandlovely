@@ -1,9 +1,12 @@
 .imgProfile{
-    width: 43px;
+    width: 40px;
     border-radius: 50%;
     margin: 0 1rem;
     cursor: pointer;
-    
+}
+.imgProfile:hover{
+    transform: translateY(-0.2rem);
+    transition: .5s;
 }
 
 .off{

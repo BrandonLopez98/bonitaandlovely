@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, CART_PRODUCTS, GETPRODUCT_BYNAME } from "./action-types";
+import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME } from "./action-types";
 
 // aca la ruta directamente porque la url base ya esta osea que solo queda por la ruta ejemplo:/producto
 
@@ -111,13 +111,40 @@ export const categories = () => async dispatch => {
     }
   }
 
-  export const addToCartFunction = (id, quantity) => {
+  export const getCartProducts = (id) =>{
+    return async (dispatch) => {
+      try {
+        const { data } = await axios.get(`/producto/${id}`);
+          return dispatch({
+            type: CART_PRODUCTS,
+            payload: data,
+          });
+        } catch (error) {
+        alert("Error: " + error.response.data.error);
+      }
+    }}
+
+  export const addToCartFunction = (id, amount) => {
     return {
-      type: 'ADD_TO_CART',
+      type: ADD_TO_CART,
       payload: {
         id,
-        quantity,
+        amount,
       },
     };
   };
+
+  export const getProductByName = (name) =>{
+    return async (dispatch)=>{
+      try {
+        const {data} = await axios.get(`/producto?name=${name}`);
+        return dispatch({
+          type: GETPRODUCT_BYNAME,
+          payload: data
+        })
+      } catch (error) {
+        alert("Error: " + error.response.data.error);
+      }
+    }
+  }
   

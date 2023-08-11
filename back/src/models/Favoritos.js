@@ -8,8 +8,8 @@ module.exports = (sequelize) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    correo_electronico: {
-        type: DataTypes.STRING,
+    clienteId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     productoId: {

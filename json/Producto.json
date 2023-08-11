@@ -11,7 +11,7 @@
     "tamañoId": 2,
     "proveedorId": 6,
     "subcategoriaId": [ 12, 9, 19, 16 ],
-    "imagenPrincipal": "imagen de prueba",
+    "imagenPrincipal": "https://ibb.co/SxzkGxt",
     "imagenes": [ 20, 6, 38, 37 ]
   },
   {
@@ -26,7 +26,7 @@
     "tamañoId": 2,
     "proveedorId": 6,
     "subcategoriaId": [ 8, 17, 3, 5 ],
-    "imagenPrincipal": "imagen de prueba",
+    "imagenPrincipal": "https://ibb.co/NTV7rbP",
     "imagenes": [
       17, 13, 32, 23,
       37, 28,  4
@@ -44,7 +44,7 @@
     "tamañoId": 1,
     "proveedorId": 6,
     "subcategoriaId": [ 6, 7, 2 ],
-    "imagenPrincipal": "imagen de prueba",
+    "imagenPrincipal": "https://ibb.co/Wt36Xcd",
     "imagenes": [ 19, 29, 30, 3, 34, 8 ]
   },
   {
@@ -59,7 +59,7 @@
     "tamañoId": 2,
     "proveedorId": 2,
     "subcategoriaId": [ 12, 19, 9, 16 ],
-    "imagenPrincipal": "imagen de prueba",
+    "imagenPrincipal": "https://ibb.co/M7RcCwZ",
     "imagenes": [ 32, 7 ]
   },
   {
@@ -74,7 +74,7 @@
     "tamañoId": 2,
     "proveedorId": 2,
     "subcategoriaId": [ 10, 2, 7 ],
-    "imagenPrincipal": "imagen de prueba",
+    "imagenPrincipal": "https://ibb.co/QFyfTcm",
     "imagenes": [
       16,  8, 22, 3,
       25, 26, 32
@@ -92,7 +92,7 @@
     "tamañoId": 3,
     "proveedorId": 2,
     "subcategoriaId": [ 1, 8, 17 ],
-    "imagenPrincipal": "imagen de prueba",
+    "imagenPrincipal": "https://ibb.co/JsqbtGM",
     "imagenes": [ 21, 31, 40, 16, 10 ]
   },
   {
@@ -107,7 +107,7 @@
     "tamañoId": 1,
     "proveedorId": 4,
     "subcategoriaId": [ 16, 12, 19, 9 ],
-    "imagenPrincipal": "imagen de prueba",
+    "imagenPrincipal": "https://ibb.co/BszZ8pB",
     "imagenes": [ 11, 33, 18 ]
   },
   {

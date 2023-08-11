@@ -5,6 +5,7 @@ const router = express.Router();
 const getIdFavorito = require('../controllers/Favoritos/getIdFavorito')
 const postFavorito = require('../controllers/Favoritos/postFavorito')
 const postArrayFavorito = require('../controllers/Favoritos/postArrayFavorito')
+const deleteFavorito = require('../controllers/Favoritos/deleteFavorito')
 
 router.get('/:clienteId', async (req, res) => {
   const {clienteId} = req.params;
@@ -32,5 +33,15 @@ router.post('/', async (req, res) => {
       res.status(500).json({ error: 'Ha ocurrido un error al agregar el favorito.' });
     }
   });
+
+  router.delete('/:idFav', async (req,res)=>{
+    const {idFav} = req.params;
+    try {
+      const favoritoIds = await deleteFavorito(idFav);
+    res.status(200).json(favoritoIds);
+    } catch (error) {
+      res.status(500).json({ error: `Error al borrar el favorito: ${error.message}` });
+    }
+  })
 
 module.exports = router;

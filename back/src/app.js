@@ -11,6 +11,7 @@ mercadopago.configure({
   access_token: MERCADO_PAGO_ACCESS_TOKEN,
 });
 
+
 require('./db.js');
 
 const server = express();
@@ -94,6 +95,5 @@ server.get("/feedback", function (req, res) {
     MerchantOrder: req.query.merchant_order_id,
   });
 });
-
 
 module.exports = server;
