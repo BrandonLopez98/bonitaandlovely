@@ -10,8 +10,12 @@
 .offers h1{
     font-size: 80px;
     color:#fff ;
-    padding-left: 25rem;
+    padding-left: 10rem;
     margin-right: 5rem;
+}
+
+.offers h1 span{
+    font-weight: bolder;
 }
 
 .rigth{
@@ -19,7 +23,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-right: 25rem;
+    padding-right: 15rem;
     margin-left: 5rem;
 }
 

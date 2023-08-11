@@ -1,8 +1,9 @@
 .imgProfile{
-    width: 40px;
+    width: 50px;
     border-radius: 50%;
     margin: 0 1rem;
     cursor: pointer;
+    margin-bottom: -.7rem;
 }
 .imgProfile:hover{
     transform: translateY(-0.2rem);

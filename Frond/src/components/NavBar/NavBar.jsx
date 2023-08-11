@@ -10,7 +10,8 @@ import LoginButton from '../LoginComponents/Login';
 import Profile from '../LoginComponents/Profile/Profile';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useDispatch, useSelector } from 'react-redux'
-import { categories } from '../../redux/actions';
+import { categories, productsCopy } from '../../redux/actions';
+import Swal from 'sweetalert2';
 
 const Navbar = ({ initialLanguage }) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -22,10 +23,10 @@ const Navbar = ({ initialLanguage }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
   const [language, setLanguage] = useState(initialLanguage || 'en');
-
-  useEffect(() => {
+  useEffect(()=>{
     dispatch(categories())
-  }, [dispatch])
+    dispatch(productsCopy())
+}, [dispatch])
 
   const toggleLanguageMenu = () => {
     setShowLanguageMenu(!showLanguageMenu);
@@ -52,25 +53,56 @@ const Navbar = ({ initialLanguage }) => {
   const {loginWithRedirect} = useAuth0()
 
   const filterByCategories = (event) => {
-    const categoryToFilter = event.target.textContent
-    switch (categoryToFilter) {
-      case 'Maquillaje':
-        navigate('/catalogo')
-        break;
+   const categoryToFilter = event.target.textContent
+   const categoriaId = event.target.id
+   console.log(categoriaId)
+   console.log(categoryToFilter)
+   switch (categoryToFilter) {
+    case 'Maquillaje':
+      navigate('/catalogo')
+      break;
 
       case 'Skincare':
         navigate('/catalogo')
         break;
 
-      case 'Accesorios':
-        navigate('/catalogo')
-        break;
+    case 'Accesorios':
+      // navigate('/catalogo')
+      break;
+      
+   
+    default:
+      break;
+   }
+  }
 
 
-      default:
-        break;
+  //Condicionales de logueo
+  const mustBeLogedCarrito = () =>{
+    if(!isAuthenticated){
+      return Swal.fire(
+        'Estas registrado?',
+        'Inicia sesion para ver tu carrito',
+        'error'
+      )
+    }else{
+      navigate('/carrito/:id')
     }
   }
+
+  const mustBeLogedFavoritos = () =>{
+    if(!isAuthenticated){
+      return Swal.fire(
+        'Estas registrado?',
+        'Inicia sesion para ver tus favoritos',
+        'error'
+      )
+    }else{
+      navigate('/favoritos')
+    }
+  }
+
+  
 
   return (
     <>
@@ -85,14 +117,10 @@ const Navbar = ({ initialLanguage }) => {
           </div>
 
           <div className={style.icons}>
-
-            <button className={style.btnb}>
-              <Link to="/carrito"> {/* Utiliza Link en lugar de button */}
-                <AiFillShopping/>
-              </Link>
+            <button onClick={mustBeLogedCarrito} className={style.btnb}>
+              <AiFillShopping />
             </button>
-
-            <button className={style.btnb}>
+            <button  onClick={mustBeLogedFavoritos} className={style.btnb}>
               <AiFillHeart />
             </button>
 
@@ -116,15 +144,16 @@ const Navbar = ({ initialLanguage }) => {
             >
 
               <ul>
-                {categorias && (
-                  categorias.map((categoria) => {
-                    return <li onClick={filterByCategories} onMouseEnter={showSub} onMouseLeave={hideSub} key={categoria.id} className="block px-4 py-2 text-gray-800 hover:bg-gray-200 cursor-pointer border-b border-b-2 border-solid ">{categoria.name}</li>
+              {categorias && (
+                categorias.map((categoria) => {
+                  return  <li onClick={filterByCategories} onMouseEnter={showSub} id={categoria.id} onMouseLeave={hideSub} key={categoria.id} className="block px-4 py-2 text-gray-800 hover:bg-gray-200 cursor-pointer border-b border-b-2 border-solid ">{categoria.name}</li>
 
                   })
                 )}
               </ul>
-            </div>
-          )}
+              
+              </div>
+            )}
 
 
           <div className={`${style.categoriesMenu}`}>

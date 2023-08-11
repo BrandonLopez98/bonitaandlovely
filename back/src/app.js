@@ -56,6 +56,40 @@ server.get("/", function (req, res) {
   res.sendFile(filePath);
 });
 
+server.post("/pagoCarrito", (req, res) => {
+  const productos = req.body;
+
+  let items = productos.map((producto) => {
+    return {
+      id: producto.id,
+      title: producto.nombre,
+      unit_price: Number(producto.precio),
+      description: producto.descripcion,
+      quantity: 1,
+    };
+  });
+
+  let preference = {
+    items: items,
+    back_urls: {
+      success: "http://localhost:3000",
+      failure: "http://localhost:3000",
+      pending: "",
+    },
+    auto_return: "approved",
+    binary_mode: true,
+  };
+
+  mercadopago.preferences
+    .create(preference)
+    .then((response)=> {
+      res.status(200).send({ response });
+    })
+    .catch((error)=> {
+      res.status(400).send(error.message);
+    });
+});
+
 server.post("/pago", (req, res) => {
   const producto = req.body;
 
@@ -88,7 +122,7 @@ server.post("/pago", (req, res) => {
     });
 });
 
-server.get("/feedback", function (req, res) {
+server.get("/feedback", (req, res) => {
   res.json({
     Payment: req.query.payment_id,
     Status: req.query.status,

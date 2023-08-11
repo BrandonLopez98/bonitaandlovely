@@ -42,7 +42,7 @@ width: 520px`
 const Products = () => {
   useEffect(()=>{
     dispatch(categories())
-  })
+  }, [])
   const categorias = useSelector((state) => state.Allcategories)
   const navigate = useNavigate()
   const dispatch = useDispatch()
