@@ -56,5 +56,6 @@ module.exports = (sequelize) => {
     foreignKey: 'clienteId'
     })
   }
+
   return Cliente
 };

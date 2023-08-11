@@ -1,9 +1,9 @@
-const { Cliente } = require('../../db');
+const { Cliente, Carrito } = require('../../db');
 
 module.exports = async (clienteArray) => {
-  const clientes = [];
+  const clientesConCarritos = [];
 
-  async function crearcliente(clienteData) {
+  async function crearClienteConCarrito(clienteData) {
     try {
       // Verificar si ya existe un cliente con el mismo nombre
       const existingCliente = await Cliente.findOne({
@@ -18,11 +18,19 @@ module.exports = async (clienteArray) => {
       }
 
       // Si no existe un cliente con el mismo nombre, crear el nuevo cliente
-      const newcliente = await Cliente.create(clienteData);
+      const newCliente = await Cliente.create(clienteData);
 
-      newcliente.dataValues.id = `cli-${newcliente.dataValues.id}`;
-      
-      clientes.push(newcliente);
+      // Crear un carrito asociado al cliente recién creado
+      const newCarrito = await Carrito.create({
+        clienteId: newCliente.id,
+      });
+
+      const clienteConCarrito = {
+        ...newCliente.dataValues,
+        carrito: newCarrito.dataValues,
+      };
+
+      clientesConCarritos.push(clienteConCarrito);
     } catch (error) {
       console.error('Error al crear el cliente:', error.message);
       throw error;
@@ -30,8 +38,8 @@ module.exports = async (clienteArray) => {
   }
 
   try {
-    await Promise.all(clienteArray.map(crearcliente));
-    return clientes;
+    await Promise.all(clienteArray.map(crearClienteConCarrito));
+    return clientesConCarritos;
   } catch (error) {
     throw error;
   }

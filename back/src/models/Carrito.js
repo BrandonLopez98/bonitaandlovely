@@ -1,8 +1,8 @@
 const { DataTypes } = require("sequelize");
 
 
-module.exports = (Sequelize) => {
-  const Carrito = Sequelize.define(
+module.exports = (sequelize) => {
+  const Carrito = sequelize.define(
     "Carrito",
     {
       id: {
@@ -20,13 +20,13 @@ module.exports = (Sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 1 // Puedes ajustar el valor por defecto según tus necesidades
-      }
+      },
     }
   );
   Carrito.associate = models => {
-    Carrito.belongsTo(models.Cliente ,{
-      foreignKey: "clienteId"
-    })
+    Carrito.belongsTo(models.Cliente, {
+      foreignKey: 'clienteId',
+    });
     Carrito.belongsToMany(models.Producto, {
       through: "ProductosEnCarrito",
       foreignKey: "carritoId"

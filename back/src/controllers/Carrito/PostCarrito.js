@@ -1,22 +1,28 @@
-const { Carrito, Producto } = require("../../db");
+const { Carrito, Producto, Cliente } = require("../../db");
 
-module.exports = async (carritoId, productoId) => {
+module.exports = async (clienteId, productoId) => {
   try {
-    const carrito = Carrito.findByPk(carritoId);
-    const producto = Producto.findByPk(productoId);
+    const cliente = await Cliente.findByPk(clienteId);
+    
+    if (!cliente) {
+      throw new Error("Cliente no encontrado");
+    }
+    const carrito = await cliente.getCarritos({raw:true});
+    if(!carrito){
+      throw new Error("el cliente no tiene un carrito asociado");
+    }
 
-    if (carrito.compra) {
-      throw Error("El carrito ya completo la compra");
+    if(carrito.compra){
+      throw new Error("el carrito ya completo la compra")
     }
-    if (!carrito) {
-      throw Error("El carrito no existe");
+    const producto = await Producto.findByPk(productoId);
+    if (!producto) {
+      throw new Error("Producto no encontrado");
     }
 
-    if (producto) {
-      await carrito.addProducto(producto);
-    } else {
-      throw Error("producto no encontrado");
-    }
+    // Agregar el producto al carrito
+    await carrito.addProducto(producto);
+    return { message: "Producto agregado al carrito correctamente" };
   } catch (error) {
     console.error("Error al obtener el Carrito:", error.message);
     throw error;

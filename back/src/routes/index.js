@@ -9,11 +9,12 @@ const colorRouter = require('./colorRouter')
 const productoRouter = require('./productoRouter')
 const imagenRouter = require('./imagenRouter')
 const clienteRouter = require('./clienteRouter')
+const carritoRouter = require('./carritoRouter')
 const favoritoRouter = require('./favoritoRouter')
 
 const router = Router();
 
-
+router.use('/carrito', carritoRouter)
 router.use('/categoria',categoriaRouter)
 router.use('/subcategoria',subCategoriaRouter)
 router.use('/marca',marcaRouter)

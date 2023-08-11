@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");;
 
-module.exports = (Sequelize) => {
-  const HistorialDeProductos = Sequelize.define(
+module.exports = (sequelize) => {
+  const HistorialDeProductos = sequelize.define(
     "HistorialDeProductos",
     {
       id: {
