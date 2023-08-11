@@ -92,15 +92,27 @@ const cantidad = 1;
 
 const Carrito = () => {
     // const [showItem, setShowItem] = useState(-1);
-    const cartProducts = useSelector(state => state.cartProducts);
-    console.log(cartProducts.length);
+    const cart = useSelector(state => state.cartProducts);
+    console.log("este es el cartproducts");
+    console.log(typeof cart);
+    console.log(cart);
     return (
-        <>
-
+        <>        
             <div class="grid grid-cols-3 grid-rows-6 gap-5 mx-8 mt-6">
 
 
                 {/* columna izquierda detallar productos en carrito */}
+                <div key={cart.id} class="col-span-2 grid grid-cols-6 px-6 mx-6 shadow-md rounded-lg bg-fuchsia-200">
+                    <img src={cart.imagenPrincipal} alt={cart.name} class="col-span-1 w-12 bg-white my-2 border-2 border-purple-300 justify-self-left" />
+                    <div class="col-start-2 col-span-3 place-self-center font-medium">
+                        {cart.name}
+                    </div>
+                    {/* <p>Cantidad: {item.quantity}</p> */}
+
+                    <div class="col-start-6 col-span-1 flex items-center justify-center font-medium ">
+                        Precio: {cart.precio_venta}
+                    </div>
+                </div>
                 {/* {itemsData.map((item, index) => (
                     <div key={index} class="col-span-2 grid grid-cols-6 px-6 mx-6 shadow-md rounded-lg bg-fuchsia-200">
                         <img src={item.imagenPrincipal} alt="fotoProducto" class="col-span-1 w-12 bg-white my-2 border-2 border-purple-300 justify-self-left" />
@@ -115,14 +127,7 @@ const Carrito = () => {
                         </div>
                     </div>
                 ))} */}
-                {cartProducts.productos && cartProducts.productos.map((item) => (
-                    <div key={item.id}>
-                        <img src={item.image} alt={item.name} />
-                        <p>{item.name}</p>
-                        <p>Cantidad: {item.quantity}</p>
-                        <p>Precio: {item.price}</p>
-                    </div>
-                ))}
+
 
 
 
@@ -135,7 +140,7 @@ const Carrito = () => {
                         </h2>
 
                         <h3 class="col-start-1 col-end-3 row-start-2 place-self-start">
-                            Productos ({cartProducts.length})
+                            Productos ({cart.length})
                         </h3>
                         <h3 class="col-start-1 col-end-3 row-start-3 place-self-start">
                             Envio
@@ -147,14 +152,14 @@ const Carrito = () => {
                             Total
                         </h2>
 
-                        <h2 class="row-start-2 col-start-4  place-self-end">
+                        <h2 class="col-start-4 row-start-2 place-self-start">
+                        {cart.precio_venta}
+                        </h2>
+                        <h2 class="row-start-3 col-start-4  place-self-start">
                             $$$$
                         </h2>
-                        <h2 class="row-start-3 col-start-4  place-self-end">
-                            $$$$
-                        </h2>
-                        <h2 class="row-start-5 col-start-4  place-self-end font-bold">
-                            $$$$
+                        <h2 class="row-start-5 col-start-4  place-self-start font-bold">
+                        {cart.precio_venta}
                         </h2>
 
                         <button class="rounded-md row-start-6 place-self-center col-span-4 p-1.5 text-white bg-[#6b086f] hover:bg-[#7c4884]">

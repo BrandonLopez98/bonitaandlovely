@@ -69,7 +69,8 @@ function App () {
         {/* Esta era la ruta anterior <Route path="/catalogo/detail/:id" element={<Detail />} /> */}
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/itemadded/:id" element={<AddToCart />} />
-        <Route path="/carrito/:id" element={<Carrito />} />        
+        <Route path="/carrito/:id" element={<Carrito />} />
+        <Route path="/carrito" element={<Carrito />} />        
 
         <Route path="/dashboard" element = {<Dashboard/>}/>
 
