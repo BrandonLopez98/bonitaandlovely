@@ -20,6 +20,7 @@ export const CART_PRODUCTS = 'CART_PRODUCTS'
 export const GETPRODUCT_BYNAME = 'GETPRODUCT_BYNAME'
 export const POST_CART_LS = 'POST_CART_LS'
 export const DELETE_CART_LS = 'DELETE_CART_LS'
+export const EMPTY_LOCAL_CART = 'EMPTY_LOCAL_CART';
 
 
 //provisional

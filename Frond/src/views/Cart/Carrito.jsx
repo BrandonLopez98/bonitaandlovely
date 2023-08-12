@@ -1,6 +1,7 @@
 
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {emptyCartLS} from "../../redux/actions"
 
 const totalItemsCart = [1];
 const cantidad = 1;
@@ -9,10 +10,14 @@ const cantidad = 1;
 const Carrito = () => {
     // const [showItem, setShowItem] = useState(-1);
     const cartLS = useSelector(state => state.localCart); /*estos son los item en carrito en local*/
-    /*const cart = useSelector(state => state.cartProducts); estos son los ultimos item añadidos*/
     console.log("este es cartLs en carrito");
     console.log(cartLS);
-    
+    /*const cart = useSelector(state => state.cartProducts); estos son los ultimos item añadidos*/
+    const dispatch = useDispatch();
+
+    const handleEmptyCart = () =>{
+        dispatch(emptyCartLS());
+    }    
     
     
     const qtyArt = (cart) => {
@@ -46,8 +51,9 @@ const Carrito = () => {
             <div class="grid grid-cols-3 grid-rows-6 gap-5 mx-8 mt-6">
                 {/* columna izquierda detallar productos en carrito */}  
                 {qtyArts && qtyArts.length > 0 ? (
-        qtyArts.map((item, index) => (
-            <div key={index} className="col-span-2 grid grid-cols-6 px-6 mx-6 shadow-md rounded-lg bg-fuchsia-200">
+                <>
+                {qtyArts.map((item, index) => (
+                    <div key={index} className="col-span-2 grid grid-cols-6 px-6 mx-6 shadow-md rounded-lg bg-fuchsia-200">
                 <img src={item.objeto.imagenPrincipal} alt="fotoProducto" className="col-span-1 w-12 bg-white my-2 border-2 border-purple-300 justify-self-left" />
                 <div className="col-start-2 col-span-3 place-self-center font-medium">
                     {item.objeto.name}
@@ -59,7 +65,11 @@ const Carrito = () => {
                     {item.objeto.precio_venta * item.cantidad}
                 </div>
             </div>
-        ))
+        ))}
+        <div>
+            <button onClick={handleEmptyCart}>Limpiar Carrito</button>
+        </div>
+        </>
     ) : (
         <div className="col-span-2 grid grid-cols-5 px-6 mx-6 shadow-md rounded-lg bg-fuchsia-200">
             <div className="col-start-2 col-span-3 flex items-center justify-center font-medium">

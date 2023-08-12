@@ -381,10 +381,12 @@ const Detail = () => {
     }
 
     const addToCart = () => {
-        dispatch(addToCartFunction(id, amount));
+        dispatch(addToCartFunction(id));
 
         /* ivt */
-        dispatch(addItemToCartLS(id))
+        dispatch(addItemToCartLS(id, amount))
+        console.log(`is ${id}`)
+        console.log(`amount ${amount}`);
         /* ivt */ 
 
         const carritotUrl = `/itemadded/${id}?amount=${amount}`;

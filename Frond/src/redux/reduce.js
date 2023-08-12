@@ -1,4 +1,4 @@
-import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS } from "./action-types";
+import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS, EMPTY_LOCAL_CART } from "./action-types";
 
 const storedLocalFavorites = localStorage.getItem("localFavorites");
 const initialLocalFavorites = storedLocalFavorites ? JSON.parse(storedLocalFavorites) : [];
@@ -199,8 +199,9 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                 const itemsInCart = (id) =>{
                     return state.productos.find((prod)=>prod.id===id);
                 };
-                if (payload.length>0){
-                    const newItemsInCart = [...state.localCart, itemsInCart(payload)];
+                const { id: cartItemId, qty } = payload;                
+                if (qty>0){
+                    const newItemsInCart = [...state.localCart, itemsInCart(cartItemId)];
                     localStorage.setItem("localCart", JSON.stringify(newItemsInCart));
                     return{
                         ...state,
@@ -209,9 +210,16 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                 } else {
                     return {
                         ...state,
-                        localCart:payload
+                        localCart:[]
                     }
                 }
+
+            case EMPTY_LOCAL_CART:
+                localStorage.removeItem("localCart");
+                return {
+                    ...state,
+                    localCart:[]
+            };
     
         default:
         return state

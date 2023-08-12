@@ -228,10 +228,10 @@ export const categories = () => async dispatch => {
     }
   }
 
-  export const addItemToCartLS = (id) => {
+  export const addItemToCartLS = (id, qty) => {
     return {
       type: POST_CART_LS, 
-      payload: id
+      payload: {id, qty}
     }
   }
 
@@ -239,6 +239,13 @@ export const categories = () => async dispatch => {
     return {
       type: DELETE_CART_LS,
       payload: idItemCart
+    }
+  }
+
+  export const emptyCartLS = () =>{
+    localStorage.removeItem("localCart");
+    return{
+      type: "EMPTY_LOCAL_CART"
     }
   }
   
