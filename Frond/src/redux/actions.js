@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME  } from "./action-types";
+import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS  } from "./action-types";
 
 // aca la ruta directamente porque la url base ya esta osea que solo queda por la ruta ejemplo:/producto
 
@@ -225,6 +225,20 @@ export const categories = () => async dispatch => {
       } catch (error) {
         alert("Error: " + error.response.data.error);
       }
+    }
+  }
+
+  export const addItemToCartLS = (id) => {
+    return {
+      type: POST_CART_LS, 
+      payload: id
+    }
+  }
+
+  export const deleteItemInCartLS = (idItemCart) => {
+    return {
+      type: DELETE_CART_LS,
+      payload: idItemCart
     }
   }
   

@@ -1,6 +1,10 @@
-import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME  } from "./action-types";
+import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS } from "./action-types";
+
 const storedLocalFavorites = localStorage.getItem("localFavorites");
 const initialLocalFavorites = storedLocalFavorites ? JSON.parse(storedLocalFavorites) : [];
+
+const storedLocalCart = localStorage.getItem("localCart");
+const initialLocalCart = storedLocalCart ? JSON.parse(storedLocalCart) : [];
 
 const InitialState = {
     Allproducts: [],
@@ -18,7 +22,7 @@ const InitialState = {
     favoritesRaw: [],
     cartProducts: [],
     searchResults: [],
-    addProductsToCart: []
+    localCart: initialLocalCart
 }
 
 const reducer = (state = InitialState, {type, payload, data}) => {
@@ -185,10 +189,28 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                     addProductsToCart: payload
                 };
 
-                case GETPRODUCT_BYNAME:
+            case GETPRODUCT_BYNAME:
                 return {
                     ...state,
                     searchResults: payload
+                }
+
+            case POST_CART_LS:
+                const itemsInCart = (id) =>{
+                    return state.productos.find((prod)=>prod.id===id);
+                };
+                if (payload.length>0){
+                    const newItemsInCart = [...state.localCart, itemsInCart(payload)];
+                    localStorage.setItem("localCart", JSON.stringify(newItemsInCart));
+                    return{
+                        ...state,
+                        localCart: newItemsInCart,
+                    };
+                } else {
+                    return {
+                        ...state,
+                        localCart:payload
+                    }
                 }
     
         default:
