@@ -63,15 +63,6 @@ module.exports = async (name, descripcion, precio_compra, imagenPrincipal, image
       throw new Error(`Ya existe un producto con el nombre ${name}`);
     }
 
-    const imagenesExistente = await Imagen.findAll({
-      where: {
-        id: imagenes,
-      },
-    });
-
-    if (imagenesExistente.length !== imagenes.length) {
-      throw new Error('Una o más imágenes no existen.');
-    }
 
     // Crear el producto en la base de datos
     const nuevoProducto = await Producto.create({
