@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {emptyCartLS} from "../../redux/actions"
 
-const totalItemsCart = [1];
-const cantidad = 1;
+// const totalItemsCart = [1];
+// const cantidad = 1;
 
 
 const Carrito = () => {
@@ -18,7 +18,7 @@ const Carrito = () => {
     
    /* unificar amount de articulos start*/
    const cartUnif = (cart) =>{
-    const countMap = {};
+   const countMap = {};
 
     cart.forEach(item=>{
         const itemId=item.id;
@@ -37,14 +37,7 @@ const Carrito = () => {
    };
    const cartUnificado = cartUnif(cartLS);
    /* unificar amount de articulos end*/
-    console.log(`este es el cartunificado`);
-    cartUnificado.forEach((item, index) => {
-    console.log(`Elemento ${index + 1}:`, item);
-    console.log("ID:", item.objeto.id);
-    console.log("Cantidad:", item.objeto.amount);
-    });
-
-            
+   
     const totalProd = cartUnificado.reduce((total,item)=>total+(item.objeto.precio_venta * item.objeto.amount),0);
     const totalArts = cartUnificado.reduce((qty,item)=>qty+(item.objeto.amount),0);
     
@@ -97,9 +90,7 @@ const Carrito = () => {
                         <h3 class="col-start-1 col-end-3 row-start-3 place-self-start">
                             Envio
                         </h3>
-                        <h2 class="col-start-1 col-end-3 place-self-start">
-                            0
-                        </h2>
+                        
                         <h2 class="col-start-1 col-end-3 row-start-5 place-self-start font-bold">
                             Total
                         </h2>
@@ -108,7 +99,7 @@ const Carrito = () => {
                         {totalProd || 0}
                         </h2>
                         <h2 class="row-start-3 col-start-4  place-self-start">
-                            $$$$
+                            0
                         </h2>
                         <h2 class="row-start-5 col-start-4  place-self-start font-bold">
                         {totalProd || 0}
