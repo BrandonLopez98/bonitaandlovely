@@ -199,10 +199,13 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                 const itemsInCart = (id) =>{
                     return state.productos.find((prod)=>prod.id===id);
                 };
-                const { id: cartItemId, qty } = payload;                
-                if (qty>0){
-                    const newItemsInCart = [...state.localCart, itemsInCart(cartItemId)];
+                const { id, amount } = payload;
+                console.log(`id y amount de reduce ${id} y ${amount}`);               
+                if (amount>0){
+                    const newItem = {...itemsInCart(id), amount}
+                    const newItemsInCart = [...state.localCart, newItem];
                     localStorage.setItem("localCart", JSON.stringify(newItemsInCart));
+                    console.log(`newItem ${newItem}`);
                     return{
                         ...state,
                         localCart: newItemsInCart,

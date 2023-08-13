@@ -317,8 +317,7 @@ const Detail = () => {
     const navigate = useNavigate()
     const { id } = useParams();
     const stateProducts = useSelector(state => state.productsDetail);
-    console.log("esto es stateproducts");
-    console.log(stateProducts)
+
 
     
 

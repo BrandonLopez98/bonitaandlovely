@@ -228,10 +228,10 @@ export const categories = () => async dispatch => {
     }
   }
 
-  export const addItemToCartLS = (id, qty) => {
+  export const addItemToCartLS = (id, amount) => {
     return {
       type: POST_CART_LS, 
-      payload: {id, qty}
+      payload: {id, amount}
     }
   }
 

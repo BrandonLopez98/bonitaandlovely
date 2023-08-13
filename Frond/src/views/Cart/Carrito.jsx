@@ -8,66 +8,70 @@ const cantidad = 1;
 
 
 const Carrito = () => {
-    // const [showItem, setShowItem] = useState(-1);
-    const cartLS = useSelector(state => state.localCart); /*estos son los item en carrito en local*/
-    console.log("este es cartLs en carrito");
-    console.log(cartLS);
-    /*const cart = useSelector(state => state.cartProducts); estos son los ultimos item añadidos*/
     const dispatch = useDispatch();
+    
+    const cartLS = useSelector(state => state.localCart); /*estos son los item en carrito en local*/
 
     const handleEmptyCart = () =>{
         dispatch(emptyCartLS());
-    }    
+    }        
     
-    
-    const qtyArt = (cart) => {
-        const countMap = {};      
-        cart.forEach(item => {
-          const itemId = item.id; 
-          if (countMap[itemId]) {
-            countMap[itemId] += 1;
-          } else {
-            countMap[itemId] = 1;
-          }
-        });      
-        const resumen = Object.keys(countMap).map(itemId => ({
-          objeto: cart.find(item => item.id === itemId), 
-          cantidad: countMap[itemId]
-        }));      
-        return resumen;
-      };  
-    const qtyArts = qtyArt(cartLS);      
-    console.log(qtyArts);
-    
-    
-    
-    
-    const totalProd = cartLS.reduce((total,item)=>total+item.precio_venta,0);
-    
- 
+   /* unificar amount de articulos start*/
+   const cartUnif = (cart) =>{
+    const countMap = {};
+
+    cart.forEach(item=>{
+        const itemId=item.id;
+        if(countMap[itemId]){
+            countMap[itemId]+=item.amount;
+        }else{
+            countMap[itemId]=item.amount;
+        }
+    });
+
+    const cartUnifRes = Object.keys(countMap).map(itemId=>({
+        objeto: cart.find(item=>item.id===itemId),
+        cantidad: countMap[itemId]
+    }))
+    return cartUnifRes;
+   };
+   const cartUnificado = cartUnif(cartLS);
+   /* unificar amount de articulos end*/
+    console.log(`este es el cartunificado`);
+    cartUnificado.forEach((item, index) => {
+    console.log(`Elemento ${index + 1}:`, item);
+    console.log("ID:", item.objeto.id);
+    console.log("Cantidad:", item.objeto.amount);
+    });
+
+            
+    const totalProd = cartUnificado.reduce((total,item)=>total+(item.objeto.precio_venta * item.objeto.amount),0);
+    const totalArts = cartUnificado.reduce((qty,item)=>qty+(item.objeto.amount),0);
     
     return (
         <>        
             <div class="grid grid-cols-3 grid-rows-6 gap-5 mx-8 mt-6">
                 {/* columna izquierda detallar productos en carrito */}  
-                {qtyArts && qtyArts.length > 0 ? (
+                {cartUnificado && cartUnificado.length > 0 ? (
                 <>
-                {qtyArts.map((item, index) => (
+                {cartUnificado.map((item, index) => (
                     <div key={index} className="col-span-2 grid grid-cols-6 px-6 mx-6 shadow-md rounded-lg bg-fuchsia-200">
                 <img src={item.objeto.imagenPrincipal} alt="fotoProducto" className="col-span-1 w-12 bg-white my-2 border-2 border-purple-300 justify-self-left" />
                 <div className="col-start-2 col-span-3 place-self-center font-medium">
                     {item.objeto.name}
                 </div>
                 <div className="col-start-5 col-span-1 flex items-center justify-center font-medium ">
-                    {item.cantidad}
+                    {item.objeto.amount}
                 </div>
                 <div className="col-start-6 col-span-1 flex items-center justify-center font-medium ">
-                    {item.objeto.precio_venta * item.cantidad}
+                    {item.objeto.precio_venta * item.objeto.amount}
                 </div>
             </div>
         ))}
-        <div>
-            <button onClick={handleEmptyCart}>Limpiar Carrito</button>
+        <div class="col-start-2  flex justify-end h-6">
+            <button onClick={handleEmptyCart} class="rounded-md mx-6 px-2 text-gray-400 bg-gray-200 hover:bg-gray-100 font-small">
+                Limpiar Carrito
+            </button>
         </div>
         </>
     ) : (
@@ -88,7 +92,7 @@ const Carrito = () => {
                         </h2>
 
                         <h3 class="col-start-1 col-end-3 row-start-2 place-self-start">
-                        Arts. ({cartLS?.length || 0})
+                        Arts. ({totalArts || 0})
                         </h3>
                         <h3 class="col-start-1 col-end-3 row-start-3 place-self-start">
                             Envio
@@ -120,7 +124,7 @@ const Carrito = () => {
         </>
     )
 
-};
+    };
 
 export default Carrito;
 
