@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {emptyCartLS} from "../../redux/actions"
+import { NavLink } from "react-router-dom";
 
 // const totalItemsCart = [1];
 // const cantidad = 1;
@@ -11,6 +12,11 @@ const Carrito = () => {
     const dispatch = useDispatch();
     
     const cartLS = useSelector(state => state.localCart); /*estos son los item en carrito en local*/
+    cartLS.forEach(art=>{
+        console.log(`objeto es ${art.name}`);
+        console.log(`amount es ${art.amount}`);
+    }
+    )
 
     const handleEmptyCart = () =>{
         dispatch(emptyCartLS());
@@ -21,25 +27,30 @@ const Carrito = () => {
    const countMap = {};
 
     cart.forEach(item=>{
-        const itemId=item.id;
+        const itemId=item.id;       
         if(countMap[itemId]){
             countMap[itemId]+=item.amount;
         }else{
             countMap[itemId]=item.amount;
-        }
+        }        
     });
 
     const cartUnifRes = Object.keys(countMap).map(itemId=>({
         objeto: cart.find(item=>item.id===itemId),
         cantidad: countMap[itemId]
-    }))
+    }))    
     return cartUnifRes;
    };
    const cartUnificado = cartUnif(cartLS);
+   cartUnificado.forEach(art=>{
+    console.log(`objeto es ${art.objeto}`);
+    console.log(`amount es ${art.cantidad}`);
+}
+)
    /* unificar amount de articulos end*/
    
-    const totalProd = cartUnificado.reduce((total,item)=>total+(item.objeto.precio_venta * item.objeto.amount),0);
-    const totalArts = cartUnificado.reduce((qty,item)=>qty+(item.objeto.amount),0);
+    const totalProd = cartUnificado.reduce((total,item)=>total+(item.objeto.precio_venta * item.cantidad),0);
+    const totalArts = cartUnificado.reduce((qty,item)=>qty+(item.cantidad),0);
     
     return (
         <>        
@@ -54,14 +65,19 @@ const Carrito = () => {
                     {item.objeto.name}
                 </div>
                 <div className="col-start-5 col-span-1 flex items-center justify-center font-medium ">
-                    {item.objeto.amount}
+                    {item.cantidad}
                 </div>
                 <div className="col-start-6 col-span-1 flex items-center justify-center font-medium ">
-                    {item.objeto.precio_venta * item.objeto.amount}
+                    {item.objeto.precio_venta * item.cantidad}
                 </div>
             </div>
         ))}
         <div class="col-start-2  flex justify-end h-6">
+            <NavLink to="/catalogo" >
+                <button class="rounded-md mx-6 px-2 text-purple-400 bg-fuchsia-100 hover:bg-pink-200 font-medium">
+                Añadir articulos
+                </button>
+            </NavLink>
             <button onClick={handleEmptyCart} class="rounded-md mx-6 px-2 text-gray-400 bg-gray-200 hover:bg-gray-100 font-small">
                 Limpiar Carrito
             </button>
