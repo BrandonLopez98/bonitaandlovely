@@ -2,62 +2,73 @@ import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavoriteAPI, addFavoriteLS, deleteFavoriteAPI, deleteFavoriteLS} from "../../redux/actions";
+import {
+  addFavoriteAPI,
+  addFavoriteLS,
+  deleteFavoriteAPI,
+  deleteFavoriteLS,
+} from "../../redux/actions";
 import { useEffect, useState } from "react";
 
-const Card = ({ id, name, precio_venta,imagenPrincipal }) => {
+const Card = ({ id, name, precio_venta, imagenPrincipal }) => {
   const dispatch = useDispatch();
-  const localFavorites = useSelector(state => state.localFavorites);
-  const favorites = useSelector(state => state.favorites)
-  const favoritesRaw = useSelector(state=> state.favoritesRaw)
-  const {user, isAuthenticated} = useAuth0()
-  const [isFavorite, setIsFavorite] = useState(localFavorites.some(item => item.id === id));
-  const extractNumber = (string) => {
-    const match = string.match(/\d+/); // Busca uno o más dígitos en la cadena
-    return match ? parseInt(match[0]) : 0; // Convierte el resultado a un número o devuelve 0 si no hay coincidencia
+  const localFavorites = useSelector((state) => state.localFavorites);
+  const favorites = useSelector((state) => state.favorites);
+  const favoritesRaw = useSelector((state) => state.favoritesRaw);
+  const { user, isAuthenticated } = useAuth0();
+  const [isFavorite, setIsFavorite] = useState(
+    localFavorites.some((item) => item.id === id)
+  );
+  const extractNumber = (input) => {
+    const string = String(input); // Convertir la entrada a una cadena
+    const match = string.match(/\d+/);
+    console.log(match);
+    return match ? parseInt(match[0]) : 0;
   };
-  const productoId = extractNumber(id)
-  const correo_electronico = user?.email
+  const productoId = extractNumber(id);
+  const correo_electronico = user?.email;
   const favorito = {
     productoId,
-    correo_electronico
-  }
-  console.log(favoritesRaw)
-  console.log(favorites)
-  console.log(localFavorites)
+    correo_electronico,
+  };
+  console.log(favoritesRaw);
+  console.log(favorites);
+  console.log(localFavorites);
   const handleFavoriteClick = () => {
     if (isFavorite) {
       if (isAuthenticated) {
         if (favoritesRaw.length > 0) {
-          const resultado = favoritesRaw.find(objeto => objeto.productoId === id);
+          const resultado = favoritesRaw.find(
+            (objeto) => objeto.productoId === id
+          );
           if (resultado) {
             const idFav = resultado.id;
             const favoritoR = {
               correo_electronico,
               idFav,
-              id
+              id,
             };
             dispatch(deleteFavoriteAPI(favoritoR));
           }
-      }
+        }
       } else {
         dispatch(deleteFavoriteLS(id));
       }
     } else {
       if (isAuthenticated) {
-        dispatch(addFavoriteAPI(favorito))
+        dispatch(addFavoriteAPI(favorito));
       } else {
         dispatch(addFavoriteLS(id));
       }
     }
-    setIsFavorite(!isFavorite); 
+    setIsFavorite(!isFavorite);
   };
 
   useEffect(() => {
     if (isAuthenticated) {
-      setIsFavorite(favorites.some(objeto => objeto.id === id));
+      setIsFavorite(favorites.some((objeto) => objeto.id === id));
     } else {
-      setIsFavorite(localFavorites.some(item => item.id === id));
+      setIsFavorite(localFavorites.some((item) => item.id === id));
     }
   }, [localFavorites, favorites, id, isAuthenticated]);
 

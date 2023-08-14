@@ -1,9 +1,9 @@
 [
     {
-      "name": "Ana Rodríguez",
+      "name": "Hector Gomez",
       "fecha_nacimiento": "1985-10-20",
       "telefono": "555-123-4567",
-      "correo_electronico": "ana@example.com",
+      "correo_electronico": "hdgomez0@gmail.com",
       "direccion": "Avenida Ficticia 456",
       "contraseña": "AnaPass123"
     },
