@@ -107,7 +107,7 @@ const reducer = (state = InitialState, {type, payload, data}) => {
             const productsFav = (id) => {
                 return state.productos.find((prod) => prod.id === id);
             };
-
+            
             if (payload.length > 0) {
                 const newLocalFavorites = [...state.localFavorites, productsFav(payload)];
                 // Actualiza el Local Storage con la nueva lista de favoritos
@@ -200,12 +200,12 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                     return state.productos.find((prod)=>prod.id===id);
                 };
                 const { id, amount } = payload;
-                console.log(`id y amount de reduce ${id} y ${amount}`);               
+                console.log(`items in cart id ${itemsInCart(id).id}`);    
                 if (amount>0){
                     const newItem = {...itemsInCart(id), amount}
                     const newItemsInCart = [...state.localCart, newItem];
                     localStorage.setItem("localCart", JSON.stringify(newItemsInCart));
-                    console.log(`newItem ${newItem}`);
+                    
                     return{
                         ...state,
                         localCart: newItemsInCart,

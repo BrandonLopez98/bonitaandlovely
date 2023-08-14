@@ -12,11 +12,10 @@ const Carrito = () => {
     const dispatch = useDispatch();
     
     const cartLS = useSelector(state => state.localCart); /*estos son los item en carrito en local*/
-    cartLS.forEach(art=>{
-        console.log(`objeto es ${art.name}`);
-        console.log(`amount es ${art.amount}`);
-    }
-    )
+    cartLS.forEach(art => {
+        console.log('art:', art);
+        console.log('---');
+    });
 
     const handleEmptyCart = () =>{
         dispatch(emptyCartLS());
@@ -36,15 +35,15 @@ const Carrito = () => {
     });
 
     const cartUnifRes = Object.keys(countMap).map(itemId=>({
-        objeto: cart.find(item=>item.id===itemId),
+        objeto: cart.find(item=>item.id===itemId) || {},
         cantidad: countMap[itemId]
     }))    
     return cartUnifRes;
    };
    const cartUnificado = cartUnif(cartLS);
    cartUnificado.forEach(art=>{
-    console.log(`objeto es ${art.objeto}`);
-    console.log(`amount es ${art.cantidad}`);
+    console.log(`objeto`, art);
+    console.log(`---`);
 }
 )
    /* unificar amount de articulos end*/

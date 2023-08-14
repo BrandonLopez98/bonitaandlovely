@@ -384,11 +384,12 @@ const Detail = () => {
 
         /* ivt */
         dispatch(addItemToCartLS(id, amount))
-        console.log(`is ${id}`)
+        console.log(`id en detail is ${id}`)
         console.log(`amount ${amount}`);
         /* ivt */ 
 
         const carritotUrl = `/itemadded/${id}?amount=${amount}`;
+        console.log(`el id de carritoURL es ${id}`);
         navigate(carritotUrl);
     };
 
