@@ -14,19 +14,19 @@ const AddToCart = () => {
   const location = useLocation();
   const stateProducts = useSelector(state => state.cartProducts);
   console.log(stateProducts);
-  const { id, amount = 0 } = useParams();
+  const { id, amount = 0, color } = useParams();
   const searchParams = new URLSearchParams(location.search);
  
  //  const id = searchParams.get("id");
    //const amount = /*searchParams.get("amount") */ 2 ; 
 
   useEffect(() => {
-    dispatch(getCartProducts(id, amount));
-  }, [dispatch, id, amount]);
+    dispatch(getCartProducts(id, amount, color));
+  }, [dispatch, id, amount, color]);
 
   const addToCart = () => {
-    dispatch(addToCartFunction(id, amount)); 
-    const carritotUrl = `/carrito/${id}`;
+    dispatch(addToCartFunction(id, amount, color)); 
+    const carritotUrl = `/carrito/${id}?amount=${amount}?color=${color}`;
     navigate(carritotUrl);
   };
 
@@ -50,7 +50,7 @@ const AddToCart = () => {
           <p className='text-green-500 font-semibold'>fue agregado al carrito exitosamente</p>
           </div>
 
-          <p> Hay {amount} __ producto(s) en tu carrito </p>
+          <p> Hay {amount} producto(s) en tu carrito </p>
 
           <div className="flex space-x-4">
           <button onClick={addToCart} className='bg-customColor text-white font-semibold py-1 px-4 rounded-xl flex items-center gap-2'>

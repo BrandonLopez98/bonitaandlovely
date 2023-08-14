@@ -1,8 +1,6 @@
 import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS, EMPTY_LOCAL_CART } from "./action-types";
-
 const storedLocalFavorites = localStorage.getItem("localFavorites");
 const initialLocalFavorites = storedLocalFavorites ? JSON.parse(storedLocalFavorites) : [];
-
 const storedLocalCart = localStorage.getItem("localCart");
 const initialLocalCart = storedLocalCart ? JSON.parse(storedLocalCart) : [];
 
@@ -22,6 +20,7 @@ const InitialState = {
     favoritesRaw: [],
     cartProducts: [],
     searchResults: [],
+    addProductsToCart: [],
     localCart: initialLocalCart
 }
 
@@ -143,34 +142,43 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                 
         case PRODUCTS_FILTERED:
             const filtrarProductos = (productos, filtro) => {
-                return productos.filter((producto) => {
-                  if (filtro.categoriaId && filtro.categoriaId.length > 0) {
-                    if (!filtro.categoriaId.includes(producto.categoriaId)) {
-                      return false;
-                    }
+                if (
+                    filtro.categoriaId.length === 0 &&
+                    filtro.marcaId.length === 0 &&
+                    (!filtro.precio_venta.min && !filtro.precio_venta.max) &&
+                    filtro.tamañoId.length === 0
+                  ) {
+                    return []; // Devuelve un array vacío si no hay filtros
+                  } else {
+                      return productos.filter((producto) => {
+                        if (filtro.categoriaId && filtro.categoriaId.length > 0) {
+                          if (!filtro.categoriaId.includes(producto.categoriaId)) {
+                            return false;
+                          }
+                        }
+                        if (filtro.marcaId && filtro.marcaId.length > 0) {
+                          if (!filtro.marcaId.includes(producto.marcaId)) {
+                            return false;
+                          }
+                        }
+                    
+                        if (filtro.precio_venta && filtro.precio_venta.min && filtro.precio_venta.max) {
+                          const precioVenta = parseFloat(producto.precio_venta);
+                          if (precioVenta < filtro.precio_venta.min || precioVenta > filtro.precio_venta.max) {
+                            return false;
+                          }
+                        }
+                    
+                        if (filtro.tamañoId && filtro.tamañoId.length > 0) {
+                          if (!filtro.tamañoId.includes(producto.tamañoId)) {
+                            return false;
+                          }
+                        }
+                        return true;
+                      });
                   }
-                  if (filtro.marcaId && filtro.marcaId.length > 0) {
-                    if (!filtro.marcaId.includes(producto.marcaId)) {
-                      return false;
-                    }
-                  }
-              
-                  if (filtro.precio_venta && filtro.precio_venta.min && filtro.precio_venta.max) {
-                    const precioVenta = parseFloat(producto.precio_venta);
-                    if (precioVenta < filtro.precio_venta.min || precioVenta > filtro.precio_venta.max) {
-                      return false;
-                    }
-                  }
-              
-                  if (filtro.tamañoId && filtro.tamañoId.length > 0) {
-                    if (!filtro.tamañoId.includes(producto.tamañoId)) {
-                      return false;
-                    }
-                  }
-                  return true;
-                });
               };
-              const productosFiltrados = filtrarProductos(state.copyAllProducts.productos, payload);
+              const productosFiltrados = filtrarProductos(state.productos, payload);
             return {
                 ...state,
                 productsFiltered: productosFiltrados

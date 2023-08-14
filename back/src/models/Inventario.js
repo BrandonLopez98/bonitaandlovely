@@ -32,12 +32,10 @@ module.exports = (sequelize) => {
     associate: (models) => {
       Inventario.belongsTo(models.Producto, {
         foreignKey: 'productoId',
-        onDelete: 'CASCADE', // Opcional: Define la acción a tomar en cascada al eliminar un producto
       });
 
       Inventario.belongsTo(models.Color, {
         foreignKey: 'colorId',
-        onDelete: 'CASCADE', // Opcional: Define la acción a tomar en cascada al eliminar un color
       });
     },
   });

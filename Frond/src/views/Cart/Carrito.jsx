@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {emptyCartLS} from "../../redux/actions"
@@ -10,7 +9,7 @@ import {emptyCartLS} from "../../redux/actions"
 const Carrito = () => {
     const dispatch = useDispatch();
     
-    const cartLS = useSelector(state => state.localCart); /*estos son los item en carrito en local*/
+    const cartLS = useSelector(state => state.localCart); //estos son los item en carrito en local/
 
     const handleEmptyCart = () =>{
         dispatch(emptyCartLS());
@@ -30,7 +29,7 @@ const Carrito = () => {
     });
 
     const cartUnifRes = Object.keys(countMap).map(itemId=>({
-        objeto: cart.find(item=>item.id===itemId),
+        objeto: cart.find(item=>item.id===itemId || {}),
         cantidad: countMap[itemId]
     }))
     return cartUnifRes;
@@ -54,10 +53,10 @@ const Carrito = () => {
                     {item.objeto.name}
                 </div>
                 <div className="col-start-5 col-span-1 flex items-center justify-center font-medium ">
-                    {item.objeto.amount}
+                    <p>Cantidad: </p> {item.objeto.amount}
                 </div>
                 <div className="col-start-6 col-span-1 flex items-center justify-center font-medium ">
-                    {item.objeto.precio_venta * item.objeto.amount}
+                    <p>Precio: </p>{item.objeto.precio_venta * item.objeto.amount}
                 </div>
             </div>
         ))}

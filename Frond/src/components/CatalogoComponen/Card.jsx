@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFavoriteAPI, addFavoriteLS, deleteFavoriteAPI, deleteFavoriteLS} from "../../redux/actions";
 import { useEffect, useState } from "react";
 
-const Card = ({ id, name, precio_venta }) => {
+const Card = ({ id, name, precio_venta,imagenPrincipal }) => {
   const dispatch = useDispatch();
   const localFavorites = useSelector(state => state.localFavorites);
   const favorites = useSelector(state => state.favorites)
@@ -32,9 +32,6 @@ const Card = ({ id, name, precio_venta }) => {
     productoId,
     correo_electronico
   }
-  console.log(favoritesRaw)
-  console.log(favorites)
-  console.log(localFavorites)
   const handleFavoriteClick = () => {
     if (isFavorite) {
       if (isAuthenticated) {
@@ -84,7 +81,7 @@ const Card = ({ id, name, precio_venta }) => {
       <Link to={`/detail/${id}`} className="w-[50%] h-full m-auto">
         <img
           className="rounded-lg w-full m-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]"
-          src="https://i.ibb.co/ctpR3L1/img158.jpg"
+          src={`${imagenPrincipal}`}
           alt="a"
         />
       </Link>

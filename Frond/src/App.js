@@ -10,7 +10,7 @@ import FAQs from "./views/FAQs/FAQs"
 import Catalogo from "./views/Catalogo/Catalogo.jsx";
 import Chatbot from "react-chatbot-kit";
 import Form from "./views/Form/Form";
-import Profile from "./views/Profile/Profile";
+import Profile from "./views/Profile/MiPerfil.jsx";
 import Configs from "./components/ChatBot/Configs";
 import MessageParser from "./components/ChatBot/MessageParser";
 import Detail from "../src/views/Detail/Detail";

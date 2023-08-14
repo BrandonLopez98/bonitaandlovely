@@ -26,21 +26,22 @@ const postCategoriaArray = require ('./src/controllers/Categoria/postCategoriaAr
 const categoriaData = require('../json/categorias.json');
 const postSubCategoriaArray = require('./src/controllers/SubCategoria/postSubCategoriaArray')
 const subCategoriaData = require('../json/subCategorias.json')
-
 const postArrayMarca = require('./src/controllers/Marca/postArrayMarca')
 const MarcaData = require('../json/Marca.json')
 const postArraySize = require('./src/controllers/size/postArraySize');
 const SizeData = require('../json/Size.json')
 const postArrayProveedor = require('./src/controllers/Proveedor/postArrayProveedor');
 const ProveedorData = require('../json/Proveedores.json')
-const postArrayImagen = require('./src/controllers/Imagen/postImagenArray');
-const ImagenData = require('../json/imagen.json')
 const postArrayProducto = require('./src/controllers/Producto/postProductoArray');
-const ProductoData = require('../json/ProductoConImagenes.json')
+const ProductoData = require('../json/Producto.json')
 const postArrayCliente = require('./src/controllers/cliente/postArrayCliente');
 const ClienteData = require('../json/cliente.json')
 const postArrayFavorito = require('./src/controllers/Favoritos/postArrayFavorito')
 const FavoritoData = require('../json/Favoritos.json')
+const postColorArray = require('./src/controllers/Color/postColorArray')
+const ColorData = require('../json/color.json')
+const postArrayInventario = require('./src/controllers/Inventario/postArrayInventario')
+const InventarioData = require('../json/inventario.json')
 
 async function loadCategoriaData() {
   try {
@@ -59,8 +60,8 @@ async function loadCategoriaData() {
       await postArrayProveedor(ProveedorData);
       console.log('proveedor data loaded.');
 
-      await postArrayImagen(ImagenData);
-      console.log('Imagen data loaded.');
+      await postColorArray(ColorData);
+      console.log('Color data loaded.');
 
       await postArrayProducto(ProductoData);
       console.log('Producto data loaded.');
@@ -69,17 +70,23 @@ async function loadCategoriaData() {
       console.log('Cliente data loaded.');
 
       await postArrayFavorito(FavoritoData);
-      console.log('Favorito data loaded.');
+      console.log('Favorito data loaded.'); 
+
+            
+      await postArrayInventario(InventarioData);
+      console.log('Inventario data loaded.');
+    
+ 
 
   } catch (error) {
-    console.error('Error loading categoría data:', error.message);
+    console.error('Error loading data:', error.message);
   }
 }
 
 async function startServer() {
   try {
     // Sincronizamos la base de datos y forzamos la creación de tablas
-    await conn.sync({ force: false });
+    await conn.sync({ force: true });
     console.log('Database synchronized.');
 
     // Cargamos los datos de categoría desde el archivo JSON

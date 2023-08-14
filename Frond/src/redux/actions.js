@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS  } from "./action-types";
+import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS, EMPTY_LOCAL_CART} from "./action-types";
 
 // aca la ruta directamente porque la url base ya esta osea que solo queda por la ruta ejemplo:/producto
 
@@ -204,12 +204,13 @@ export const categories = () => async dispatch => {
       }
     }}
 
-  export const addToCartFunction = (id, amount) => {
+  export const addToCartFunction = (id, amount,color) => {
     return {
       type: ADD_TO_CART,
       payload: {
         id,
         amount,
+        color
       },
     };
   };
@@ -228,10 +229,10 @@ export const categories = () => async dispatch => {
     }
   }
 
-  export const addItemToCartLS = (id, amount) => {
+  export const addItemToCartLS = (id, amount, color) => {
     return {
       type: POST_CART_LS, 
-      payload: {id, amount}
+      payload: {id, amount, color}
     }
   }
 
@@ -245,7 +246,7 @@ export const categories = () => async dispatch => {
   export const emptyCartLS = () =>{
     localStorage.removeItem("localCart");
     return{
-      type: "EMPTY_LOCAL_CART"
+      type: EMPTY_LOCAL_CART
     }
   }
   

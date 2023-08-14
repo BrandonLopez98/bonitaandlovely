@@ -37,17 +37,17 @@ module.exports = async (favoritosArray) => {
         throw new Error(`El producto con ID ${productoId} no existe.`);
       }
 
-      // Verificar si el producto favorito ya existe para este cliente
-      const favoritoExistente = await Favoritos.findOne({
-        where: {
-          clienteId,
-          productoId,
-        },
-      });
+      // // Verificar si el producto favorito ya existe para este cliente
+      // const favoritoExistente = await Favoritos.findOne({
+      //   where: {
+      //     clienteId,
+      //     productoId,
+      //   },
+      // });
 
-      if (favoritoExistente) {
-        throw new Error(`El producto con ID ${productoId} ya está en la lista de favoritos del cliente con ID ${clienteId}.`);
-      }
+      // if (favoritoExistente) {
+      //   throw new Error(`El producto con ID ${productoId} ya está en la lista de favoritos del cliente con ID ${clienteId}.`);
+      // }
 
       // Crear el registro de producto favorito en la base de datos
       let nuevoFavorito = await Favoritos.create({

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import categoriasBg from '../../assets/img/categoriasBg.jpg'
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { categories } from '../../redux/actions';
+import { categories, productFilter } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -48,21 +48,20 @@ const Products = () => {
   const dispatch = useDispatch()
   const filterByCategories = (event) => {
     const categoryToFilter = event.target.name
-    const categoryId = event.target.id
     switch (categoryToFilter) {
      case 'maquillaje':
       navigate('/catalogo')
-      // dispatch(filtrarPorCategoria(categoryId))
+      dispatch(productFilter({categoriaId: [1]}))
        break;
  
      case 'skinCare':
        navigate('/catalogo')
-      //  dispatch(filtrarPorCategoria(categoryId))
+       dispatch(productFilter({categoriaId: [2]}))
        break;
  
      case 'accesorios':
        navigate('/catalogo')
-      //  dispatch(filtrarPorCategoria(categoryId))
+       dispatch(productFilter({categoriaId: [3]}))
        break;
        
     

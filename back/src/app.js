@@ -65,7 +65,6 @@ server.post("/pagoCarrito", (req, res) => {
       title: producto.nombre,
       unit_price: Number(producto.precio),
       description: producto.descripcion,
-      quantity: 1,
     };
   });
 
@@ -104,7 +103,7 @@ server.post("/pago", (req, res) => {
       },
     ],
     back_urls: {
-      success: "http://localhost:3000",
+      success: "http://localhost:3000/catalogo",
       failure: "http://localhost:3000",
       pending: "",
     },
@@ -122,12 +121,5 @@ server.post("/pago", (req, res) => {
     });
 });
 
-server.get("/feedback", (req, res) => {
-  res.json({
-    Payment: req.query.payment_id,
-    Status: req.query.status,
-    MerchantOrder: req.query.merchant_order_id,
-  });
-});
 
 module.exports = server;

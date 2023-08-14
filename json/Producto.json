@@ -10,9 +10,14 @@
     "categoriaId": 3,
     "tamañoId": 2,
     "proveedorId": 6,
-    "subcategoriaId": [ 12, 9, 19, 16 ],
-    "imagenPrincipal": "https://ibb.co/SxzkGxt",
-    "imagenes": [ 20, 6, 38, 37 ]
+    "subcategoriaId": [
+      12,
+      9,
+      19,
+      16
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"
   },
   {
     "name": "Paleta Sombras Deluxe",
@@ -25,12 +30,14 @@
     "categoriaId": 2,
     "tamañoId": 2,
     "proveedorId": 6,
-    "subcategoriaId": [ 8, 17, 3, 5 ],
-    "imagenPrincipal": "https://ibb.co/NTV7rbP",
-    "imagenes": [
-      17, 13, 32, 23,
-      37, 28,  4
-    ]
+    "subcategoriaId": [
+      8,
+      17,
+      3,
+      5
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "https://ibb.co/NTV7rbP"
   },
   {
     "name": "Mascara Volumen Intenso",
@@ -43,9 +50,13 @@
     "categoriaId": 1,
     "tamañoId": 1,
     "proveedorId": 6,
-    "subcategoriaId": [ 6, 7, 2 ],
-    "imagenPrincipal": "https://ibb.co/Wt36Xcd",
-    "imagenes": [ 19, 29, 30, 3, 34, 8 ]
+    "subcategoriaId": [
+      6,
+      7,
+      2
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "https://ibb.co/Wt36Xcd"
   },
   {
     "name": "Base de Maquillaje Pro Cover",
@@ -58,9 +69,14 @@
     "categoriaId": 3,
     "tamañoId": 2,
     "proveedorId": 2,
-    "subcategoriaId": [ 12, 19, 9, 16 ],
-    "imagenPrincipal": "https://ibb.co/M7RcCwZ",
-    "imagenes": [ 32, 7 ]
+    "subcategoriaId": [
+      12,
+      19,
+      9,
+      16
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "https://ibb.co/M7RcCwZ"
   },
   {
     "name": "Delineador Preciso",
@@ -73,12 +89,13 @@
     "categoriaId": 1,
     "tamañoId": 2,
     "proveedorId": 2,
-    "subcategoriaId": [ 10, 2, 7 ],
-    "imagenPrincipal": "https://ibb.co/QFyfTcm",
-    "imagenes": [
-      16,  8, 22, 3,
-      25, 26, 32
-    ]
+    "subcategoriaId": [
+      10,
+      2,
+      7
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "https://ibb.co/QFyfTcm"
   },
   {
     "name": "Rubor Suave",
@@ -91,9 +108,13 @@
     "categoriaId": 2,
     "tamañoId": 3,
     "proveedorId": 2,
-    "subcategoriaId": [ 1, 8, 17 ],
-    "imagenPrincipal": "https://ibb.co/JsqbtGM",
-    "imagenes": [ 21, 31, 40, 16, 10 ]
+    "subcategoriaId": [
+      1,
+      8,
+      17
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "https://ibb.co/JsqbtGM"
   },
   {
     "name": "Brochas Profesionales Set",
@@ -106,9 +127,14 @@
     "categoriaId": 3,
     "tamañoId": 1,
     "proveedorId": 4,
-    "subcategoriaId": [ 16, 12, 19, 9 ],
-    "imagenPrincipal": "https://ibb.co/BszZ8pB",
-    "imagenes": [ 11, 33, 18 ]
+    "subcategoriaId": [
+      16,
+      12,
+      19,
+      9
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "https://ibb.co/BszZ8pB"
   },
   {
     "name": "Labial Líquido Mate",
@@ -121,12 +147,12 @@
     "categoriaId": 1,
     "tamañoId": 1,
     "proveedorId": 6,
-    "subcategoriaId": [ 10, 13 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [
-      23, 28, 4, 12,
-      33, 15, 2
-    ]
+    "subcategoriaId": [
+      10,
+      13
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Sombra de Ojos Brillante",
@@ -139,9 +165,12 @@
     "categoriaId": 2,
     "tamañoId": 3,
     "proveedorId": 3,
-    "subcategoriaId": [ 3, 1 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 17, 25, 28, 36 ]
+    "subcategoriaId": [
+      3,
+      1
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Polvo Traslúcido",
@@ -154,9 +183,14 @@
     "categoriaId": 3,
     "tamañoId": 2,
     "proveedorId": 3,
-    "subcategoriaId": [ 16, 9, 19, 12 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 29, 30, 1 ]
+    "subcategoriaId": [
+      16,
+      9,
+      19,
+      12
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Pestañas Postizas Naturales",
@@ -169,9 +203,13 @@
     "categoriaId": 1,
     "tamañoId": 2,
     "proveedorId": 2,
-    "subcategoriaId": [ 14, 2, 13 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 13, 31 ]
+    "subcategoriaId": [
+      14,
+      2,
+      13
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Delineador en Gel",
@@ -184,9 +222,14 @@
     "categoriaId": 2,
     "tamañoId": 3,
     "proveedorId": 2,
-    "subcategoriaId": [ 18, 8, 17, 5 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 21, 37, 11 ]
+    "subcategoriaId": [
+      18,
+      8,
+      17,
+      5
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Corrector de Ojeras",
@@ -199,9 +242,13 @@
     "categoriaId": 3,
     "tamañoId": 1,
     "proveedorId": 4,
-    "subcategoriaId": [ 12, 19, 9 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 27, 10, 28, 9, 36 ]
+    "subcategoriaId": [
+      12,
+      19,
+      9
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Labial Hidratante",
@@ -214,9 +261,12 @@
     "categoriaId": 1,
     "tamañoId": 4,
     "proveedorId": 6,
-    "subcategoriaId": [ 2, 14 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 30, 3, 14, 18, 38, 23 ]
+    "subcategoriaId": [
+      2,
+      14
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Iluminador en Crema",
@@ -229,9 +279,12 @@
     "categoriaId": 2,
     "tamañoId": 3,
     "proveedorId": 5,
-    "subcategoriaId": [ 18, 17 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 10, 16, 9, 1, 22 ]
+    "subcategoriaId": [
+      18,
+      17
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Mascara Resistente Agua",
@@ -244,12 +297,14 @@
     "categoriaId": 1,
     "tamañoId": 4,
     "proveedorId": 6,
-    "subcategoriaId": [ 2, 14, 7, 6 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [
-       2, 34, 28, 26,
-      38, 16, 23
-    ]
+    "subcategoriaId": [
+      2,
+      14,
+      7,
+      6
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Brocha para Base Líquida",
@@ -262,9 +317,12 @@
     "categoriaId": 3,
     "tamañoId": 3,
     "proveedorId": 5,
-    "subcategoriaId": [ 19, 16 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 32, 13, 10, 2, 4, 34 ]
+    "subcategoriaId": [
+      19,
+      16
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Labial Metálico",
@@ -277,12 +335,13 @@
     "categoriaId": 1,
     "tamañoId": 4,
     "proveedorId": 2,
-    "subcategoriaId": [ 2, 14, 13 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [
-       9, 30, 24, 17,
-      13,  3,  2
-    ]
+    "subcategoriaId": [
+      2,
+      14,
+      13
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Set de Brochas de Ojos",
@@ -295,12 +354,14 @@
     "categoriaId": 2,
     "tamañoId": 1,
     "proveedorId": 6,
-    "subcategoriaId": [ 8, 17, 5, 1 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [
-      27, 25,  7, 6,
-      14, 23, 39
-    ]
+    "subcategoriaId": [
+      8,
+      17,
+      5,
+      1
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Spray Fijador de Maquillaje",
@@ -313,9 +374,14 @@
     "categoriaId": 3,
     "tamañoId": 3,
     "proveedorId": 6,
-    "subcategoriaId": [ 12, 16, 19, 9 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 26, 31, 16, 27, 8, 14 ]
+    "subcategoriaId": [
+      12,
+      16,
+      19,
+      9
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Sombra de Ojos Mate",
@@ -328,9 +394,14 @@
     "categoriaId": 2,
     "tamañoId": 2,
     "proveedorId": 3,
-    "subcategoriaId": [ 4, 3, 18, 8 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 30, 6, 19 ]
+    "subcategoriaId": [
+      4,
+      3,
+      18,
+      8
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Labial Voluminizador",
@@ -343,9 +414,12 @@
     "categoriaId": 1,
     "tamañoId": 3,
     "proveedorId": 1,
-    "subcategoriaId": [ 10, 6 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 1, 38 ]
+    "subcategoriaId": [
+      10,
+      6
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Delineador en Plumón",
@@ -358,9 +432,12 @@
     "categoriaId": 2,
     "tamañoId": 2,
     "proveedorId": 1,
-    "subcategoriaId": [ 17, 5 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 13, 39, 10, 29, 5, 15 ]
+    "subcategoriaId": [
+      17,
+      5
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Set de Esponjas Blender",
@@ -373,9 +450,13 @@
     "categoriaId": 3,
     "tamañoId": 1,
     "proveedorId": 3,
-    "subcategoriaId": [ 9, 16, 19 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 3, 34, 7, 35, 38, 26 ]
+    "subcategoriaId": [
+      9,
+      16,
+      19
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Labial Hidratante Mate",
@@ -388,12 +469,13 @@
     "categoriaId": 1,
     "tamañoId": 1,
     "proveedorId": 3,
-    "subcategoriaId": [ 13, 7, 6 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [
-      20, 26, 13, 11,
-      31, 33, 40
-    ]
+    "subcategoriaId": [
+      13,
+      7,
+      6
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Máscara de Cejas",
@@ -406,9 +488,14 @@
     "categoriaId": 2,
     "tamañoId": 2,
     "proveedorId": 5,
-    "subcategoriaId": [ 8, 1, 18, 3 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 9, 23, 27 ]
+    "subcategoriaId": [
+      8,
+      1,
+      18,
+      3
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Brocha para Contorno",
@@ -421,9 +508,13 @@
     "categoriaId": 3,
     "tamañoId": 3,
     "proveedorId": 2,
-    "subcategoriaId": [ 16, 12, 19 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 25, 24, 10, 12 ]
+    "subcategoriaId": [
+      16,
+      12,
+      19
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Labial Larga Duración",
@@ -436,9 +527,12 @@
     "categoriaId": 1,
     "tamañoId": 2,
     "proveedorId": 2,
-    "subcategoriaId": [ 10, 2 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 25, 33, 16 ]
+    "subcategoriaId": [
+      10,
+      2
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Delineador Líquido Colores",
@@ -451,12 +545,12 @@
     "categoriaId": 2,
     "tamañoId": 4,
     "proveedorId": 1,
-    "subcategoriaId": [ 4, 1 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [
-      37, 38, 10, 4,
-      13, 14, 40
-    ]
+    "subcategoriaId": [
+      4,
+      1
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Kit Maquillaje Completo",
@@ -469,9 +563,13 @@
     "categoriaId": 3,
     "tamañoId": 4,
     "proveedorId": 3,
-    "subcategoriaId": [ 12, 9, 16 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 38, 31, 25, 15 ]
+    "subcategoriaId": [
+      12,
+      9,
+      16
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Delineador en Gel Resistente Agua",
@@ -484,9 +582,13 @@
     "categoriaId": 1,
     "tamañoId": 2,
     "proveedorId": 1,
-    "subcategoriaId": [ 15, 7, 10 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 37, 35, 28, 15, 14, 13 ]
+    "subcategoriaId": [
+      15,
+      7,
+      10
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Brocha para Difuminar",
@@ -499,9 +601,13 @@
     "categoriaId": 2,
     "tamañoId": 3,
     "proveedorId": 4,
-    "subcategoriaId": [ 5, 17, 18 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 27, 34 ]
+    "subcategoriaId": [
+      5,
+      17,
+      18
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Labial Gloss",
@@ -514,9 +620,13 @@
     "categoriaId": 3,
     "tamañoId": 2,
     "proveedorId": 2,
-    "subcategoriaId": [ 9, 16, 12 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 37, 24, 30 ]
+    "subcategoriaId": [
+      9,
+      16,
+      12
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Brocha Kabuki",
@@ -529,9 +639,12 @@
     "categoriaId": 1,
     "tamañoId": 4,
     "proveedorId": 5,
-    "subcategoriaId": [ 2, 15 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 34, 12 ]
+    "subcategoriaId": [
+      2,
+      15
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Delineador Líquido Cat Eye",
@@ -544,12 +657,12 @@
     "categoriaId": 2,
     "tamañoId": 4,
     "proveedorId": 3,
-    "subcategoriaId": [ 3, 8 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [
-      36, 1,  3, 27,
-      31, 5, 20
-    ]
+    "subcategoriaId": [
+      3,
+      8
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Sombra de Ojos Duo",
@@ -562,9 +675,12 @@
     "categoriaId": 3,
     "tamañoId": 1,
     "proveedorId": 4,
-    "subcategoriaId": [ 19, 9 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 12, 3, 5 ]
+    "subcategoriaId": [
+      19,
+      9
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Esponja Maquillaje",
@@ -577,9 +693,14 @@
     "categoriaId": 1,
     "tamañoId": 3,
     "proveedorId": 1,
-    "subcategoriaId": [ 6, 14, 10, 11 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 2, 30, 3 ]
+    "subcategoriaId": [
+      6,
+      14,
+      10,
+      11
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Set de Pinceles",
@@ -592,9 +713,13 @@
     "categoriaId": 2,
     "tamañoId": 2,
     "proveedorId": 4,
-    "subcategoriaId": [ 4, 1, 17 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 1, 7 ]
+    "subcategoriaId": [
+      4,
+      1,
+      17
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Labial Mate Larga Duración",
@@ -607,12 +732,14 @@
     "categoriaId": 3,
     "tamañoId": 4,
     "proveedorId": 4,
-    "subcategoriaId": [ 19, 12, 9, 16 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [
-      37, 34, 23, 19,
-       4, 32, 28
-    ]
+    "subcategoriaId": [
+      19,
+      12,
+      9,
+      16
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Brocha Abanico",
@@ -625,9 +752,12 @@
     "categoriaId": 1,
     "tamañoId": 2,
     "proveedorId": 2,
-    "subcategoriaId": [ 2, 13 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 5, 39, 25, 13 ]
+    "subcategoriaId": [
+      2,
+      13
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Paleta Contorno e Iluminación",
@@ -640,9 +770,14 @@
     "categoriaId": 2,
     "tamañoId": 3,
     "proveedorId": 6,
-    "subcategoriaId": [ 8, 18, 3, 1 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 8, 18, 19, 32, 38 ]
+    "subcategoriaId": [
+      8,
+      18,
+      3,
+      1
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Máscara de Pestañas Colores",
@@ -655,9 +790,13 @@
     "categoriaId": 3,
     "tamañoId": 4,
     "proveedorId": 3,
-    "subcategoriaId": [ 16, 19, 12 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 10, 11, 32, 19, 27, 20 ]
+    "subcategoriaId": [
+      16,
+      19,
+      12
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Rubor en Crema",
@@ -670,12 +809,14 @@
     "categoriaId": 1,
     "tamañoId": 2,
     "proveedorId": 6,
-    "subcategoriaId": [ 2, 14, 6, 7 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [
-      26, 27, 39, 36,
-      28, 14,  6
-    ]
+    "subcategoriaId": [
+      2,
+      14,
+      6,
+      7
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Delineador Líquido Waterproof",
@@ -688,9 +829,14 @@
     "categoriaId": 2,
     "tamañoId": 2,
     "proveedorId": 1,
-    "subcategoriaId": [ 5, 18, 3, 17 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 26, 5, 14 ]
+    "subcategoriaId": [
+      5,
+      18,
+      3,
+      17
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Labial Efecto Volumen",
@@ -703,9 +849,14 @@
     "categoriaId": 3,
     "tamañoId": 2,
     "proveedorId": 2,
-    "subcategoriaId": [ 12, 9, 19, 16 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 35, 6 ]
+    "subcategoriaId": [
+      12,
+      9,
+      19,
+      16
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Paleta de Sombras Smokey",
@@ -718,9 +869,13 @@
     "categoriaId": 1,
     "tamañoId": 1,
     "proveedorId": 5,
-    "subcategoriaId": [ 15, 7, 13 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 24, 22 ]
+    "subcategoriaId": [
+      15,
+      7,
+      13
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Delineador en Gel Colorido",
@@ -733,9 +888,12 @@
     "categoriaId": 2,
     "tamañoId": 3,
     "proveedorId": 4,
-    "subcategoriaId": [ 1, 18 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 35, 39, 19 ]
+    "subcategoriaId": [
+      1,
+      18
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Brocha Abanico Extra Grande",
@@ -748,9 +906,13 @@
     "categoriaId": 3,
     "tamañoId": 3,
     "proveedorId": 1,
-    "subcategoriaId": [ 19, 9, 12 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 40, 22, 12, 4, 17, 14 ]
+    "subcategoriaId": [
+      19,
+      9,
+      12
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Labial Líquido Mate de Larga Duración",
@@ -763,9 +925,14 @@
     "categoriaId": 1,
     "tamañoId": 4,
     "proveedorId": 2,
-    "subcategoriaId": [ 10, 11, 7, 2 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 7, 11, 36, 5 ]
+    "subcategoriaId": [
+      10,
+      11,
+      7,
+      2
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Set de Pinceles para Ojos",
@@ -778,9 +945,13 @@
     "categoriaId": 2,
     "tamañoId": 3,
     "proveedorId": 3,
-    "subcategoriaId": [ 4, 18, 5 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 8, 38, 36, 14, 4, 27 ]
+    "subcategoriaId": [
+      4,
+      18,
+      5
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Delineador Líquido con Purpurina",
@@ -793,9 +964,13 @@
     "categoriaId": 3,
     "tamañoId": 1,
     "proveedorId": 1,
-    "subcategoriaId": [ 9, 12, 19 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 33, 34, 38, 40, 20 ]
+    "subcategoriaId": [
+      9,
+      12,
+      19
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Máscara de Pestañas Waterproof",
@@ -808,9 +983,12 @@
     "categoriaId": 1,
     "tamañoId": 3,
     "proveedorId": 3,
-    "subcategoriaId": [ 6, 7 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 28, 36 ]
+    "subcategoriaId": [
+      6,
+      7
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Iluminador Líquido",
@@ -823,12 +1001,14 @@
     "categoriaId": 2,
     "tamañoId": 1,
     "proveedorId": 4,
-    "subcategoriaId": [ 5, 1, 18, 8 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [
-      26,  3,  9, 22,
-       5, 16, 14
-    ]
+    "subcategoriaId": [
+      5,
+      1,
+      18,
+      8
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Brocha Doble Uso",
@@ -841,9 +1021,13 @@
     "categoriaId": 3,
     "tamañoId": 1,
     "proveedorId": 3,
-    "subcategoriaId": [ 19, 9, 16 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 34, 10, 16, 27, 13 ]
+    "subcategoriaId": [
+      19,
+      9,
+      16
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Labial en Polvo",
@@ -856,9 +1040,12 @@
     "categoriaId": 1,
     "tamañoId": 2,
     "proveedorId": 4,
-    "subcategoriaId": [ 15, 14 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 21, 9, 26, 36, 35 ]
+    "subcategoriaId": [
+      15,
+      14
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Sombra de Ojos Shimmer",
@@ -871,9 +1058,13 @@
     "categoriaId": 2,
     "tamañoId": 3,
     "proveedorId": 2,
-    "subcategoriaId": [ 8, 17, 4 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 17, 3, 30, 8 ]
+    "subcategoriaId": [
+      8,
+      17,
+      4
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Máscara de Pestañas Extra Volumen",
@@ -886,9 +1077,12 @@
     "categoriaId": 3,
     "tamañoId": 3,
     "proveedorId": 3,
-    "subcategoriaId": [ 12, 19 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 22, 8, 32, 24 ]
+    "subcategoriaId": [
+      12,
+      19
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Brocha Angular",
@@ -901,9 +1095,12 @@
     "categoriaId": 1,
     "tamañoId": 3,
     "proveedorId": 3,
-    "subcategoriaId": [ 15, 6 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 13, 3, 12, 10, 35, 14 ]
+    "subcategoriaId": [
+      15,
+      6
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Paleta de Iluminadores",
@@ -916,9 +1113,14 @@
     "categoriaId": 2,
     "tamañoId": 1,
     "proveedorId": 2,
-    "subcategoriaId": [ 5, 18, 1, 3 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 4, 25, 33, 2, 5, 7 ]
+    "subcategoriaId": [
+      5,
+      18,
+      1,
+      3
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   },
   {
     "name": "Rubor en Crema Mate",
@@ -931,8 +1133,11 @@
     "categoriaId": 3,
     "tamañoId": 2,
     "proveedorId": 1,
-    "subcategoriaId": [ 9, 12 ],
-    "imagenPrincipal": "imagen de prueba",
-    "imagenes": [ 13, 11, 7 ]
+    "subcategoriaId": [
+      9,
+      12
+    ],
+    "imagenes":["https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png","https://i.ibb.co/rtVBNtx/labial-hidratante-glamour-filtro-solar-y-vit-e.png"],
+    "imagenPrincipal": "imagen de prueba"
   }
 ]

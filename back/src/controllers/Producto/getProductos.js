@@ -1,4 +1,4 @@
-const { Producto, Subcategoria, Imagen } = require('../../db');
+const { Producto, Subcategoria } = require('../../db');
 
 module.exports = async () => {
   try {
@@ -10,24 +10,11 @@ module.exports = async () => {
       },
     });
 
-    const productosConImagenes = await Promise.all(
-      productos.map(async (producto) => {
-        const imagenes = await Imagen.findAll({
-          where: {
-            id: producto.imagenes, // Aquí usamos el array de IDs de imágenes del producto
-          },
-        });
-
-        return {
-          ...producto.dataValues,
-          id: `prod-${producto.id}`,
-          imagenes: imagenes,
-        };
-      })
-    );
-
-
-    return productosConImagenes;
+    productos.forEach(producto => {
+      producto.dataValues.id = `prod-${producto.dataValues.id}`;
+    });
+    
+    return productos;
   } catch (error) {
     console.error('Error al obtener los productos:', error.message);
     throw error;
