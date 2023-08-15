@@ -106,7 +106,7 @@ const reducer = (state = InitialState, {type, payload, data}) => {
             const productsFav = (id) => {
                 return state.productos.find((prod) => prod.id === id);
             };
-
+            
             if (payload.length > 0) {
                 const newLocalFavorites = [...state.localFavorites, productsFav(payload)];
                 // Actualiza el Local Storage con la nueva lista de favoritos
