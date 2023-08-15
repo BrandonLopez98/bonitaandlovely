@@ -12,9 +12,10 @@ const Carrito = () => {
     
     const cartLS = useSelector(state => state.localCart); //estos son los item en carrito en local/
     cartLS.forEach(elem=>{
-        console.log("cartLS",elem.name);
+        if (elem !== undefined && elem !== null){
+        console.log("cartLS",elem.name);        
         console.log(elem.amount);
-       })
+    }})
     
     const handleEmptyCart = () =>{
         dispatch(emptyCartLS());
@@ -22,32 +23,35 @@ const Carrito = () => {
     
    /* unificar amount de articulos start*/
    const cartUnif = (cart) =>{
-   const countMap = {};
-
-    cart.forEach(item=>{
-        const itemId=item.id;       
-        if(countMap[itemId]){
-            countMap[itemId]+=item.amount;
-        }else{
-            countMap[itemId]=item.amount;
-        }        
-    });
-    
-    const cartUnifRes = Object.keys(countMap).map(itemId => {
-        const cartItem = cart.find(item => item.id === itemId);
-        return {
-            objeto: cartItem || {},
+    const countMap = {};
+    const validItems = cart.filter(item => item !== undefined && item !== null);
+ 
+     cart.forEach(item=>{
+        if (item.id !== undefined && item.id !== null)  
+        {         
+         const itemId=item.id;       
+         if(countMap[itemId]){
+             countMap[itemId]+=item.amount;
+         }else{
+             countMap[itemId]=item.amount;
+         }             
+     }});     
+     const cartUnifRes = Object.keys(countMap).filter((itemId) => {
+        return cart.find((item) => item.id === itemId) !== undefined;
+      })
+        .map((itemId) => {
+          return {
+            objeto: cart.find((item) => item.id === itemId),
             cantidad: countMap[itemId],
-        };
-    });
-    return cartUnifRes;
-   };
-   const cartUnificado = cartUnif(cartLS);   
-   /* unificar amount de articulos end*/
-   cartUnificado.forEach(elem=>{
-    console.log("cartunificado",elem.objeto.name);
-    console.log(elem.cantidad);
-   })
+          };
+        });    
+      return cartUnifRes;
+    };
+/* unificar amount de articulos end*/
+
+    const cartUnificado = cartUnif(cartLS);    
+
+
    /* total costo x articulos */
    const totalProd = cartUnificado.reduce((total,item)=>total+(item.objeto.precio_venta * item.cantidad),0);
 
@@ -74,7 +78,7 @@ const Carrito = () => {
                 </div>
             </div>
         ))}
-        <div class="col-start-2  flex justify-end h-6">            
+        <div class="col-start-2  flex justify-end h-6">          
             <button onClick={handleEmptyCart} class="rounded-md mx-6 px-2 text-gray-400 bg-gray-200 hover:bg-gray-100 font-small">
                 Limpiar Carrito
             </button>
