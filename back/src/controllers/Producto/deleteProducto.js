@@ -16,6 +16,8 @@ module.exports = async (productoId) => {
     // Actualizar la propiedad activa a false
     await producto.update({ activa: false });
 
+    producto.dataValues.id = `prod-${producto.dataValues.id}`;
+
     // Devolver la marca actualizada
     return producto;
   } catch (error) {

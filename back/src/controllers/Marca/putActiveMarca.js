@@ -15,6 +15,8 @@ module.exports = async (marcaId) => {
     // Actualizar la propiedad activa a true
     await marca.update({ activa: true });
 
+    marca.dataValues.id = `mar-${marca.dataValues.id}`
+
     // Devolver la marca actualizada
     return marca;
   } catch (error) {

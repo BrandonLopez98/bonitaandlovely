@@ -32,6 +32,9 @@ module.exports = async (subcategoriaId) => {
     // Actualizar la propiedad activa a true
     await subcategoria.update({ activa: true });
 
+    subcategoria.dataValues.id = `subCat-${subcategoria.dataValues.id}`;
+    subcategoria.dataValues.categoriaId = `cat-${subcategoria.dataValues.categoriaId}`;
+
     // Devolver la subcategoría actualizada
     return subcategoria;
   } catch (error) {

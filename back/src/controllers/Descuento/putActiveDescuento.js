@@ -15,6 +15,8 @@ module.exports = async (descuentoId) => {
     // Actualizar la propiedad activa a true
     await descuento.update({ activa: true });
 
+    descuento.dataValues.id = `desc-${descuento.dataValues.id}`;
+
     // Devolver el descuento actualizado
     return descuento;
   } catch (error) {

@@ -4,6 +4,8 @@ module.exports = async () => {
   try {
     const inventarios = await Inventario.findAll();
 
+    inventarios.map(inventario => inventario.dataValues.id = `inv-${inventario.dataValues.id}`)
+
     return inventarios;
     
   } catch (error) {

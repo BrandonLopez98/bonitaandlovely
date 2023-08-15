@@ -15,6 +15,8 @@ module.exports = async (descuentoId, dataToUpdate) => {
     // Actualizar los datos del descuento
     await descuento.update(dataToUpdate);
 
+    descuento.dataValues.id = `desc-${descuento.dataValues.id}`;
+
     // Devolver el descuento actualizado
     
     return descuento;

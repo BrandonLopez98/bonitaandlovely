@@ -66,11 +66,11 @@ async function loadCategoriaData() {
       await postArrayProducto(ProductoData);
       console.log('Producto data loaded.');
 
-      await postArrayCliente(ClienteData);
-      console.log('Cliente data loaded.');
+      // await postArrayCliente(ClienteData);
+      // console.log('Cliente data loaded.');
 
-      await postArrayFavorito(FavoritoData);
-      console.log('Favorito data loaded.'); 
+      // await postArrayFavorito(FavoritoData);
+      // console.log('Favorito data loaded.'); 
 
             
       await postArrayInventario(InventarioData);

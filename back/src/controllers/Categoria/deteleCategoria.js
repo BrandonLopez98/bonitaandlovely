@@ -28,6 +28,8 @@ module.exports = async (categoriaId) => {
     // Actualizar la propiedad 'active' a false
     const updatedCategoria = await existingCategoria.update({ activa: false });
 
+    updatedCategoria.dataValues.id = `cat-${updatedCategoria.dataValues.id}`
+
     return updatedCategoria;
   } catch (error) {
     console.error('Error al cambiar el estado de la categoría:', error);

@@ -28,6 +28,8 @@ module.exports = async (colorId, newName) => {
     color.name = newName;
     await color.save();
 
+    color.dataValues.id = `col-${color.dataValues.id}`;
+
     // Devolver el color actualizado
     return color;
   } catch (error) {

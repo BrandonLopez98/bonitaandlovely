@@ -15,6 +15,8 @@ module.exports = async (categoriaId) => {
     // Actualizar la propiedad activa a true
     await categoria.update({ activa: true });
 
+    categoria.dataValues.id = `cat-${categoria.dataValues.id}`
+
     // Devolver la categoría actualizada
     return categoria;
   } catch (error) {

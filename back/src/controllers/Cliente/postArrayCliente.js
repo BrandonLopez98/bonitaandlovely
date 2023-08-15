@@ -1,5 +1,7 @@
 const { Cliente } = require('../../db');
 
+const postCarrito = require('../Carrito/postCarrito')
+
 module.exports = async (clienteArray) => {
   const clientes = [];
 
@@ -19,6 +21,8 @@ module.exports = async (clienteArray) => {
 
       // Si no existe un cliente con el mismo nombre, crear el nuevo cliente
       const newcliente = await Cliente.create(clienteData);
+
+      postCarrito({clienteId:newcliente.dataValues.id,productos:[]})
 
       newcliente.dataValues.id = `cli-${newcliente.dataValues.id}`;
       

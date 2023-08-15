@@ -15,6 +15,8 @@ module.exports = async (sizeId) => {
     // Actualizar la propiedad activa a false
     await size.update({ activa: false });
 
+    size.dataValues.id = `Tam-${size.dataValues.id}`;
+
     // Devolver el tamaño actualizado
     return size;
   } catch (error) {
