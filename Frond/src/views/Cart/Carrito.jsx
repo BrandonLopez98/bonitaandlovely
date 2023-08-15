@@ -74,12 +74,7 @@ const Carrito = () => {
                 </div>
             </div>
         ))}
-        <div class="col-start-2  flex justify-end h-6">
-            <NavLink to="/catalogo" >
-                <button class="rounded-md mx-6 px-2 text-purple-400 bg-fuchsia-100 hover:bg-pink-200 font-medium">
-                Añadir articulos
-                </button>
-            </NavLink>
+        <div class="col-start-2  flex justify-end h-6">            
             <button onClick={handleEmptyCart} class="rounded-md mx-6 px-2 text-gray-400 bg-gray-200 hover:bg-gray-100 font-small">
                 Limpiar Carrito
             </button>
