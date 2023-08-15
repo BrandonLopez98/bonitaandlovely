@@ -203,27 +203,46 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                     searchResults: payload
                 }
 
-            case POST_CART_LS:
-                const itemsInCart = (id) =>{
-                    return state.productos.find((prod)=>prod.id===id);
-                };
-                const { id, amount } = payload;
-                console.log(`id y amount de reduce ${id} y ${amount}`);               
-                if (amount>0){
-                    const newItem = {...itemsInCart(id), amount}
-                    const newItemsInCart = [...state.localCart, newItem];
-                    localStorage.setItem("localCart", JSON.stringify(newItemsInCart));
-                    console.log(`newItem ${newItem}`);
-                    return{
-                        ...state,
-                        localCart: newItemsInCart,
+                case POST_CART_LS:
+                    const itemsInCart = (id) => {
+                        return state.productos.find((prod) => prod.id === id);
                     };
-                } else {
-                    return {
-                        ...state,
-                        localCart:[]
+                    const { id, amount } = payload;
+                
+                    // Verificar si el producto ya existe en el carrito
+                    const existingItemIndex = state.localCart.findIndex((item) => item.id === id);
+                
+                    if (amount > 0) {
+                        if (existingItemIndex !== -1) {
+                            // Si el producto ya existe, actualizar su amount
+                            const updatedCart = state.localCart.map((item) =>
+                                item.id === id ? { ...item, amount: amount } : item
+                            );
+                            localStorage.setItem("localCart", JSON.stringify(updatedCart));
+                            return {
+                                ...state,
+                                localCart: updatedCart,
+                            };
+                        } else {
+                            // Si el producto no existe, agregarlo al carrito
+                            const newItem = { ...itemsInCart(id), amount };
+                            const newItemsInCart = [...state.localCart, newItem];
+                            localStorage.setItem("localCart", JSON.stringify(newItemsInCart));
+                            return {
+                                ...state,
+                                localCart: newItemsInCart,
+                            };
+                        }
+                    } else {
+                        // Eliminar el producto del carrito si amount es 0
+                        const updatedCart = state.localCart.filter((item) => item.id !== id);
+                        localStorage.setItem("localCart", JSON.stringify(updatedCart));
+                        return {
+                            ...state,
+                            localCart: updatedCart,
+                        };
                     }
-                }
+                
 
             case EMPTY_LOCAL_CART:
                 localStorage.removeItem("localCart");

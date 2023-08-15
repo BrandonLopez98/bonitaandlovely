@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 
 const Card = ({ id, name, precio_venta,imagenPrincipal }) => {
   const dispatch = useDispatch();
-  const localFavorites = useSelector(state => state.localFavorites);
+  const localFavorites = useSelector(state => state.localFavorites) || {};
   const favorites = useSelector(state => state.favorites)
   const favoritesRaw = useSelector(state=> state.favoritesRaw)
   const {user, isAuthenticated} = useAuth0()
-  const [isFavorite, setIsFavorite] = useState(localFavorites.some(item => item.id === id));
+  //const [isFavorite, setIsFavorite] = useState(localFavorites.some(item => item.id === id));
 
   // const extractNumber = (string) => {
   //   const match = string.match(/\d+/); // Busca uno o más dígitos en la cadena
@@ -32,52 +32,52 @@ const Card = ({ id, name, precio_venta,imagenPrincipal }) => {
     productoId,
     correo_electronico
   }
-  const handleFavoriteClick = () => {
-    if (isFavorite) {
-      if (isAuthenticated) {
-        if (favoritesRaw.length > 0) {
-          const resultado = favoritesRaw.find(objeto => objeto.productoId === id);
-          if (resultado) {
-            const idFav = resultado.id;
-            const favoritoR = {
-              correo_electronico,
-              idFav,
-              id
-            };
-            dispatch(deleteFavoriteAPI(favoritoR));
-          }
-      }
-      } else {
-        dispatch(deleteFavoriteLS(id));
-      }
-    } else {
-      if (isAuthenticated) {
-        dispatch(addFavoriteAPI(favorito))
-      } else {
-        dispatch(addFavoriteLS(id));
-      }
-    }
-    setIsFavorite(!isFavorite); 
-  };
+  // const handleFavoriteClick = () => {
+  //   if (isFavorite) {
+  //     if (isAuthenticated) {
+  //       if (favoritesRaw.length > 0) {
+  //         const resultado = favoritesRaw.find(objeto => objeto.productoId === id);
+  //         if (resultado) {
+  //           const idFav = resultado.id;
+  //           const favoritoR = {
+  //             correo_electronico,
+  //             idFav,
+  //             id
+  //           };
+  //           dispatch(deleteFavoriteAPI(favoritoR));
+  //         }
+  //     }
+  //     } else {
+  //       dispatch(deleteFavoriteLS(id));
+  //     }
+  //   } else {
+  //     if (isAuthenticated) {
+  //       dispatch(addFavoriteAPI(favorito))
+  //     } else {
+  //       dispatch(addFavoriteLS(id));
+  //     }
+  //   }
+  //   setIsFavorite(!isFavorite); 
+  // };
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      setIsFavorite(favorites.some(objeto => objeto.id === id));
-    } else {
-      setIsFavorite(localFavorites.some(item => item.id === id));
-    }
-  }, [localFavorites, favorites, id, isAuthenticated]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     setIsFavorite(favorites.some(objeto => objeto.id === id));
+  //   } else {
+  //     setIsFavorite(localFavorites.some(item => item.id === id));
+  //   }
+  // }, [localFavorites, favorites, id, isAuthenticated]);
 
   return (
     <div className="grid grid-cols-1 rounded-lg bg-white px-5 py-10 relative shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
       {/* Agregue la Barra antes de detail */}
-      <button onClick={handleFavoriteClick}>
+      {/* <button onClick={handleFavoriteClick}>
         <AiFillHeart
           className={`absolute overflow-hidden group hover:scale-125 transition-transform duration-300 transform right-2 top-2 text-2xl ${
             isFavorite ? "text-red-500" : "text-slate-400"
           }`}
         />
-      </button>
+      </button> */}
       <Link to={`/detail/${id}`} className="w-[50%] h-full m-auto">
         <img
           className="rounded-lg w-full m-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]"

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {emptyCartLS} from "../../redux/actions"
+import { NavLink } from 'react-router-dom';
 
 // const totalItemsCart = [1];
 // const cantidad = 1;
@@ -10,7 +11,11 @@ const Carrito = () => {
     const dispatch = useDispatch();
     
     const cartLS = useSelector(state => state.localCart); //estos son los item en carrito en local/
-
+    cartLS.forEach(elem=>{
+        console.log("cartLS",elem.name);
+        console.log(elem.amount);
+       })
+    
     const handleEmptyCart = () =>{
         dispatch(emptyCartLS());
     }        
@@ -27,18 +32,27 @@ const Carrito = () => {
             countMap[itemId]=item.amount;
         }
     });
-
-    const cartUnifRes = Object.keys(countMap).map(itemId=>({
-        objeto: cart.find(item=>item.id===itemId || {}),
-        cantidad: countMap[itemId]
-    }))
+    
+    const cartUnifRes = Object.keys(countMap).map(itemId => {
+        const cartItem = cart.find(item => item.id === itemId);
+        return {
+            objeto: cartItem || {},
+            cantidad: countMap[itemId],
+        };
+    });
     return cartUnifRes;
    };
-   const cartUnificado = cartUnif(cartLS);
+   const cartUnificado = cartUnif(cartLS);   
    /* unificar amount de articulos end*/
-   
-    const totalProd = cartUnificado.reduce((total,item)=>total+(item.objeto.precio_venta * item.objeto.amount),0);
-    const totalArts = cartUnificado.reduce((qty,item)=>qty+(item.objeto.amount),0);
+   cartUnificado.forEach(elem=>{
+    console.log("cartunificado",elem.objeto.name);
+    console.log(elem.cantidad);
+   })
+   /* total costo x articulos */
+   const totalProd = cartUnificado.reduce((total,item)=>total+(item.objeto.precio_venta * item.cantidad),0);
+
+   /* total de articulos en carrito local*/
+    const totalArts = cartUnificado.reduce((qty,item)=>qty+(item.cantidad),0);
     
     return (
         <>        
@@ -53,10 +67,10 @@ const Carrito = () => {
                     {item.objeto.name}
                 </div>
                 <div className="col-start-5 col-span-1 flex items-center justify-center font-medium ">
-                    <p>Cantidad: </p> {item.objeto.amount}
+                    <p class="text-xs mr-1">Cantidad: </p> {item.cantidad}
                 </div>
                 <div className="col-start-6 col-span-1 flex items-center justify-center font-medium ">
-                    <p>Precio: </p>{item.objeto.precio_venta * item.objeto.amount}
+                    <p class="text-xs mr-1">Precio: </p>{item.objeto.precio_venta * item.cantidad}
                 </div>
             </div>
         ))}
@@ -72,7 +86,7 @@ const Carrito = () => {
             No hay artículos en su carrito
             </div>
         </div>
-    )}                   
+    )}                     
 
 
     {/* columna derecha, total y boton a pasarela */}
@@ -109,6 +123,13 @@ const Carrito = () => {
                         </button>
 
                     </div>
+                </div>
+                <div class="col-start-3 col-end-4 row-start-4 row-end-4 col-span-1 flex place-self-center">
+                <NavLink to="/catalogo">
+                  <button class="rounded-md place-self-center p-1.5 text-white bg-[#6b086f] hover:bg-[#7c4884]">
+                    Agregar articulos
+                  </button>
+                </NavLink>
                 </div>
             </div>
         </>
