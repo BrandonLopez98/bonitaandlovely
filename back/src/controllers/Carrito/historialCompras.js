@@ -21,7 +21,7 @@ module.exports = async (clienteId) => {
     });
 
     if (!carritoExistente.length) {
-      throw new Error(`No existe un historial para el cliente con ID ${clienteId}.`);
+       return(`No existe un historial para el cliente con ID ${clienteId}.`);
     }
 
     const clienteDetalles = await Cliente.findByPk(clienteId, {

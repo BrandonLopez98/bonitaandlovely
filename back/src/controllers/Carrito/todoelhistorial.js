@@ -9,7 +9,7 @@ module.exports = async () => {
     });
 
     if (!carritoExistente.length) {
-      throw new Error(`No existe un historial`);
+      return (`No existe un historial`);
     }
 
     const productos = [];

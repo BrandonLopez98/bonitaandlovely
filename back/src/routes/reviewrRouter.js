@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+const getIdReviewr = require('../controllers/Reviewr/getIdReviewr')
 const postReviewr = require("../controllers/Reviewr/postReviewr")
 const getReviewr = require("../controllers/Reviewr/getAllReviewrId")
 const putReviewr = require("../controllers/Reviewr/putReviewr")
@@ -16,6 +17,16 @@ router.get('/:productoId', async (req, res) => {
     }
 });
 
+
+router.get('/:id', async (req,res)=>{
+    const { id } = req.params;
+    try {
+        const reviewr = await getIdReviewr(id)
+        res.status(200).json(reviewr);
+    } catch (error) {
+        res.status(400).json(error.message);
+    }
+})
 
 router.post('/', async (req, res) => {
     const { clienteId, productoId, rating, comentario } = req.body;

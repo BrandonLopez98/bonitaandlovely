@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import bagIcon from "../../assets/img/baghandleWhite.svg";
-import { FaArrowLeft } from 'react-icons/fa';
-import {
-  getProductsByDetail,
-  cleanDetail,
-  addToCartFunction,
-  addItemToCartLS,
-  clientes,
-} from "../../redux/actions";
+
+import bagIcon from '../../assets/img/baghandleWhite.svg';
+//import colorIcon from '../../assets/img/colorIcon.svg'
+import { getProductsByDetail, cleanDetail, addToCartFunction, addItemToCartLS, addItemToCartApi } from "../../redux/actions";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
@@ -111,6 +107,7 @@ const Detail = () => {
   const goBack = () => {
     navigate('/catalogo')
   }
+
 
 
   return (

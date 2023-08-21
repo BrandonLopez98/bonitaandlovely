@@ -3,7 +3,7 @@ const { Color } = require('../../db');
 module.exports = async (coloresArray) => {
   const colores = [];
 
-  async function crearColor(nombre) {
+  async function crearColor(nombre, id) {
     try {
       if (typeof nombre !== 'string') {
         throw new Error('El nombre de color es inválido.');
@@ -28,6 +28,7 @@ module.exports = async (coloresArray) => {
 
       // Si no existe un color con el mismo nombre, crear el nuevo color
       const newColor = await Color.create({
+        id: id,
         name: name,
       });
 
@@ -45,7 +46,7 @@ module.exports = async (coloresArray) => {
       throw new Error('Se esperaba un array de colores.');
     }
 
-    await Promise.all(coloresArray.map((color)=>crearColor(color.nombre)));
+    await Promise.all(coloresArray.map((color)=>crearColor(color.nombre,color.id)));
     return colores;
   } catch (error) {
     throw error;

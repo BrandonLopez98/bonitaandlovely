@@ -29,6 +29,7 @@ module.exports = async (array) => {
 
       // Si no existe una marca con el mismo nombre, crear la nueva marca
       const newMarca = await Marca.create({
+        id: marca.id,
         name: marca.name,
       });
 

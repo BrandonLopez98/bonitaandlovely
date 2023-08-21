@@ -20,14 +20,14 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { nombre } = req.body;
+    const { nombre, id } = req.body;
   
     try {
       if (Array.isArray(req.body)) {
         const colores = await postColorArray(req.body);
         res.status(200).json(colores);
       } else {
-        const color = await postColor(nombre);
+        const color = await postColor(nombre, id);
         res.status(200).json(color);
       }
     } catch (error) {

@@ -23,7 +23,7 @@ module.exports = async (clienteId) => {
     });
 
     if (!carritoExistente.length) {
-      throw new Error(`No existe un historial para el el cliente con ID ${clienteId}.`);
+      return (`No existe un historial para el el cliente con ID ${clienteId}.`);
     }
 
     carritoExistente.map(inventario => inventario.dataValues.id = `inv-${inventario.dataValues.id}`)

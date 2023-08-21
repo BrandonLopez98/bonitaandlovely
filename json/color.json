@@ -1,18 +1,34 @@
 [
-    { "nombre": "azul" },
-    { "nombre": "rojo" },
-    { "nombre": "verde" },
-    { "nombre": "amarillo" },
-    { "nombre": "naranja" },
-    { "nombre": "rosado" },
-    { "nombre": "morado" },
-    { "nombre": "blanco" },
-    { "nombre": "negro" },
-    { "nombre": "gris" },
-    { "nombre": "marrón" },
-    { "nombre": "celeste" },
-    { "nombre": "dorado" },
-    { "nombre": "plateado" },
-    { "nombre": "turquesa" }
-  ]
-  
+  { 
+    "nombre": "#835846",
+    "id": 1
+  },
+  {
+    "nombre": "#CC8D71",
+    "id": 2
+  },
+  {
+    "nombre": "#DDB3A0",
+    "id": 3
+  },
+  {
+    "nombre": "#DDDDDD",
+    "id": 4
+  },
+  {
+    "nombre": "#A00007",
+    "id": 5
+  },
+  {
+    "nombre": "#F4A9A5",
+    "id": 6
+  },
+  {
+    "nombre": "#EB0C15",
+    "id": 7
+  },
+  {
+    "nombre": "#000000",
+    "id": 8
+  }
+]

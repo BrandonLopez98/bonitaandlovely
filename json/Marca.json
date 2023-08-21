@@ -1,27 +1,18 @@
 [
-  {"name": "Gold Eyes"},
-  {"name": "Trendy"},
-  {"name": "Super Concealer"},
-  {"name": "Dreams"},
-  {"name": "Dash"},
-  {"name": "Pearl"},
-  {"name": "Lovely"},
-  {"name": "Soft lips"},
-  {"name": "Boop tape"},
-  {"name": "Brow liner"},
-  {"name": "Iman of nobble"},
-  {"name": "Bioaqua"},
-  {"name": "Matte Touch"},
-  {"name": "Colour Geometry Lameila"},
-  {"name": "Kiss beauty"},
-  {"name": "Vaseina"},
-  {"name": "Karite"},
-  {"name": "Kevin & coco"},
-  {"name": "Heart"},
-  {"name": "RubyFace"},
-  {"name": "La pastusita"},
-  {"name": "Essense cream"},
-  {"name": "Dr Davey"},
-  {"name": "Anylady"},
-  {"name": "Doy Colors"}
+  {
+    "name": "Trendy",
+    "id": 1
+  },
+  {
+    "name": "Kiss Beauty",
+    "id": 2
+  },
+  {
+    "name": "MyK",
+    "id": 3
+  },
+  {
+    "name": "Otras marcas",
+    "id": 4
+  }
 ]
