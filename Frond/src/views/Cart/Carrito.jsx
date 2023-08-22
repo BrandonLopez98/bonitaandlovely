@@ -8,17 +8,15 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Carrito = () => {
     const dispatch = useDispatch();
-    const [apicart, setApicart] = useState([]);
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    // const { user, isAuthenticated } = useAuth0();
+    const isAuthenticated = false;
+    const userid = "cli-29";
     const extractNumber = (string) => {
         const match = string.match(/\d+/); 
         return match ? parseInt(match[0]) : 0; 
-    }; 
-
-    const Clientela = useSelector(state=>state.Allclients);
-    const clientFound = isAuthenticated ? Clientela.find(client => client.correo_electronico === user.email) : null;
-    const NumUserId = isAuthenticated ? extractNumber(clientFound.id) : undefined;
-
+    };
+    const NumUserId = extractNumber(userid);
+     
     const [userInfo, setUserInfo] = useState({
         nombre: '',
         apellido: '',
@@ -30,26 +28,15 @@ const Carrito = () => {
         contraseña: ''
     });
 
-    useEffect(() => {
-        if (isAuthenticated) {          
-          axios.get(`/carrito/${NumUserId}`)
-            .then(response => {
-              setApicart(response.data);
-            })
-            .catch(error => {             
-                Swal.fire({
-                  icon: 'error',
-                  title: 'Error',
-                  text: error.response?.data || 'Hubo un error en la solicitud.',
-                });
-              });
-        }else{
-            return
-        }
-      }, [NumUserId, isAuthenticated]);
-      
-    const cartLS = useSelector(state => state.localCart);
+    const cartLS = useSelector(state => state.localCart); //estos son los item en carrito en local/
+    cartLS.forEach(item => {
+        console.log("cartLS", item);
+        console.log("cartLS id", item.id);
+        console.log("cartLS.color", item.color);
+        console.log("cartLS.amount", item.amount);
+    })
 
+    /* unificar amount de articulos en cartLS*/
     const cartUnif = (cart) => {
         const countMap = {};
         cart.forEach((item) => {
@@ -109,19 +96,9 @@ const Carrito = () => {
     const handleDeleteArtLS = (item) => {
         dispatch(deleteArtLS(item.objeto.id, item.color));
     }
-
-    const handleDeleteArtAPI = async (item) => {
-        try {
-          await dispatch(deleteArtAPI({ user: NumUserId, productoId: item.productoId, colorId : 1 }));
-        } catch (error) {
-          console.error('Error en handleDeleteArtAPI:', error);
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: error.response?.data || 'Hubo un error en la solicitud.',
-          });
-        }
-      }
+    const handleDeleteArtAPI = (item) => {
+        dispatch(deleteArtAPI({ user: NumUserId, productoId: item.id, colorId: 1 }))
+    }
 
     const handleProceedToPayment = () => {
         if (!isAuthenticated) {
@@ -158,71 +135,67 @@ const Carrito = () => {
 
     return (
         <>
-            <div className="grid grid-cols-3 gap-6 mx-10 mt-6">
+            <div class="grid grid-cols-3 grid-rows-6 gap-5 mx-8 mt-6">
+                {/* columna izquierda detallar productos en carrito */}
+                
+                
+                {cartApi || cartUnificado.productos ? ( 
+                    <>
+                        {isAuthenticated && cartApi.productos ? (
+                            cartApi.productos.map((item, index) =>(
+                            <div key={index} className="col-span-2 grid grid-cols-6 px-6 mx-6 shadow-lg rounded-lg bg-white">
+                                <img src={item.imagenPrincipal} alt="fotoProducto" className="col-start-1 col-span-1 w-16 h-16 place-self-center object-cover border-2 border-indigo-200 rounded-full" />
+                                <div class="col-start-2 col-span-2 place-self-center grid grid-rows-2">
+                                    <div className="grid-row-1 font-medium">
+                                        {item.name}
+                                    </div>
+                                    <div className="grid-row-2 text-xs">
+                                        {item.color}
+                                    </div>
+                                </div>
+                                <div className="col-start-4 col-span-1 flex items-center justify-center font-medium ">
+                                    <p class="text-xs mr-1">Cantidad: </p> {item.cantidad}
+                                </div>
+                                <div className="col-start-5 col-span-1 flex items-center justify-end font-medium ">
+                                    <p class="text-xs mr-1">Costo: </p>{item.precio_venta * item.cantidad}
+                                </div>
+                            </div>
+                        ))
+                       ) : (
+                            cartUnificado.map((item, index) => (
+                            <div key={index} className="col-span-2 grid grid-cols-6 px-6 mx-6 shadow-lg rounded-lg bg-white">
 
-                <div className="col-span-2">
-                    {cartApi || cartUnificado.productos ? ( 
-                        <div>
-                            {isAuthenticated && cartApi.productos ? (
-                                cartApi.productos.map((item, index) =>(
-                                    <div key={index} className="flex flex-col items-center justify-between p-4 rounded-lg bg-white shadow-sm mb-4">
-                                        <div className="flex items-center justify-between w-full">
-                                            <img src={item.imagenPrincipal} alt="fotoProducto" className="w-16 h-16 object-cover border-2 border-indigo-200 rounded-full" />
-                                            <div className="ml-4 w-40">
-                                                <div className="font-medium capitalize text-gray-800">{item.name}</div>
-                                                
-                                            </div>
-                                            <div className="w-20 text-right font-medium flex items-center justify-center">
-                                                <div className="mr-1">Cantidad:</div> 
-                                                <div>
-                                                    {item.cantidad}
-                                                </div>
-                                            </div>
-                                            <div className="w-32 text-right font-medium">
-                                                <div className="text-xs text-gray-500">Costo</div>
-                                                {item.precio_venta * item.cantidad}
-                                            </div>
-                                            <button
-                                                onClick={() => handleDeleteArtAPI(item)}
-                                                className="ml-6 rounded-md p-1.5 text-gray-400 bg-gray-200 hover:bg-gray-100"
-                                            >
-                                                X
-                                            </button>
-                                        </div>
+                                <img src={item.objeto.imagenPrincipal} alt="fotoProducto" className="col-start-1 col-span-1 w-16 h-16 place-self-center object-cover border-2 border-indigo-200 rounded-full" />
+
+                                <div class="col-start-2 col-span-2 place-self-center grid grid-rows-2">
+                                    <div className="grid-row-1 font-medium">
+                                        {item.objeto.name}
                                     </div>
-                                ))
-                            ) : (
-                                cartUnificado.map((item, index) => (
-                                    <div key={index} className="flex flex-col items-center justify-between p-4 rounded-lg bg-white shadow-sm mb-4">
-                                        <div className="flex items-center justify-between w-full">
-                                            <img src={item.objeto.imagenPrincipal} alt="fotoProducto" className="w-16 h-16 object-cover border-2 border-indigo-200 rounded-full" />
-                                            <div className="ml-4 w-40">
-                                                <div className="font-medium capitalize text-gray-800">{item.objeto.name}</div>
-                                            </div>
-                                            <div className="w-20 text-right font-medium flex items-center justify-center">
-                                                <div className="mr-1">Cantidad:</div> 
-                                                <div>
-                                                    {item.cantidad}
-                                                </div>
-                                            </div>
-                                            <div className="w-32 text-right font-medium">
-                                                <div className="text-xs text-gray-500">Costo</div>
-                                                {item.objeto.precio_venta * item.cantidad}
-                                            </div>
-                                            <button
-                                                onClick={() => handleDeleteArtLS(item)}
-                                                className="ml-6 rounded-md p-1.5 text-gray-400 bg-gray-200 hover:bg-gray-100"
-                                            >
-                                                X
-                                            </button>
-                                        </div>
+                                    <div className="grid-row-2 text-xs">
+                                        {item.color}
                                     </div>
-                                ))
-                            )}                                                                    
-                        </div>
-                    ) : (
-                        <div className="flex items-center justify-center p-4 rounded-lg bg-fuchsia-50">
-                            <div className="font-medium text-gray-600">No hay artículos en su carrito</div>
+                                </div>
+
+                                <div className="col-start-4 col-span-1 flex items-center justify-center font-medium ">
+                                    <p class="text-xs mr-1">Cantidad: </p> {item.cantidad}
+                                </div>
+                                <div className="col-start-5 col-span-1 flex items-center justify-end font-medium ">
+                                    <p class="text-xs mr-1">Costo: </p>{item.objeto.precio_venta * item.cantidad}
+                                </div>
+                                <button
+                                    onClick={() => handleDeleteArtLS(item)}
+                                    className="col-start-6 rounded-md place-self-center px-1.5 text-gray-400 bg-gray-200 hover:bg-gray-100"
+                                >
+                                    X
+                                </button>
+                            </div>
+                        ))
+                        )}                                                                    
+                    </>
+                ) : (
+                    <div className="col-span-2 grid grid-cols-5 px-6 mx-6 shadow-md rounded-lg bg-fuchsia-100">
+                        <div className="col-start-2 col-span-3 flex items-center justify-center font-medium">
+                            No hay artículos en su carrito
                         </div>
                     )}
                     

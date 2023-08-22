@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS, EMPTY_LOCAL_CART, DELETE_ART_LS, POST_CART_API, DEL_ART_API, GET_ALL_CLIENTS, GET_ALL_VENTAS, GET_USER_COMPRAS, GET_REVIEWRS, CLEAN_PREVIEW, POST_ART_API} from "./action-types";
+import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS, EMPTY_LOCAL_CART, DELETE_ART_LS, POST_CART_API, DEL_ART_API, GET_ALL_CLIENTS, GET_ALL_VENTAS, GET_USER_COMPRAS} from "./action-types";
 
 // aca la ruta directamente porque la url base ya esta osea que solo queda por la ruta ejemplo:/producto
 
@@ -293,7 +293,7 @@ export const categories = () => async dispatch => {
         const cartData = {
           productos: localCart.map((item) => ({
             productoId: extractNumber(item.id),
-            colorId: item.color,
+            colorId: 1 /*item.color*/,
             cantidad: item.amount,
           })),
         };  
@@ -330,61 +330,6 @@ export const categories = () => async dispatch => {
       throw error;
     }
   };
+  
 
-  export const addItemToCartApi = ({ userId, productoId, cantidad, colorId }) => {
-    return async (dispatch)=>{
-    try {
-      const colorClave = await getColorIdByHex(colorId);
-      console.log("userId en additemtocartapi", userId);                   
-      const cartData = {
-        productos: [
-          {
-            productoId: extractNumber(productoId),
-            colorId: extractNumber(colorClave),
-            cantidad: cantidad,
-          },
-        ],
-      };
-      await axios.put(`/carrito/${userId}`, cartData);
-      const { data } = await axios.get(`/carrito/${userId}`); 
-      return (dispatch) => {
-        dispatch({
-          type: POST_ART_API,
-          payload: cartData,
-          data: data,
-        });
-      };
-    } catch (error) {
-      console.error("Error en la solicitud:", error);
-      throw error;
-    }}
-  };
-  
-  
-   const getColorIdByHex = async (hexColor) =>{
-    try {
-      const colorResponse = await axios.get('/color');
-      const colorTable = colorResponse.data;
-      const matchingColor = colorTable.find(color=> color.name === hexColor);
-      return matchingColor ? matchingColor.id : 1;
-    } catch (error) {
-      throw error;
-      return 1;
-    }
-   };
-  
-export const previewrsId = (id) => async (dispatch) => {
-  const {data} = await axios.get(`reviewr/${id}`)
-  dispatch({
-    type:GET_REVIEWRS,
-    payload:data
-  })
-}
-
- 
-export const cleanPreview = () => {
-  return {
-    type: CLEAN_PREVIEW
-  };
- }
 

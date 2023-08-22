@@ -1,123 +1,111 @@
-import { AiFillHeart, AiOutlineShoppingCart } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { AiFillHeart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavoriteAPI, addFavoriteLS, addItemToCartApi, addItemToCartLS, addToCartFunction, deleteFavoriteAPI, deleteFavoriteLS } from "../../redux/actions";
+import { addFavoriteAPI, addFavoriteLS, addItemToCartLS, addToCartFunction, deleteFavoriteAPI, deleteFavoriteLS } from "../../redux/actions";
 import { useEffect, useState } from "react";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2'
 
 const Card = ({ id, name, precio, imagenPrincipal }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.favorites);
-  const localFavorites = useSelector((state) => state.localFavorites);
-  const favoritesRaw = useSelector((state) => state.favoritesRaw);
-  const { isAuthenticated, user } = useAuth0();
+  const localFavorites = useSelector(state => state.localFavorites);
+  const favorites = useSelector(state => state.favorites)
+  const favoritesRaw = useSelector(state=> state.favoritesRaw)
+  const {user, isAuthenticated} = useAuth0()
+  const [isFavorite, setIsFavorite] = useState(localFavorites.some(item => item.id === id));
+  
   const extractNumber = (string) => {
     const match = string.match(/\d+/); // Busca uno o más dígitos en la cadena
     return match ? parseInt(match[0]) : 0; // Convierte el resultado a un número o devuelve 0 si no hay coincidencia
   };
-  const productoId = extractNumber(id);
-  const correo_electronico = user?.email;
+  
+  const productoId = extractNumber(id)
+  const correo_electronico = user?.email
   const favorito = {
     productoId,
-    correo_electronico,
-  };
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      setIsFavorite(favorites.some((objeto) => objeto.id === id));
-    } else {
-      setIsFavorite(localFavorites.some((item) => item.id === id));
-    }
-  }, [isAuthenticated, favorites, localFavorites, id]);
-
+    correo_electronico
+  }
+  
   const handleFavoriteClick = () => {
     if (isFavorite) {
       if (isAuthenticated) {
         if (favoritesRaw.length > 0) {
-          const resultado = favoritesRaw.find(
-            (objeto) => objeto.productoId === id
-          );
+          const resultado = favoritesRaw.find(objeto => objeto.productoId === id);
           if (resultado) {
             const idFav = resultado.id;
             const favoritoR = {
               correo_electronico,
               idFav,
-              id,
+              id
             };
             dispatch(deleteFavoriteAPI(favoritoR));
           }
-        }
+      }
       } else {
         dispatch(deleteFavoriteLS(id));
       }
     } else {
       if (isAuthenticated) {
-        dispatch(addFavoriteAPI(favorito));
+        dispatch(addFavoriteAPI(favorito))
       } else {
         dispatch(addFavoriteLS(id));
       }
     }
-    setIsFavorite(!isFavorite);
+    setIsFavorite(!isFavorite); 
   };
 
- const navigate = useNavigate() 
-const Clientela = useSelector(state=>state.Allclients); console.log("user"); console.log(JSON.stringify(user,null,2));
-const clientFound = isAuthenticated ? Clientela.find(client => client.correo_electronico === user.email) : null;
-const NumUserId = isAuthenticated ? extractNumber(clientFound.id) : undefined;
+  const colorIcon1 = "#EBC9BB";
+ 
 
-const addToCart = () => {        
-  if (isAuthenticated){
-      dispatch(addItemToCartApi({userId: NumUserId, productoId:id, cantidad:1, colorId: 1}));
-  }else{
-      dispatch(addItemToCartLS(id, 1, 1)); 
-  }
-  dispatch(addToCartFunction(id, 1));
+  useEffect(() => {
+    if (isAuthenticated) {
+      setIsFavorite(favorites.some(objeto => objeto.id === id));
+    } else {
+      setIsFavorite(localFavorites.some(item => item.id === id));
+    }
+  }, [localFavorites, favorites, id, isAuthenticated]);
 
-  Swal.fire({
+  const [amount, setAmount] = useState(1);
+  const [color, setColor] = useState(colorIcon1);
+
+  const addToCart = () => {
+    dispatch(addItemToCartLS(id, amount, color))
+    dispatch(addToCartFunction(id, amount, color));
+    Swal.fire({
       icon: 'success',
-      title: 'Añadido al carrito',
+      title: 'Agregado Exitosamente',
       showConfirmButton: false,
       timer: 1500
-  });
+    })
 }
 
-  const cartIcon =
-    "inline-block mr-2 -mt-1 text-xl text-white group-hover:text-gray-100 transition-colors duration-300";
 
   return (
-    <div className="relative px-4 py-5 bg-white border border-gray-300 shadow-md hover:shadow-lg transition-shadow duration-300 hover:bg-gray-100">
+    <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-xl sm:max-w-md">
       <Link to={`/detail/${id}`}>
         <img
+          className="object-cover h-48 w-full"
           src={imagenPrincipal}
           alt={name}
-          className="w-full h-48 object-cover rounded-md"
         />
       </Link>
-      <div className="flex justify-between items-center mt-4">
-        <h3 className="text-xl leading-tight font-semibold capitalize text-gray-800">
-          {name}
-        </h3>
-        <button
-          className={`relative group p-2 ml-2 ${
-            isFavorite ? "text-red-500 font-bold" : "text-gray-400"
-          }`}
-          onClick={handleFavoriteClick}
-        >
-          <AiFillHeart className="text-xl transition duration-300 ease-in-out group-hover:text-red-400" />
+      <div className="relative px-4 py-5 bg-white">
+        <div className="flex justify-between items-center">
+          <h3 className="text-xl leading-tight font-semibold text-gray-800">{name}</h3>
+          <button
+            className={`relative group p-2 ml-2 ${
+              isFavorite ? "text-red-500 font-bold" : "text-gray-400"
+            }`}
+            onClick={handleFavoriteClick}
+          >
+            <AiFillHeart className="text-xl transition duration-300 ease-in-out group-hover:text-red-400" />
+          </button>
+        </div>
+        <p className="text-gray-500 mx-1 my-2 text-sm">${precio}</p>
+        <button onClick={addToCart} className="block bg-gray-800  text-white uppercase text-sm mx-10 px-8 my-2 p-3 hover:bg-gray-700 transition-all duration-300">
+           Agregar al <AiOutlineShoppingCart className="inline-block mr-2 -mt-1 text-xl" />
         </button>
       </div>
-      <p className="text-gray-500 my-2 text-sm">${precio}</p>
-      <button
-      
-        onClick={addToCart}
-        className="block bg-gray-800 text-white uppercase text-xs mx-auto px-8   py-2 rounded-md hover:bg-gray-700 transition-colors duration-300"
-      >
-        Agregar al  
-        <AiOutlineShoppingCart className={cartIcon}  />
-
-      </button>
     </div>
   );
 };
