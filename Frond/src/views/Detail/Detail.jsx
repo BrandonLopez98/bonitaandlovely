@@ -11,6 +11,61 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FaCircle } from "react-icons/fa";
+import MoreProductsContainer from "../../components/MoreProducts/MoreProductsContainer";
+import SectionReviews from "../../components/modalReviwers/reviewrsDetail/SectionReviews";
+import StartsDetail from "../../components/modalReviwers/reviewrsDetail/StartsDetail";
+
+const Detail = () => {
+    const { isAuthenticated } = useAuth0();
+    const back = useNavigate();
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+    const { id } = useParams();
+    const stateProducts = useSelector(state => state.productsDetail);
+
+    const [userInfo, setUserInfo] = useState({
+         nombre: 'Daniel',
+        apellido: 'Apellido',
+        correoElectronico: 'daniel@gmail.com',
+        numeroTelefono: '031934123',
+        ciudad: 'miami',
+        provincia: 'florida',
+        codigoPostal: '6301',
+        contraseña: 'djqdijqw' 
+
+        /*    nombre: '',
+        apellido: '',
+        correoElectronico: '',
+        numeroTelefono: '',
+        ciudad: '',
+        provincia: '',
+        codigoPostal: '',
+        contraseña: '' */
+    });
+
+    const handleProceedToPayment = () => {
+        if (!isAuthenticated) {
+            Swal.fire('Debes iniciar sesión para continuar', 'error', 'error');
+            return;
+        }
+        if (
+            !userInfo.nombre ||
+            !userInfo.apellido ||
+            !userInfo.correoElectronico ||
+            !userInfo.numeroTelefono ||
+            !userInfo.ciudad ||
+            !userInfo.provincia ||
+            !userInfo.codigoPostal ||
+            !userInfo.contraseña
+        ) {
+
+            Swal.fire('Completa tu información de perfil antes de continuar', 'error');
+            return;
+        }
+
+        axios.post('/pago', productToPay)
+            .then((res) => (window.location.href = res.data.response.body.init_point));
+    };
 
 import MoreProductsCardContainer2 from "../../components/MoreProducts/MoreProducts2";
 
