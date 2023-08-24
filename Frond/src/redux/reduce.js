@@ -1,4 +1,4 @@
-import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS, EMPTY_LOCAL_CART, DELETE_ART_LS,POST_CART_API, DEL_ART_API, GET_ALL_CLIENTS, GET_ALL_VENTAS, GET_USER_COMPRAS, GET_REVIEWRS, POST_ART_API} from "./action-types";
+import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS, EMPTY_LOCAL_CART, DELETE_ART_LS, POST_CART_API, DEL_ART_API, GET_ALL_CLIENTS, GET_ALL_VENTAS, GET_USER_COMPRAS, GET_REVIEWRS, POST_ART_API, GET_NAME } from "./action-types";
 import { userCompras } from "./actions";
 const storedLocalFavorites = localStorage.getItem("localFavorites");
 const initialLocalFavorites = storedLocalFavorites ? JSON.parse(storedLocalFavorites) : [];
@@ -22,63 +22,75 @@ const InitialState = {
     cartProducts: [],
     searchResults: [],
     addProductsToCart: [],
-    localCart: initialLocalCart, apiCart:[],
+    localCart: initialLocalCart, apiCart: [],
     Allclients: [],
     Allventas: [],
     userCompras: [],
-    AllRevierwsId:[]
+    AllRevierwsId: []
 }
 
-const reducer = (state = InitialState, {type, payload, data}) => {
+const reducer = (state = InitialState, { type, payload, data }) => {
     switch (type) {
-        case ALLPRODUCTS :
-            return{
+        case ALLPRODUCTS:
+            return {
                 ...state,
                 Allproducts: payload
             }
         case PRODUCTOS:
-            return{
+            return {
                 ...state,
                 productos: payload
             }
         //case provisional
         case COPY_ALLPRODUCTS:
-            return{
+            return {
                 ...state,
                 copyAllProducts: payload
             }
-        case ALLCATEGORIES :
-            return{
+        case GET_NAME: 
+        const nameFilter = payload.toLowerCase(); // Convertir el filtro a minúsculas para una búsqueda sin distinción de mayúsculas/minúsculas
+        const filteredCopyAllProducts = state.copyAllProducts.productos.filter((product) =>
+          product.name.toLowerCase().includes(nameFilter)
+        );
+        return{
+            ...state,
+            copyAllProducts: {
+                ...state.copyAllProducts,
+                productos: filteredCopyAllProducts,
+              },
+        }
+        case ALLCATEGORIES:
+            return {
                 ...state,
                 Allcategories: payload
             }
-        case ALLSUBCATEGORIES :
-            return{
+        case ALLSUBCATEGORIES:
+            return {
                 ...state,
                 Allsubcategories: payload
             }
-            case GET_ALL_CLIENTS :
-                return{
-                    ...state,
-                    Allclients: payload
-                }
-                case GET_ALL_VENTAS :
-                    return{
-                        ...state,
-                        Allventas: payload
-                    }
-        case ALLBRANDS :
-            return{
-                 ...state,
+        case GET_ALL_CLIENTS:
+            return {
+                ...state,
+                Allclients: payload
+            }
+        case GET_ALL_VENTAS:
+            return {
+                ...state,
+                Allventas: payload
+            }
+        case ALLBRANDS:
+            return {
+                ...state,
                 Allbrands: payload
             }
-        case ALLCOLORS :
-            return{
+        case ALLCOLORS:
+            return {
                 ...state,
                 Allcolors: payload
             }
-        case ALLSIZES :
-            return{
+        case ALLSIZES:
+            return {
                 ...state,
                 Allsizes: payload
             }
@@ -87,33 +99,33 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                 ...state,
                 productsDetail: payload
             };
-    
+
         case CLEAN_DETAIL:
             return {
                 ...state,
-               productsDetail: []
+                productsDetail: []
             }
         case POST_FAVORITES_API:
-            const productosFav = (id) =>{
-                return state.productos.find((product)=>product.id===id)
+            const productosFav = (id) => {
+                return state.productos.find((product) => product.id === id)
             }
-            const {productoId} = payload
+            const { productoId } = payload
             const newFavorites = [...state.favorites, productosFav(`prod-${productoId}`)]
             return {
                 ...state,
                 favorites: newFavorites,
                 favoritesRaw: data
             }
-        
+
         case POST_FAVORITES_API_INICIO:
             const productsFavI = (ids) => {
                 return state.productos.filter((prod) => ids.includes(prod.id));
-              };
+            };
 
-              const favoritesInicio = productsFavI(payload);
+            const favoritesInicio = productsFavI(payload);
             return {
                 ...state,
-                favorites: favoritesInicio, 
+                favorites: favoritesInicio,
                 favoritesRaw: data
             }
 
@@ -126,7 +138,7 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                 const newLocalFavorites = [...state.localFavorites, productsFav(payload)];
                 // Actualiza el Local Storage con la nueva lista de favoritos
                 localStorage.setItem("localFavorites", JSON.stringify(newLocalFavorites));
-    
+
                 return {
                     ...state,
                     localFavorites: newLocalFavorites,
@@ -142,10 +154,10 @@ const reducer = (state = InitialState, {type, payload, data}) => {
             const newLocalFavoritesAfterDelete = state.localFavorites.filter((item) => item.id !== payload);
             // Actualiza el Local Storage con la nueva lista de favoritos después de eliminar
             localStorage.setItem("localFavorites", JSON.stringify(newLocalFavoritesAfterDelete));
-      
+
             return {
-              ...state,
-              localFavorites: newLocalFavoritesAfterDelete,
+                ...state,
+                localFavorites: newLocalFavoritesAfterDelete,
             };
         case DELETE_FAVORITES_API:
             const newFavoritesAfterDelete = state.favorites.filter((item) => item.id !== payload);
@@ -154,7 +166,7 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                 favorites: newFavoritesAfterDelete,
                 favoritesRaw: data
             };
-                
+
         case PRODUCTS_FILTERED:
             const filtrarProductos = (productos, filtro) => {
                 if (
@@ -162,38 +174,38 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                     filtro.marcaId.length === 0 &&
                     (!filtro.precio_venta.min && !filtro.precio_venta.max) &&
                     filtro.tamañoId.length === 0
-                  ) {
+                ) {
                     return []; // Devuelve un array vacío si no hay filtros
-                  } else {
-                      return productos.filter((producto) => {
+                } else {
+                    return productos.filter((producto) => {
                         if (filtro.categoriaId && filtro.categoriaId.length > 0) {
-                          if (!filtro.categoriaId.includes(producto.categoriaId)) {
-                            return false;
-                          }
+                            if (!filtro.categoriaId.includes(producto.categoriaId)) {
+                                return false;
+                            }
                         }
                         if (filtro.marcaId && filtro.marcaId.length > 0) {
-                          if (!filtro.marcaId.includes(producto.marcaId)) {
-                            return false;
-                          }
+                            if (!filtro.marcaId.includes(producto.marcaId)) {
+                                return false;
+                            }
                         }
-                    
+
                         if (filtro.precio_venta && filtro.precio_venta.min && filtro.precio_venta.max) {
-                          const precioVenta = parseFloat(producto.precio_venta);
-                          if (precioVenta < filtro.precio_venta.min || precioVenta > filtro.precio_venta.max) {
-                            return false;
-                          }
+                            const precioVenta = parseFloat(producto.precio_venta);
+                            if (precioVenta < filtro.precio_venta.min || precioVenta > filtro.precio_venta.max) {
+                                return false;
+                            }
                         }
-                    
+
                         if (filtro.tamañoId && filtro.tamañoId.length > 0) {
-                          if (!filtro.tamañoId.includes(producto.tamañoId)) {
-                            return false;
-                          }
+                            if (!filtro.tamañoId.includes(producto.tamañoId)) {
+                                return false;
+                            }
                         }
                         return true;
-                      });
-                  }
-              };
-              const productosFiltrados = filtrarProductos(state.productos, payload);
+                    });
+                }
+            };
+            const productosFiltrados = filtrarProductos(state.productos, payload);
             return {
                 ...state,
                 productsFiltered: productosFiltrados
@@ -205,53 +217,53 @@ const reducer = (state = InitialState, {type, payload, data}) => {
                 cartProducts: payload
             };
 
-                case GETPRODUCT_BYNAME:
+        case GETPRODUCT_BYNAME:
+            return {
+                ...state,
+                searchResults: payload
+            }
+        case POST_CART_LS:
+            const itemsInCart = (id) => {
+                return state.productos.find((prod) => prod.id === id);
+            };
+            const { id, amount, color } = payload;
+
+            if (amount > 0) {
+                const newItem = { ...itemsInCart(id), color, amount }
+                const newItemsInCart = [...state.localCart, newItem];
+                localStorage.setItem("localCart", JSON.stringify(newItemsInCart));
                 return {
                     ...state,
-                    searchResults: payload
-                }
-                case POST_CART_LS:
-                    const itemsInCart = (id) =>{
-                        return state.productos.find((prod)=>prod.id===id);
-                    };
-                    const { id, amount, color } = payload;  
-                                  
-                    if (amount>0){                                                           
-                            const newItem = {...itemsInCart(id), color, amount}                                
-                            const newItemsInCart = [...state.localCart, newItem];                                
-                            localStorage.setItem("localCart", JSON.stringify(newItemsInCart));                                                 
-                            return{
-                                ...state,
-                                localCart: newItemsInCart,
-                            };                    
-                    } else {
-                        return {
-                            ...state,
-                            localCart:[]
-                        }
-                    }
-    
-                case EMPTY_LOCAL_CART:
-                    localStorage.removeItem("localCart");
-                    return {
-                        ...state,
-                        localCart:[]
+                    localCart: newItemsInCart,
                 };
+            } else {
+                return {
+                    ...state,
+                    localCart: []
+                }
+            }
 
-            case DELETE_ART_LS:        
+        case EMPTY_LOCAL_CART:
+            localStorage.removeItem("localCart");
+            return {
+                ...state,
+                localCart: []
+            };
+
+        case DELETE_ART_LS:
             const { ArtId, ArtColor, cantidad } = payload;
             const indexToDelete = state.localCart.findIndex(
-                item => item.id === ArtId && item.amount === cantidad && item.color === ArtColor);  
-               
-              if (indexToDelete !== -1) {
-                const newLocalCart = [...state.localCart.slice(0, indexToDelete), ...state.localCart.slice(indexToDelete + 1)];                
+                item => item.id === ArtId && item.amount === cantidad && item.color === ArtColor);
+
+            if (indexToDelete !== -1) {
+                const newLocalCart = [...state.localCart.slice(0, indexToDelete), ...state.localCart.slice(indexToDelete + 1)];
                 console.log("newLocalCart", newLocalCart);
                 return {
-                  ...state,
-                  localCart: newLocalCart
+                    ...state,
+                    localCart: newLocalCart
                 };
-              }
-              return state;
+            }
+            return state;
 
         case POST_CART_API:
             return {
@@ -260,27 +272,27 @@ const reducer = (state = InitialState, {type, payload, data}) => {
             };
 
         case DEL_ART_API:
-            return{
-                  ...state,
-                  apiCart: data
-            }
-            case GET_USER_COMPRAS:
-                return{
-                      ...state,
-                userCompras: payload
-                }
-        case GET_REVIEWRS:
-            return{
+            return {
                 ...state,
-                AllRevierwsId:payload
+                apiCart: data
+            }
+        case GET_USER_COMPRAS:
+            return {
+                ...state,
+                userCompras: payload
+            }
+        case GET_REVIEWRS:
+            return {
+                ...state,
+                AllRevierwsId: payload
             }
         case POST_ART_API:
             return {
                 ...state,
                 apiCart: data
-            }      
+            }
         default:
-        return state
+            return state
     }
 }
 

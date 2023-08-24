@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { brands, colors, sizes, productFilter} from "../../redux/actions";
+import { brands, categories, productFilter, productsCopy } from "../../redux/actions";
 
-const Catalogfilters = () => {
-  const stateProducts = useSelector(state => state.Allproducts);
-  const tallas = useSelector((state)=> state.Allsizes)
+const Catalogfitlers = () => {
+  const stateProducts = useSelector(state => state.copyAllProducts);
   const marcas = useSelector((state) => state.Allbrands)
-  const categorias = useSelector((state)=> state.Allcategories)
-  const productosFiltrados = useSelector((state)=> state.productsFiltered)
+  const categorias = useSelector((state) => state.Allcategories)
   const [filterChanged, setFilterChanged] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState(
     {
@@ -16,61 +14,45 @@ const Catalogfilters = () => {
       categoriaId: [],
       tamañoId: [],
     });
-  console.log(productosFiltrados)
   console.log(selectedFilters)
   const extractNumber = (string) => {
-  const match = string.match(/\d+/); 
-    return match ? parseInt(match[0]) : 0; 
+    const match = string.match(/\d+/);
+    return match ? parseInt(match[0]) : 0;
   };
-  
-  const [minPrice, setMinPrice] = useState(""); 
+
+  const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const dispatch = useDispatch()
 
-    useEffect(()=>{
-      dispatch(sizes())
-      dispatch(colors())
-      dispatch(brands())
-    }, [dispatch])
+  useEffect(() => {
+    const page = 0
+    const size = 60;
+    const filters = {
+      marcaId: selectedFilters.marcaId[0],
+      categoriaId: selectedFilters.categoriaId[0]
+    };
+    dispatch(productsCopy(page, size, filters));
+    dispatch(categories())
+    dispatch(brands())
+  }, [dispatch, selectedFilters])
+  console.log(`esto es de catologo : ${categorias} , ${marcas}`)
 
-    
-    useEffect(() => {
-      const minPriceValue = parseFloat(minPrice);
-      const maxPriceValue = parseFloat(maxPrice);
-      setSelectedFilters((prevFilters) => ({
-        ...prevFilters,
-        precio_venta: {
-          min: isNaN(minPriceValue) ? "" : minPriceValue,
-          max: isNaN(maxPriceValue) ? "" : maxPriceValue,
-        },
-      }));
-      setFilterChanged(true);
-    }, [minPrice, maxPrice]);
-    
-    const total  = stateProducts.productos?.length * 3;
-    
-    const handleMultipleOptionChange = (propertyName, optionId) => {
-      setSelectedFilters((prevFilters) => {
-      const isAlreadySelected = prevFilters[propertyName].includes(optionId);
-      if (isAlreadySelected) {
-        return {
-          ...prevFilters,
-          [propertyName]: prevFilters[propertyName].filter((id) => id !== optionId),
-        };
-      } else {
-        return {
-          ...prevFilters,
-          [propertyName]: [...prevFilters[propertyName], optionId],
-        };
-      }
-    });
+
+  const total = stateProducts.productos?.length * stateProducts.paginas;
+
+  const handleSingleOptionChange = (propertyName, optionId) => {
+    setSelectedFilters((prevFilters) => ({
+      ...prevFilters,
+      [propertyName]: [optionId],
+    }));
     setFilterChanged(true);
   }
+
   useEffect(() => {
 
-    if (productosFiltrados.length > 0) {
-      const filteredCategoriaId = productosFiltrados.map(producto => producto.categoriaId);
-      
+    if (stateProducts.productos?.length > 0) {
+      const filteredCategoriaId = stateProducts.productos.map(producto => producto.categoriaId);
+
       setSelectedFilters(prevFilters => ({
         ...prevFilters,
         categoriaId: filteredCategoriaId,
@@ -79,61 +61,36 @@ const Catalogfilters = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (
-      (!selectedFilters.tamañoId.length &&
-      !selectedFilters.marcaId.length &&
-      !selectedFilters.categoriaId.length &&
-      selectedFilters.precio_venta.min === "" &&
-      selectedFilters.precio_venta.max === "") 
-    ) {
-      dispatch(productFilter({
-          precio_venta: {
-            min: null,
-            max: null,
-          },
-          marcaId: [],
-          categoriaId: [],
-          tamañoId: [],
-      }))
-    } else if (filterChanged) {
-      dispatch(productFilter(selectedFilters));
-      setFilterChanged(false);
-    } 
-  }, [selectedFilters, filterChanged]);
-  
-  const handleReset = ()=>{
+  // useEffect(() => {
+  //   if (
+  //     (!selectedFilters.tamañoId.length &&
+  //       !selectedFilters.marcaId.length &&
+  //       !selectedFilters.categoriaId.length &&
+  //       selectedFilters.precio_venta.min === "" &&
+  //       selectedFilters.precio_venta.max === "")
+  //   ) {
+  //     dispatch(productFilter({
+  //       precio_venta: {
+  //         min: null,
+  //         max: null,
+  //       },
+  //       marcaId: [],
+  //       categoriaId: [],
+  //       tamañoId: [],
+  //     }))
+  //   } else if (filterChanged) {
+  //     dispatch(productFilter(selectedFilters));
+  //     setFilterChanged(false);
+  //   }
+  // }, [selectedFilters, filterChanged]);
+
+  const handleReset = () => {
     window.location.reload();
   }
 
-    return (
-      <div className="grid grid-cols-1 w-4/5 my-10 mx-auto bg-white text-black py-10 text-lg capitalize justify-items-start  rounded-md">
-      <h2 className="font-bold text-2xl mb-5">Total <br/> {total} productos</h2>
-    
-      {/* Talla */}
-      <div>
-        <h3 className="font-bold mb-2">Talla</h3>
-        <ul>
-          {tallas &&
-            tallas.map(talla => {
-              const tallaNumber = extractNumber(talla.id);
-              return (
-                <li key={talla.id} className="flex items-center mb-2">
-                  <input
-                    className="mr-2"
-                    type="checkbox"
-                    checked={selectedFilters.tamañoId.includes(tallaNumber)}
-                    onChange={() =>
-                      handleMultipleOptionChange("tamañoId", tallaNumber)
-                    }
-                  />
-                  <span>{talla.name}</span>
-                </li>
-              );
-            })}
-        </ul>
-      </div>
-    
+  return (
+    <div className="grid grid-cols-1 w-4/5 my-10 mx-auto bg-white text-black py-10 text-lg capitalize justify-items-start  rounded-md">
+      <h2 className="font-bold text-2xl mb-5">Total <br /> {total} productos</h2>
       {/* Marca */}
       <div>
         <h3 className="font-bold mb-2">Marca</h3>
@@ -146,18 +103,19 @@ const Catalogfilters = () => {
                   <input
                     className="mr-2"
                     type="checkbox"
-                    checked={selectedFilters.marcaId.includes(marcaNumber)}
+                    checked={selectedFilters.marcaId[0] === marcaNumber}
                     onChange={() =>
-                      handleMultipleOptionChange("marcaId", marcaNumber)
+                      handleSingleOptionChange("marcaId", marcaNumber)
                     }
                   />
+
                   <span>{marca.name}</span>
                 </li>
               );
             })}
         </ul>
       </div>
-    
+
       {/* Categorias */}
       <div>
         <h3 className="font-bold mb-2">Categorías</h3>
@@ -170,18 +128,19 @@ const Catalogfilters = () => {
                   <input
                     className="mr-2"
                     type="checkbox"
-                    checked={selectedFilters.categoriaId.includes(categoriaNumber)}
+                    checked={selectedFilters.categoriaId[0] === categoriaNumber}
                     onChange={() =>
-                      handleMultipleOptionChange("categoriaId", categoriaNumber)
+                      handleSingleOptionChange("categoriaId", categoriaNumber)
                     }
                   />
+
                   <span>{categoria.name}</span>
                 </li>
               );
             })}
         </ul>
       </div>
-    
+
       {/* Precios */}
       <div>
         <h3 className="font-bold mb-2">Precios</h3>
@@ -217,7 +176,7 @@ const Catalogfilters = () => {
           </div>
         </div>
       </div>
-    
+
       {/* Botón RESET */}
       <div className="flex justify-center">
         <button
@@ -228,8 +187,7 @@ const Catalogfilters = () => {
         </button>
       </div>
     </div>
-    );
-  };
-  
-  export default Catalogfilters;
-  
+  );
+};
+
+export default Catalogfitlers;

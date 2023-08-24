@@ -11,26 +11,29 @@ const putProducto = require('../controllers/Producto/putProducto')
 const putActiveProducto = require('../controllers/Producto/putActiveProducto')
 const deleteProducto = require('../controllers/Producto/deleteProducto')
 
-router.get('/', async (req,res)=>{
-  const {page,size,name} = req.query;
+router.get('/', async (req, res) => {
+  const { page, size, name, marcaId, categoriaId, precioMin, precioMax } = req.query;
   try {
-    if (name) {
-      let producto = await getNameProducto(name)
-      res.status(200).send(producto)
-  } else if (page,size) {
-    let producto = await getAllProducto(page,size)
-    res.status(200).send({
-      paginas: Math.ceil(producto.count / size),
-      productos: producto.rows      
-    }) 
-  }else{
-    let producto = await getProductos()
-      res.status(200).send(producto)
-  }
+     if (page && size) {
+      const filters = {
+        marcaId: marcaId ? parseInt(marcaId) : null,
+        categoriaId: categoriaId ? parseInt(categoriaId) : null,
+        precioMin: precioMin ? parseFloat(precioMin) : null,
+        precioMax: precioMax ? parseFloat(precioMax) : null,
+      };
+      const producto = await getAllProducto(page, size, filters, name);
+      res.status(200).send({
+        paginas: Math.ceil(producto.count / size),
+        productos: producto.rows,
+      });
+    } else {
+      const producto = await getProductos();
+      res.status(200).send(producto);
+    }
   } catch (error) {
-    res.status(400).send(error.message)
+    res.status(400).send(error.message);
   }
-})
+});
 
 router.get('/:productoId', async (req,res)=>{
   const { productoId } = req.params

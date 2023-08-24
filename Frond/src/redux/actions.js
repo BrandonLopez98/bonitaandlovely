@@ -1,38 +1,36 @@
 import axios from "axios";
-import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS, EMPTY_LOCAL_CART, DELETE_ART_LS, POST_CART_API, DEL_ART_API, GET_ALL_CLIENTS, GET_ALL_VENTAS, GET_USER_COMPRAS, GET_REVIEWRS, CLEAN_PREVIEW, POST_ART_API} from "./action-types";
+import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALLSIZES, ALLSUBCATEGORIES, CLEAN_DETAIL, PRODUCTS_DETAIL, PRODUCTS_FILTERED, POST_FAVORITES_API, POST_FAVORITES_API_INICIO, POST_FAVORITES_LS, DELETE_FAVORITES, DELETE_FAVORITES_API, PRODUCTOS, CART_PRODUCTS, ADD_TO_CART, GETPRODUCT_BYNAME, POST_CART_LS, DELETE_CART_LS, EMPTY_LOCAL_CART, DELETE_ART_LS, POST_CART_API, DEL_ART_API, GET_ALL_CLIENTS, GET_ALL_VENTAS, GET_USER_COMPRAS, GET_REVIEWRS, CLEAN_PREVIEW, POST_ART_API, GET_NAME} from "./action-types";
 
 // aca la ruta directamente porque la url base ya esta osea que solo queda por la ruta ejemplo:/producto
 
 //action que trae la data
 export const products = ({ page, size }) => async (dispatch) => {
-    const { data } = await axios.get("/producto", {
-      params: {
-        page,
-        size,
-      },
-    });
-    dispatch({
-      type: ALLPRODUCTS,
-      payload: data,
-    });
-
-};
-// esta accion es provisional, solo para llamar a 50 productos
-
-export const productsCopy = () => async (dispatch) => {
   const { data } = await axios.get("/producto", {
     params: {
-      page: 0,
-      size: 50,
+      page,
+      size,
     },
   });
   dispatch({
-    type: COPY_ALLPRODUCTS,
+    type: ALLPRODUCTS,
     payload: data,
   });
-
 };
 
+export const productsCopy = (page, size ,filters) => async (dispatch) => {
+const {data} = await axios.get('/producto', {
+  params: {
+    page,
+    size,
+    ...filters
+  },
+});
+
+dispatch({
+  type:COPY_ALLPRODUCTS,
+  payload: data
+})
+};
 export const productosSinPag = () => async (dispatch) =>{
   const { data } = await axios.get("/producto");
   dispatch({
@@ -374,3 +372,10 @@ export const cleanPreview = () => {
   };
  }
 
+export const nameFilter = (name) => (dispatch)  =>  {
+  dispatch({
+    type:GET_NAME,
+    payload:name 
+
+  })
+}

@@ -48,7 +48,7 @@ const Contact = () => {
   });
   return (
 <div>
-    <section class="mb-32">
+    <section className="mb-32">
     <div className="relative h-[300px] overflow-hidden bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${fond})` }}></div>
     <div class="container px-6 md:px-12 m-auto">

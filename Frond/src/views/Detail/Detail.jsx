@@ -78,12 +78,12 @@ const Detail = () => {
       await axios.put(`carrito/${idNumber}`, productToAdd);
      
       // Si el carrito fue actualizado correctamente, proceder al pago
-      const response = await axios.post("http://localhost:3001/pago", productToPay);
+      const response = await axios.post("/pago", productToPay);
       window.location.href = response.data.response.body.init_point;
       
       // Marcar el carrito como pagado
       if(response){
-        axios.put(`http://localhost:3001/carrito/pagado/${idNumber}`, { pagado: true });
+        axios.put(`/carrito/pagado/${idNumber}`, { pagado: true });
       }
   
       
@@ -225,7 +225,6 @@ const NumUserId=user;
     <div className='flex flex-row gap-2 mt-10 m-10 bg-fuchsia-200 rounded-lg p-10 shadow-2xl justify-center items-center'>
         <MoreProductsCardContainer2/>
       </div>
-  );
   </div></>
   );
 };

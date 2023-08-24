@@ -11,7 +11,7 @@ import LoginButton from '../LoginComponents/Login';
 import Profile from '../LoginComponents/Profile/Profile';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useDispatch, useSelector } from 'react-redux'
-import { categories, productFilter, productsCopy } from '../../redux/actions';
+import { categories, productFilter } from '../../redux/actions';
 import Swal from 'sweetalert2';
 
 const Navbar = ({ initialLanguage }) => {
@@ -24,10 +24,6 @@ const Navbar = ({ initialLanguage }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
   const [language, setLanguage] = useState(initialLanguage || 'en');
-  useEffect(()=>{
-    dispatch(categories())
-    dispatch(productsCopy())
-}, [dispatch])
 
   const toggleLanguageMenu = () => {
     setShowLanguageMenu(!showLanguageMenu);
