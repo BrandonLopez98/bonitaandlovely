@@ -57,7 +57,7 @@ const Carrito = () => {
         }
       }, [NumUserId, isAuthenticated]);
       
-    const cartLS = useSelector(state => state.localCart);
+    const cartLS = useSelector(state => state.localCart); console.log("cartLS", cartLS);
 
     const cartUnif = (cart) => {
         const countMap = {};
@@ -86,7 +86,7 @@ const Carrito = () => {
 
     useEffect(() => {
         if (isAuthenticated && cartLS) {
-          dispatch(addCartLSToApi({ user: NumUserId, localCart: cartLS, colorId:1 }))
+          dispatch(addCartLSToApi({ user: NumUserId, localCart: cartLS }))
             .catch(error => {             
               Swal.fire({
                 icon: 'error',
@@ -133,7 +133,15 @@ const Carrito = () => {
         }
       }
 
-      const handleProceedToPayment = () => {
+   
+    const productsToPay = cartApi.productos?.map((product) => ({
+    nombre: product.name,
+    precio: product.precio_venta,
+    descripcion: product.name,
+    quantity: product.cantidad,
+    })); console.log("productsToPay", productsToPay);
+
+    const handleProceedToPayment = async () => {
         if (!isAuthenticated) {
           Swal.fire("Debes iniciar sesión para continuar", "error", "error");
           return;
@@ -142,20 +150,31 @@ const Carrito = () => {
           !currentUser.name ||
           !currentUser.correo_electronico ||
           !currentUser.telefono ||
-          !currentUser.contraseña
+          !currentUser.direccion
         ) {
           Swal.fire("Completa tu información de perfil antes de continuar", "", "error");
           return;
         }
-        // if (stateProducts.cantidad <= 0) {
-        //   Swal.fire("Producto agotado momentáneamente", "", "error");
-        //   return;
-        // }
-      
-        axios
-          .post("bonitaandlovely-production-a643.up.railway.app/pago", cartApi)
-          .then((res) => (window.location.href = res.data.response.body.init_point));
-      };
+
+    //     axios
+    //       .post("bonitaandlovely-production-a643.up.railway.app/pagoCarrito", productsToPay)
+    //       .then((res) => (window.location.href = res.data.response.body.init_point));
+    //   };
+    try {
+
+        const response = await axios.post("https://bonitaandlovely-production-a643.up.railway.app/pagoCarrito", productsToPay);
+        window.location.href = response.data.response.body.init_point;
+        
+        // Marcar el carrito como pagado
+        if(response){
+          axios.put(`https://bonitaandlovely-production-a643.up.railway.app/carrito/pagado/${NumUserId}`, { pagado: true });
+        }
+    
+        
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
     // const updateNombre = (nombre) => {
     //     setUserInfo((prevUserInfo) => ({ ...prevUserInfo, nombre }));
@@ -286,4 +305,4 @@ const Carrito = () => {
 
 };
 
-export default Carrito; 
+export default Carrito;

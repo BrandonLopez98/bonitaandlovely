@@ -141,42 +141,6 @@ const Catalogfitlers = () => {
         </ul>
       </div>
 
-      {/* Precios */}
-      <div>
-        <h3 className="font-bold mb-2">Precios</h3>
-        <div className="grid grid-cols-5 mb-2">
-          <div className="col-span-2">
-            <input
-              label="precio"
-              placeholder="min"
-              type="number"
-              className="border border-gray-300 px-2 py-1 rounded w-full"
-              value={minPrice}
-              onChange={e => {
-                const value = parseFloat(e.target.value);
-                setMinPrice(isNaN(value) || value < 0 ? 0 : value);
-              }}
-            />
-          </div>
-          <div className="flex items-center justify-center font-bold">
-            -
-          </div>
-          <div className="col-span-2">
-            <input
-              label="precio"
-              placeholder="max"
-              type="number"
-              className="border border-gray-300 px-2 py-1 rounded w-full"
-              value={maxPrice}
-              onChange={e => {
-                const value = parseFloat(e.target.value);
-                setMaxPrice(isNaN(value) || value < 0 ? 0 : value);
-              }}
-            />
-          </div>
-        </div>
-      </div>
-
       {/* Botón RESET */}
       <div className="flex justify-center">
         <button
