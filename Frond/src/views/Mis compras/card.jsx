@@ -10,7 +10,6 @@ const ProductCard = ({ product }) => {
   });
   console.log(currentUser);
 
-
   return (
     <div className="p-4 my-4 bg-white rounded-md shadow-md">
       <div className="flex flex-row items-center">
@@ -24,11 +23,7 @@ const ProductCard = ({ product }) => {
       <hr className="my-4 border-gray-300 w-11/12 mx-auto" />
       <div className="flex justify-between">
         <p className="text-md font-medium">{product.productoPrecio}</p>
-        {product.review ? (
-          <ReviwerM product={product.id} currentUser={currentUser.id} />
-        ) : (
-          <ReviwerE  product={product.id} initialRating={product.review} initialComentario/>
-        )}
+        <ReviwerE  product={product.productoId} currentUser={currentUser.id} />
       </div>
     </div>
   );
