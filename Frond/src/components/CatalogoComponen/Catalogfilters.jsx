@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { brands, colors, sizes, productFilter} from "../../redux/actions";
 
-const Catalogfilters = () => {
-  const stateProducts = useSelector(state => state.Allproducts);
-  const tallas = useSelector((state)=> state.Allsizes)
-  const marcas = useSelector((state) => state.Allbrands)
-  const categorias = useSelector((state)=> state.Allcategories)
-  const productosFiltrados = useSelector((state)=> state.productsFiltered)
+const Catalogfitlers = () => {
+  // const stateProducts = useSelector(state => state.Allproducts);
+  // const tallas = useSelector((state)=> state.Allsizes)
+  // const marcas = useSelector((state) => state.Allbrands)
+  // const categorias = useSelector((state)=> state.Allcategories)
+  // const productosFiltrados = useSelector((state)=> state.productsFiltered)
   const [filterChanged, setFilterChanged] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState(
     {
@@ -16,8 +16,7 @@ const Catalogfilters = () => {
       categoriaId: [],
       tamañoId: [],
     });
-  console.log(productosFiltrados)
-  console.log(selectedFilters)
+
   const extractNumber = (string) => {
   const match = string.match(/\d+/); 
     return match ? parseInt(match[0]) : 0; 
@@ -231,5 +230,5 @@ const Catalogfilters = () => {
     );
   };
   
-  export default Catalogfilters;
+  export default Catalogfitlers;
   

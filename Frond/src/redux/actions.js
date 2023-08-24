@@ -15,22 +15,22 @@ export const products = ({ page, size }) => async (dispatch) => {
       type: ALLPRODUCTS,
       payload: data,
     });
-
 };
-// esta accion es provisional, solo para llamar a 50 productos
 
-export const productsCopy = () => async (dispatch) => {
-  const { data } = await axios.get("/producto", {
+export const productsCopy = (page, size ,filters) => async (dispatch) => {
+  const response = await axios.get('/producto', {
     params: {
-      page: 0,
-      size: 50,
+      page,
+      size,
+      ...filters
     },
   });
-  dispatch({
-    type: COPY_ALLPRODUCTS,
-    payload: data,
-  });
 
+  const data = response.data;
+  dispatch({
+    type:COPY_ALLPRODUCTS,
+    payload:data
+  })
 };
 
 export const productosSinPag = () => async (dispatch) =>{
@@ -55,7 +55,7 @@ export const clientes = () => async dispatch => {
   })
  };
  export const userCompras = (id) => async dispatch => {
-  const {data} =await axios.get(`/carrito/historial/${id}`)
+  const {data} =await axios.get(`/carrito/historialproducto/${id}`)
   dispatch({
      type: GET_USER_COMPRAS,
      payload: data
