@@ -25,7 +25,7 @@ const LoginButton = () => {
 
   if (isAuthenticated && user) {
     const { name, email } = user;
-    const admin = email === "bonitaandlovely@gmail.com" ? true : false;
+    const admin = email === "bonitaandlovely@gmail.com" && 'passantinodev@gmail.com' ? true : false;
     const userLogin = { name, correo_electronico: email, admin };
     const existeCliente = clientes.find((cliente) => cliente.correo_electronico === email);
     if (existeCliente) {

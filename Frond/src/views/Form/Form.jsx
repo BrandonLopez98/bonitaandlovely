@@ -362,91 +362,10 @@ const Form = () => {
             </div>
 
             {/* Proveedor */}
-            <div>
-              <label
-                htmlFor="productProvider"
-                className="font-medium text-gray-700 block mb-1"
-              >
-                Proveedor
-              </label>
-              <div className="relative">
-                <select
-                  id="productProvider"
-                  value={
-                    selectedProvider && selectedProvider.id
-                      ? selectedProvider.id
-                      : ""
-                  }
-                  onChange={handleSelectChange}
-                  name="proveedorId"
-                  className={`appearance-none w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300 ${
-                    formik.touched.proveedorId && formik.errors.proveedorId
-                      ? "border-red-500"
-                      : ""
-                  }`}
-                  required
-                >
-                  <option value="">Seleccionar</option>
-                  {providers.map((option) => (
-                    <option key={option.id} value={option.id}>
-                      {option.name}
-                    </option>
-                  ))}
-                </select>
-                <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                  <svg
-                    className="h-4 w-4 text-gray-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </div>
-              </div>
-              {formik.touched.proveedorId && formik.errors.proveedorId && (
-                <div className="text-red-500 text-sm mt-1 font-medium">
-                  {formik.errors.proveedorId}
-                </div>
-              )}
-            </div>
+        
 
-            {/* Referencia del Proveedor */}
-            <div>
-              <label
-                htmlFor="refProv"
-                className="font-medium text-gray-700 block mb-1"
-              >
-                Referencia del Proveedor
-              </label>
-              <input
-                type="text"
-                className={`border rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300 ${
-                  formik.touched.referencia_proveedor &&
-                  formik.errors.referencia_proveedor
-                    ? "border-red-500"
-                    : ""
-                }`}
-                id="refProv"
-                name="referencia_proveedor"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.referencia_proveedor}
-                required
-              />
-              {formik.touched.referencia_proveedor &&
-                formik.errors.referencia_proveedor && (
-                  <div className="text-red-500 text-sm mt-1 font-medium">
-                    {formik.errors.referencia_proveedor}
-                  </div>
-                )}
-            </div>
+          
+          
 
             {/* Marca */}
             <div>

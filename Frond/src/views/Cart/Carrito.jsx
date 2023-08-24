@@ -8,8 +8,17 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Carrito = () => {
     const dispatch = useDispatch();
-    const [apicart, setApicart] = useState([]);
+    const [apicart, setApicart] = useState([]); 
     const { user, isAuthenticated, isLoading } = useAuth0();
+    const usuarios = useSelector((state) => state.Allclients);
+  const currentUser = usuarios.find(
+    (usuario) =>
+      !isLoading &&
+      user &&
+      usuario.name.toLowerCase() === user.name.toLowerCase() &&
+      usuario.correo_electronico.toLowerCase() === user.email.toLowerCase()
+  );
+
     const extractNumber = (string) => {
         const match = string.match(/\d+/); 
         return match ? parseInt(match[0]) : 0; 
@@ -19,16 +28,16 @@ const Carrito = () => {
     const clientFound = isAuthenticated ? Clientela.find(client => client.correo_electronico === user.email) : null;
     const NumUserId = isAuthenticated ? extractNumber(clientFound.id) : undefined;
 
-    const [userInfo, setUserInfo] = useState({
-        nombre: '',
-        apellido: '',
-        correoElectronico: '',
-        numeroTelefono: '',
-        ciudad: '',
-        provincia: '',
-        codigoPostal: '',
-        contraseña: ''
-    });
+    // const [userInfo, setUserInfo] = useState({
+    //     nombre: '',
+    //     apellido: '',
+    //     correoElectronico: '',
+    //     numeroTelefono: '',
+    //     ciudad: '',
+    //     provincia: '',
+    //     codigoPostal: '',
+    //     contraseña: ''
+    // });
 
     useEffect(() => {
         if (isAuthenticated) {          
@@ -85,6 +94,7 @@ const Carrito = () => {
                 text: error.response?.data || 'Hubo un error en la solicitud.',
               });
             });
+            dispatch(emptyCartLS());
         } else {
           return;
         }
@@ -111,8 +121,8 @@ const Carrito = () => {
     }
 
     const handleDeleteArtAPI = async (item) => {
-        try {
-          await dispatch(deleteArtAPI({ user: NumUserId, productoId: item.productoId }));
+        try {console.log("datos deleteArtApi", NumUserId, item.productoId,  item.colorId );
+          await dispatch(deleteArtAPI({ user: NumUserId, productoId: item.productoId, colorId:item.colorId })); 
         } catch (error) {
           console.error('Error en handleDeleteArtAPI:', error);
           Swal.fire({
@@ -123,37 +133,37 @@ const Carrito = () => {
         }
       }
 
-    const handleProceedToPayment = () => {
+      const handleProceedToPayment = () => {
         if (!isAuthenticated) {
-            Swal.fire('Debes iniciar sesión para continuar', 'error');
-            return;
+          Swal.fire("Debes iniciar sesión para continuar", "error", "error");
+          return;
         }
         if (
-            !userInfo.nombre ||
-            !userInfo.apellido ||
-            !userInfo.correoElectronico ||
-            !userInfo.numeroTelefono ||
-            !userInfo.ciudad ||
-            !userInfo.provincia ||
-            !userInfo.codigoPostal ||
-            !userInfo.contraseña
+          !currentUser.name ||
+          !currentUser.correo_electronico ||
+          !currentUser.telefono ||
+          !currentUser.contraseña
         ) {
-
-            Swal.fire('Completa tu información de perfil antes de continuar', 'error');
-            return;
+          Swal.fire("Completa tu información de perfil antes de continuar", "", "error");
+          return;
         }
-        axios.post('https://bonitaandlovely-git-developer-brandonlopez98.vercel.app/pago', cartApi)
-        // axios.post('http://localhost:3001/pago', cartApi)
-            .then((res) => (window.location.href = res.data.response.body.init_point));
-    };
+        // if (stateProducts.cantidad <= 0) {
+        //   Swal.fire("Producto agotado momentáneamente", "", "error");
+        //   return;
+        // }
+      
+        axios
+          .post("bonitaandlovely-production-a643.up.railway.app/pago", cartApi)
+          .then((res) => (window.location.href = res.data.response.body.init_point));
+      };
 
-    const updateNombre = (nombre) => {
-        setUserInfo((prevUserInfo) => ({ ...prevUserInfo, nombre }));
-    };
+    // const updateNombre = (nombre) => {
+    //     setUserInfo((prevUserInfo) => ({ ...prevUserInfo, nombre }));
+    // };
 
-    const updateApellido = (apellido) => {
-        setUserInfo((prevUserInfo) => ({ ...prevUserInfo, apellido }));
-    };
+    // const updateApellido = (apellido) => {
+    //     setUserInfo((prevUserInfo) => ({ ...prevUserInfo, apellido }));
+    // };
 
 
     return (
@@ -225,11 +235,11 @@ const Carrito = () => {
                             <div className="font-medium text-gray-600">No hay artículos en su carrito</div>
                         </div>
                     )}
-                    {cartUnificado.length>0 &&(
+                    {cartUnificado.length>0 && !isAuthenticated ?(
                     <button onClick={() => handleEmptyCart()} className="ml-6 rounded-md p-1.5 text-gray-400 bg-gray-200 hover:bg-gray-100">
                       Limpiar carrito
                       </button>
-                    )}
+                    ) : null }
                 </div>
 
                 <div className="col-span-1">
@@ -253,14 +263,11 @@ const Carrito = () => {
 
                         <button
                         onClick={() => {
-                            handleProceedToPayment();
-                            updateNombre(userInfo.nombre);
-                            updateApellido(userInfo.apellido);
+                            handleProceedToPayment();                         
                         }}
                         className="transition duration-300 rounded-md py-2 px-4 text-white font-medium w-full"
                         style={{ backgroundColor: 'rgb(109, 1, 110)' }}
-                        disabled={!isAuthenticated || !userInfo.nombre || !userInfo.apellido || !userInfo.correoElectronico || !userInfo.numeroTelefono || !userInfo.ciudad || !userInfo.provincia || !userInfo.codigoPostal || !userInfo.contraseña}
-                    >
+                        >
                         Continuar compra
                     </button>
                     </div>
@@ -279,4 +286,4 @@ const Carrito = () => {
 
 };
 
-export default Carrito;
+export default Carrito; 

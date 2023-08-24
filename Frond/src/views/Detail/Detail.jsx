@@ -26,15 +26,35 @@ const Detail = () => {
     dispatch(clientes());
   }, []);
   const usuarios = useSelector((state) => state.Allclients);
-  const currentUser = usuarios.find(
+  const currentUser = usuarios?.find(
     (usuario) =>
       !isLoading &&
       user &&
       usuario.name.toLowerCase() === user.name.toLowerCase() &&
       usuario.correo_electronico.toLowerCase() === user.email.toLowerCase()
   );
+  const extractIdNumber = (id) => {
+    const idParts = id.split('-'); // Separa el string en partes utilizando el carácter "-"
+    return parseInt(idParts[1]); // Convierte la segunda parte a un número entero y lo retorna
+  };
+  const idNumber = extractIdNumber(currentUser?.id); //
+  const productId = extractIdNumber(id); //
+  const [amount, setAmount] = useState(1);
 
-  const handleProceedToPayment = () => {
+  console.log(amount)
+  console.log(productId)
+
+  const productToAdd = {
+    productos: [
+       {
+				cantidad: amount,
+			productoId: productId,
+				 colorId:1
+      }
+    ]
+  }
+
+  const handleProceedToPayment = async () => {
     if (!isAuthenticated) {
       Swal.fire("Debes iniciar sesión para continuar", "error", "error");
       return;
@@ -43,7 +63,7 @@ const Detail = () => {
       !currentUser.name ||
       !currentUser.correo_electronico ||
       !currentUser.telefono ||
-      !currentUser.contraseña
+      !currentUser.direccion
     ) {
       Swal.fire("Completa tu información de perfil antes de continuar", "", "error");
       return;
@@ -52,10 +72,24 @@ const Detail = () => {
       Swal.fire("Producto agotado momentáneamente", "", "error");
       return;
     }
+    
+    // Actualizar el carrito
+    try {
+      await axios.put(`carrito/${idNumber}`, productToAdd);
+     
+      // Si el carrito fue actualizado correctamente, proceder al pago
+      const response = await axios.post("http://localhost:3001/pago", productToPay);
+      window.location.href = response.data.response.body.init_point;
+      
+      // Marcar el carrito como pagado
+      if(response){
+        axios.put(`http://localhost:3001/carrito/pagado/${idNumber}`, { pagado: true });
+      }
   
-    axios
-      .post("bonitaandlovely-production-a643.up.railway.app/pago", productToPay)
-      .then((res) => (window.location.href = res.data.response.body.init_point));
+      
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -71,7 +105,6 @@ const Detail = () => {
   // const colorIcon3 = "#EF3A57";
   // const colorIcon4 = "#C81819";
 
-  const [amount, setAmount] = useState(1);
   // const [color, setColor] = useState(colorIcon1);
 
   const handleDecrement = () => {

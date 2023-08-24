@@ -203,30 +203,25 @@ const Miperfil = () => {
                   />
                 </dd>
               </dl>
-
               <dl className="form-group mt-5">
                 <dt>
-                  <label htmlFor="contraseña" className="font-bold text-gray-600 mb-1">
-                    Contraseña
+                  <label htmlFor="codigoPostal" className="font-bold text-gray-600 mb-1">
+                    Código postal
                   </label>
                 </dt>
                 <dd className="d-inline-block">
-                  <div className="relative">
-                    <input
-                      className="form-control bg-gray-100 border border-gray-300 rounded-md p-2 w-full mb-2"
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Ingresa tu contraseña"
-                      name="contraseña"
-                      value={userInfo.contraseña}
-                      onChange={handleChange}
-                      disabled={!buttonSwitch}
-                    />
-                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer" onClick={handleToggleShowPassword}>
-                      {showPassword ? <SeeIcon className="text-gray-400" /> : <SeeSlashIcon className="text-gray-400" />}
-                    </div>
-                  </div>
+                  <input
+                    className="form-control bg-gray-100 border border-gray-300 rounded-md p-2 w-full mb-2"
+                    type="text"
+                    placeholder="Ingresa tu código postal"
+                    name="codigoPostal"
+                    value={userInfo.codigoPostal}
+                    onChange={handleChange}
+                    disabled={!buttonSwitch}
+                  />
                 </dd>
               </dl>
+           
             </div>
 
             {/* Columna derecha de la derecha */}
@@ -278,25 +273,6 @@ const Miperfil = () => {
                     placeholder="Ingresa tu provincia"
                     name="provincia"
                     value={userInfo.provincia}
-                    onChange={handleChange}
-                    disabled={!buttonSwitch}
-                  />
-                </dd>
-              </dl>
-
-              <dl className="form-group mt-5">
-                <dt>
-                  <label htmlFor="codigoPostal" className="font-bold text-gray-600 mb-1">
-                    Código postal
-                  </label>
-                </dt>
-                <dd className="d-inline-block">
-                  <input
-                    className="form-control bg-gray-100 border border-gray-300 rounded-md p-2 w-full mb-2"
-                    type="text"
-                    placeholder="Ingresa tu código postal"
-                    name="codigoPostal"
-                    value={userInfo.codigoPostal}
                     onChange={handleChange}
                     disabled={!buttonSwitch}
                   />

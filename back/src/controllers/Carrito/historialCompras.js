@@ -33,7 +33,7 @@ module.exports = async (clienteId) => {
     for (const carrito of carritoExistente) {
       for (const producto of carrito.dataValues.productos) {
         const productoDetalles = await Producto.findByPk(producto.productoId, {
-          attributes: ['name', 'precio_venta'],
+          attributes: ['name', 'precio_venta', 'descripcion', 'imagenPrincipal'],
         });
         const colorDetalles = await Color.findByPk(producto.colorId, {
           attributes: ['name'],
@@ -50,6 +50,8 @@ module.exports = async (clienteId) => {
           productos.push({
             colorId: producto.colorId,
             colorName: colorDetalles.name,
+            imagenProducto: productoDetalles.imagenPrincipal,
+            descripcion: productoDetalles.descripcion,
             cantidad: producto.cantidad,
             productoId: producto.productoId,
             productoName: productoDetalles.name,

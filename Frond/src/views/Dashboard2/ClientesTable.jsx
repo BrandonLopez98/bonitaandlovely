@@ -9,6 +9,10 @@ import { clientes } from '../../redux/actions.js'
 import Swal from 'sweetalert2'
 
 const ClientesTable = () => {
+  useEffect(
+    () => {
+      dispatch(clientes())
+    },[])
 
   const dispatch = useDispatch()
   const stateClients = useSelector(state => state.Allclients);
@@ -219,11 +223,11 @@ const pageNumbers = generatePageNumbers();
             <tbody className="text-gray-600 text-sm font-light">
               {currentClient?.map((client) => (
                 <tr key={client.id} className="border-t">
-                  <td className="px-6 text-center py-10">{client.name}</td>
-                  <td className="px-6 text-center py-10">{client.correo_electronico}</td>
-                  <td className="px-6 text-center py-10">{client.direccion}</td>
+                  <td className="px-6 text-center py-10">{client?.name}</td>
+                  <td className="px-6 text-center py-10">{client?.correo_electronico}</td>
+                  <td className="px-6 text-center py-10">{client?.direccion}</td>
                   <td className="px-6 l text-center py-10">
-                  {client.activa === true ? (
+                  {client?.activa === true ? (
                     <div className="d-flex align-items-center">
                       <span>Activo</span>
                       <BsCheckCircle className="relative bottom-4" />
@@ -235,26 +239,26 @@ const pageNumbers = generatePageNumbers();
                   </>
                   )}</td>
                   {
-                      client.correo_electronico === 'bonitaandlovely@gmail.com' 
+                      client?.correo_electronico === 'bonitaandlovely@gmail.com' 
                       ? 
                       <td className="px-6 text-center py-4">
                       <button className="bg-purple-500 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded">Principal Admin</button>
                       </td>
                       : 
                       <td className="px-6 text-center py-4">
-                      {client.admin === false 
-                      ? <button onClick={()=> makeAdminAlert(client.id)} className="bg-indigo-800 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded">Hacer admin</button>
-                      : <button onClick={()=> unmakeAdminAlert(client.id)} className="bg-black hover:bg-gray-200 text-white font-bold py-2 px-4 rounded">Quitar admin</button>
+                      {client?.admin === false 
+                      ? <button onClick={()=> makeAdminAlert(client?.id)} className="bg-indigo-800 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded">Hacer admin</button>
+                      : <button onClick={()=> unmakeAdminAlert(client?.id)} className="bg-black hover:bg-gray-200 text-white font-bold py-2 px-4 rounded">Quitar admin</button>
                       }
                       </td>
                   }
                 
                   {
-                    client.correo_electronico !== 'passantinodev@gmail.com' 
+                    client?.correo_electronico !== 'bonitaandlovely@gmail.com' 
                     ? <td className="px-6 text-center py-4">
-                    {client.activa === true
-                    ? <button onClick={()=> banAlert(client.id)} className="bg-red-500 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded">Banear</button>
-                    : <button onClick={()=> unbanAlert(client.id)} className="bg-green-500 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded">Quitar baneo</button>
+                    {client?.activa === true
+                    ? <button onClick={()=> banAlert(client?.id)} className="bg-red-500 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded">Banear</button>
+                    : <button onClick={()=> unbanAlert(client?.id)} className="bg-green-500 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded">Quitar baneo</button>
                     }
                     </td>
                     :''
@@ -291,7 +295,7 @@ const pageNumbers = generatePageNumbers();
             ))}
             <button
               onClick={() => {
-                if (currentPage < Math.ceil(stateClients.length / itemsPerPage)) {
+                if (currentPage < Math.ceil(stateClients?.length / itemsPerPage)) {
                   setCurrentPage(currentPage + 1);
                   setSelectedPage(selectedPage + 1);
                 }
