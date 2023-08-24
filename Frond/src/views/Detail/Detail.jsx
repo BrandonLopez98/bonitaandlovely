@@ -133,7 +133,7 @@ const Detail = () => {
 const NumUserId=user;
   const addToCart = () => {        
     if (isAuthenticated){ console.log("Autenticated en detail", isAuthenticated);
-        dispatch(addItemToCartApi({userId: NumUserId, productoId:id, cantidad:amount}));
+        dispatch(addItemToCartApi({userId: NumUserId, productoId:id, cantidad:amount, colorId:1}));
     }else{ console.log("Autenticated en detail LS", isAuthenticated);
         dispatch(addItemToCartLS(id, amount, 1)); 
     }
