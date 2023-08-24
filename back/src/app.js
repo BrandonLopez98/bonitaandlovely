@@ -56,14 +56,14 @@ server.use((err, req, res, next) => {
 server.post("/pagoCarrito", (req, res) => {
   const productos = req.body;
 
-  let items = productos.map((producto) => {
-    return {
+ let items = productos.map((producto) => {
+    return  {
       id: producto.id,
       title: producto.nombre,
       unit_price: Number(producto.precio),
       description: producto.descripcion,
-      
-    };
+      quantity: producto.quantity
+    }
   });
 
   let preference = {

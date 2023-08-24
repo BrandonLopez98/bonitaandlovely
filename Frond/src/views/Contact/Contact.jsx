@@ -26,7 +26,7 @@ const Contact = () => {
     }),
     onSubmit: (values, { resetForm }) => {
       emailjs
-        .sendForm("service_fipmedw", "template_kqv6i3m", formRef.current, "oVw-6VKFTmTY9hBaV")
+        .sendForm("service_j9jlamg", "template_7hdwwc9", formRef.current, "9yN7zM_SZvzvGp-oz")
         .then(result => {
           console.log(result.text);
           resetForm();

@@ -37,7 +37,7 @@ const Detail = () => {
     const idParts = id.split('-'); // Separa el string en partes utilizando el carácter "-"
     return parseInt(idParts[1]); // Convierte la segunda parte a un número entero y lo retorna
   };
-  const idNumber = extractIdNumber(currentUser?.id); //
+  const idNumber = currentUser ? extractIdNumber(currentUser.id) : null;
   const productId = extractIdNumber(id); //
   const [amount, setAmount] = useState(1);
 
