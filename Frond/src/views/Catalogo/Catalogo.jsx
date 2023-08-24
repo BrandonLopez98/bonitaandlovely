@@ -5,6 +5,7 @@ import Catalogfilters from "../../components/CatalogoComponen/Catalogfilters";
 import { productsCopy} from "../../redux/actions";
 
 const Catalogo = () => {
+  const stateProducts = useSelector((state) => state.copyAllProducts)
     const marcas = useSelector((state) => state.Allbrands);
     const categorias = useSelector((state) => state.Allcategories);
     // const searchName = useSelector((state) => state.searchResults);
@@ -97,7 +98,7 @@ const Catalogo = () => {
          
           </div> */}
 
-            <Cards  />
+            <Cards stateProducts={stateProducts} />
            
          
         </div>

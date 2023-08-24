@@ -5,34 +5,32 @@ import { ALLBRANDS, ALLCATEGORIES, ALLCOLORS, ALLPRODUCTS, COPY_ALLPRODUCTS, ALL
 
 //action que trae la data
 export const products = ({ page, size }) => async (dispatch) => {
-    const { data } = await axios.get("/producto", {
-      params: {
-        page,
-        size,
-      },
-    });
-    dispatch({
-      type: ALLPRODUCTS,
-      payload: data,
-    });
-};
-
-export const productsCopy = (page, size ,filters) => async (dispatch) => {
-  const response = await axios.get('/producto', {
+  const { data } = await axios.get("/producto", {
     params: {
       page,
       size,
-      ...filters
     },
   });
-
-  const data = response.data;
   dispatch({
-    type:COPY_ALLPRODUCTS,
-    payload:data
-  })
+    type: ALLPRODUCTS,
+    payload: data,
+  });
 };
 
+export const productsCopy = (page, size ,filters) => async (dispatch) => {
+const {data} = await axios.get('/producto', {
+  params: {
+    page,
+    size,
+    ...filters
+  },
+});
+
+dispatch({
+  type:COPY_ALLPRODUCTS,
+  payload: data
+})
+};
 export const productosSinPag = () => async (dispatch) =>{
   const { data } = await axios.get("/producto");
   dispatch({
