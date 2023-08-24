@@ -197,12 +197,14 @@
 
 
 
+
 import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import loupe from '../../assets/img/Loupe.svg';
 import styled from 'styled-components';
-import { getProductByName } from "../../redux/actions";
+import { getProductByName, nameFilter } from "../../redux/actions";
 import { useNavigate } from 'react-router-dom';
+
 
 const FormSearchBar = styled.form`
 	background: var(--clr-white);
@@ -260,6 +262,8 @@ const ErrorMessage = styled.p`
 `;
 
 const SearchBar = ({ placeholder }) => {
+	const stateProducts = useSelector(state => state.copyAllProducts);
+
 	const dispatch = useDispatch();
 	const [inputText, setInputText] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -274,8 +278,8 @@ const SearchBar = ({ placeholder }) => {
 	const handleSubmit = async(ev) => {
     navigate('/catalogo');
 		ev.preventDefault();	
-		const ProductFound = await dispatch (getProductByName(inputText));
-		if (ProductFound.payload.length>0){
+		 dispatch (nameFilter(inputText));
+		if (stateProducts.productos.length>0){
 			setInputText('');
 		}else{
 			setErrorMessage('Producto no encontrado');

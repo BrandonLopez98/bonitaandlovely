@@ -24,9 +24,6 @@ const Navbar = ({ initialLanguage }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
   const [language, setLanguage] = useState(initialLanguage || 'en');
-  useEffect(()=>{
-    dispatch(categories())
-}, [dispatch])
 
   const toggleLanguageMenu = () => {
     setShowLanguageMenu(!showLanguageMenu);

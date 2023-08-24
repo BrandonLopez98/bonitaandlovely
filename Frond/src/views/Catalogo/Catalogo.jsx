@@ -1,8 +1,8 @@
 import Cards from "../../components/CatalogoComponen/Cards";
 import { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Catalogfilters from "../../components/CatalogoComponen/Catalogfilters";
 import { productsCopy} from "../../redux/actions";
+import Catalogfilters from "../../components/CatalogoComponen/Catalogfilters"
 
 const Catalogo = () => {
   const stateProducts = useSelector((state) => state.copyAllProducts)
@@ -75,7 +75,7 @@ const Catalogo = () => {
     <section>
       <div className="grid grid-cols-5 ">
         <div className="col-span-1 px-5">
-          {/* <Catalogfilters /> */}
+          <Catalogfilters />
         </div>
         <div className="col-span-4 py-2 px-0 pr-20">
           {/* <div className="flex justify-center py-10">
