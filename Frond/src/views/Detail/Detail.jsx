@@ -15,7 +15,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import MoreProductsCardContainer2 from "../../components/MoreProducts/MoreProducts2";
 
 const Detail = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0(); /*const user=29; const isAuthenticated=true; const isLoading=true;*/
   const { loginWithRedirect } = useAuth0();
   const back = useNavigate();
   const dispatch = useDispatch();
@@ -128,12 +128,12 @@ const Detail = () => {
     return match ? parseInt(match[0]) : 0; 
 }; 
 // const Clientela = useSelector(state=>state.Allclients); console.log("user"); console.log(JSON.stringify(user,null,2));
-// const clientFound = isAuthenticated ? Clientela.find(client => client.correo_electronico === user.email) : null;
-// const NumUserId = isAuthenticated ? extractNumber(clientFound.id) : undefined; 
-const NumUserId=user;
+const clientFound = isAuthenticated ? usuarios.find(client => client.correo_electronico === user.email) : null;
+const NumUserId = isAuthenticated ? extractNumber(clientFound.id) : undefined; 
+// const NumUserId=user;
   const addToCart = () => {        
     if (isAuthenticated){ console.log("Autenticated en detail", isAuthenticated);
-        dispatch(addItemToCartApi({userId: NumUserId, productoId:id, cantidad:amount}));
+        dispatch(addItemToCartApi({userId: NumUserId, productoId:id, cantidad:amount, colorId:1}));
     }else{ console.log("Autenticated en detail LS", isAuthenticated);
         dispatch(addItemToCartLS(id, amount, 1)); 
     }
